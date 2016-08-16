@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour {
         { yMovement = jumpMin; }
         if (grounded) yMovement -= 0.4f;
         anim.SetBool("Grounded", canJump);
-        if (!grounded && (yMovement < -0.5f || yMovement > 0.0f) && canJump) anim.SetBool("Grounded", false);
+        if (!grounded && yMovement > 0.1f && canJump) anim.SetBool("Grounded", false); //Prevents animation change when jumping up platforms
 
         return yMovement;
     }
