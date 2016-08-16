@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407972}
   - 212: {fileID: 21225932}
-  - 60: {fileID: 6003614}
+  - 60: {fileID: 6057426}
   m_Layer: 11
   m_Name: Player slash1_2
   m_TagString: Untagged
@@ -24,12 +24,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.564, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!60 &6003614
+--- !u!60 &6057426
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -43,12 +43,12 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.3071704, y: -0.16356489}
-      - {x: 0.06802091, y: -0.0722909}
-      - {x: 0.2520787, y: -0.23280485}
-    - - {x: 0.14999999, y: -0.29}
-      - {x: 0.24572799, y: -0.23789196}
-      - {x: 0.06677368, y: -0.07411683}
+    - - {x: 0.34801483, y: -0.53311706}
+      - {x: 0.5274954, y: -0.47758016}
+      - {x: 0.07939887, y: -0.12016432}
+    - - {x: 0.09735149, y: -0.09313592}
+      - {x: 0.5281776, y: -0.45019937}
+      - {x: 0.6234499, y: -0.31351826}
 --- !u!212 &21225932
 SpriteRenderer:
   m_ObjectHideFlags: 1

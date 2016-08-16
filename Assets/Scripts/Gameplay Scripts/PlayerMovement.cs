@@ -16,17 +16,26 @@ public class PlayerMovement : MonoBehaviour {
     public MySprite runSprites;
     public MySprite crouchSprites;
     public MySprite jumpSprites;
+
+    //Animation stuff
     MySprite currentSprite;
     float spriteIndex = 0;
-
-    static Controls con;
-    Rigidbody2D rb;
-    BoxCollider2D col;
     SpriteRenderer renderor;
-    bool grounded;
-    bool canJump;
-    bool action;
-    
+    void Animation()
+    {
+        renderor.sprite = currentSprite.sprites[Mathf.RoundToInt(spriteIndex)];
+        if (spriteIndex < currentSprite.sprites.Length - 1) spriteIndex += currentSprite.speed;
+        else if (currentSprite.loop) spriteIndex = 0;
+    }
+    void SetSprite(MySprite sprite)
+    {
+        if (currentSprite != sprite)    //Prevents getting stuck on the first frame
+        {
+            //Debug.Log("Changing sprite");
+            currentSprite = sprite;
+            spriteIndex = 0;
+        }
+    }
     [System.Serializable]
     public class MySprite
     {
@@ -35,6 +44,16 @@ public class PlayerMovement : MonoBehaviour {
         public Sprite[] sprites;
     }
 
+
+    static Controls con;
+    Rigidbody2D rb;
+    BoxCollider2D col;
+    
+    bool grounded;
+    bool canJump;
+    public bool action;
+    
+    
 
     // Use this for initialization
     void Start ()
@@ -52,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update ()
     {
 
-        AttackControl();
+        if (!action) AttackControl();
         GroundCheck(); 
 
         float xMovement = CalculateXMovement();
@@ -63,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
-        Animation();
+        if (!action) Animation();
 	}
 
     void GroundCheck()
@@ -150,22 +169,12 @@ public class PlayerMovement : MonoBehaviour {
 
     void AttackControl()
     {
-    }
-
-    void Animation()
-    {
-        renderor.sprite = currentSprite.sprites[Mathf.RoundToInt(spriteIndex)];
-        if (spriteIndex < currentSprite.sprites.Length - 1) spriteIndex += currentSprite.speed;
-        else if (currentSprite.loop) spriteIndex = 0;
-    }
-
-    void SetSprite(MySprite sprite)
-    {
-        if (currentSprite != sprite)    //Prevents getting stuck on the first frame
+        if (Input.GetKeyDown(con.attack1) || Input.GetKeyDown(con.attack1ALT))
         {
-            currentSprite = sprite;
-            spriteIndex = 0;
+            atk.InputAttack(con.attack1, 0, canJump);
+            action = true;
         }
-        
     }
+
+    
 }
