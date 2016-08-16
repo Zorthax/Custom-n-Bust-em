@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     BoxCollider2D col;
     bool grounded;
     bool canJump;
+    bool action;
 
     // Use this for initialization
     void Start ()
@@ -23,7 +24,8 @@ public class PlayerMovement : MonoBehaviour {
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-	}
+        action = false;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour {
 
         //Apply velocity
         rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
+
+        AttackControl();
 
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
@@ -117,5 +121,24 @@ public class PlayerMovement : MonoBehaviour {
         if (!grounded && yMovement > 0.1f && canJump) anim.SetBool("Grounded", false); //Prevents animation change when jumping up platforms
 
         return yMovement;
+    }
+
+    void AttackControl()
+    {
+        anim.SetBool("Action", action);
+        if (anim.GetCurrentAnimatorStateInfo(0).tagHash != 1)
+        {
+            action = false;
+        }
+
+        if ((Input.GetKeyDown(con.attack1) || Input.GetKeyDown(con.attack1ALT)))
+        {
+            anim.SetTrigger("Attack");
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            
+            action = true;
+        }
+
+        
     }
 }

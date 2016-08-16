@@ -18,9 +18,9 @@ TagManager:
   - BG
   - Terrain
   - Player
-  - 
-  - 
-  - 
+  - PlayerAttack
+  - Enemy
+  - EnemyAttack
   - 
   - 
   - 
@@ -40,15 +40,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 1371812503
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG
-    uniqueID: 1371812503
+  - name: Terrain Back
+    uniqueID: 4049898729
     locked: 0
   - name: Terrain
     uniqueID: 1170257871
     locked: 0
+  - name: Terrain Front
+    uniqueID: 3569069541
+    locked: 0
   - name: Player
     uniqueID: 4016642211
+    locked: 0
+  - name: Foreground
+    uniqueID: 886383253
     locked: 0

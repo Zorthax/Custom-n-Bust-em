@@ -14,7 +14,8 @@ GameObject:
   - 61: {fileID: 6191810}
   - 61: {fileID: 6149198}
   - 114: {fileID: 11437994}
-  m_Layer: 0
+  - 114: {fileID: 11402674}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -95,6 +96,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11402674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4b61c5b6973b442a1c53e309407c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackList:
+  - attackAnimation: {fileID: 7400000, guid: d23d384f6ed514140a329677a7111bb0, type: 2}
+    frameHitboxes:
+    - {fileID: 6091460, guid: 3d57bcecc6fe3d94aba4a881dcae020b, type: 2}
+    - {fileID: 6002204, guid: 525cf32937fd84948bd08d1558046ce1, type: 2}
+    - {fileID: 6003614, guid: 606fd9727a1687d4b80a6ef3aa234b8a, type: 2}
 --- !u!114 &11437994
 MonoBehaviour:
   m_ObjectHideFlags: 1
