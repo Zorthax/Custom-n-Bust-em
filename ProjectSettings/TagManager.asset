@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Controls
   - Passable
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

@@ -3,19 +3,38 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
+    [Header("Basics")]
     public float walkingSpeed = 5;
     public float jumpForce = 10;
     public float jumpMin = 2;
     public Vector3 cameraPosition;
-    Animator anim;
+    AttackScript atk;
 
+    [Space(5)]
+    [Header("Sprites")]
+    public MySprite idleSprites;
+    public MySprite runSprites;
+    public MySprite crouchSprites;
+    public MySprite jumpSprites;
+    MySprite currentSprite;
+    float spriteIndex = 0;
 
     static Controls con;
     Rigidbody2D rb;
     BoxCollider2D col;
+    SpriteRenderer renderor;
     bool grounded;
     bool canJump;
     bool action;
+    
+    [System.Serializable]
+    public class MySprite
+    {
+        public bool loop;
+        public float speed;
+        public Sprite[] sprites;
+    }
+
 
     // Use this for initialization
     void Start ()
@@ -23,7 +42,9 @@ public class PlayerMovement : MonoBehaviour {
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        atk = GetComponentInChildren<AttackScript>();
+        renderor = GetComponent<SpriteRenderer>();
+        currentSprite = idleSprites;
         action = false;
     }
 	
@@ -40,10 +61,9 @@ public class PlayerMovement : MonoBehaviour {
         //Apply velocity
         rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
 
-        
-
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
+        Animation();
 	}
 
     void GroundCheck()
@@ -85,8 +105,11 @@ public class PlayerMovement : MonoBehaviour {
         //Exit early if crouching
         if (grounded && !action)
         {
-            anim.SetBool("Crouch", Input.GetKey(con.down));
-            if (Input.GetKey(con.down)) return 0;
+            if (Input.GetKey(con.down))
+            {
+                SetSprite(crouchSprites);
+                return 0;
+            }
         }
 
         //Horizontal movement
@@ -102,7 +125,7 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 ls = transform.localScale;
         if (xMovement < 0 && !action) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
         if (xMovement > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
-        if (xMovement != 0 && canJump) anim.SetBool("Running", true); else anim.SetBool("Running", false);
+        if (!action) { if (xMovement != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
 
         return xMovement;
     }
@@ -110,6 +133,7 @@ public class PlayerMovement : MonoBehaviour {
     float CalculateYMovement()
     {
         float yMovement = rb.velocity.y;
+        if (!action && !canJump) SetSprite(jumpSprites);
 
         if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
         {
@@ -118,27 +142,30 @@ public class PlayerMovement : MonoBehaviour {
         if (yMovement > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
         { yMovement = jumpMin; }
         if (grounded) yMovement -= 0.4f;
-        anim.SetBool("Grounded", canJump);
-        if (!grounded && yMovement > 0.1f && canJump) anim.SetBool("Grounded", false); //Prevents animation change when jumping up platforms
+        if (!action && !grounded && yMovement > 0.1f && canJump) SetSprite(jumpSprites); //Prevents animation change when jumping up platforms
+
 
         return yMovement;
     }
 
     void AttackControl()
     {
-        anim.SetBool("Attack", false);
-        anim.SetBool("Action", action);
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Ground_Attack"))
-        {
-            action = false;
-        }
+    }
 
-        if ((Input.GetKeyDown(con.attack1) || Input.GetKeyDown(con.attack1ALT)))
-        {
-            anim.SetBool("Attack", true);         
-            action = true;
-        }
+    void Animation()
+    {
+        renderor.sprite = currentSprite.sprites[Mathf.RoundToInt(spriteIndex)];
+        if (spriteIndex < currentSprite.sprites.Length - 1) spriteIndex += currentSprite.speed;
+        else if (currentSprite.loop) spriteIndex = 0;
+    }
 
+    void SetSprite(MySprite sprite)
+    {
+        if (currentSprite != sprite)    //Prevents getting stuck on the first frame
+        {
+            currentSprite = sprite;
+            spriteIndex = 0;
+        }
         
     }
 }

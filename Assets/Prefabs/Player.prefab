@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &122484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 464278}
+  m_Layer: 11
+  m_Name: Attack Hitboxes
+  m_TagString: PlayerAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &131516
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,12 +24,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 444186}
   - 212: {fileID: 21266660}
-  - 95: {fileID: 9515494}
   - 50: {fileID: 5061094}
   - 61: {fileID: 6191810}
   - 61: {fileID: 6149198}
   - 114: {fileID: 11437994}
-  - 114: {fileID: 11402674}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -31,8 +44,21 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.98, y: 2.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 464278}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &464278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444186}
   m_RootOrder: 0
 --- !u!50 &5061094
 Rigidbody2D:
@@ -79,40 +105,6 @@ BoxCollider2D:
   m_Offset: {x: -0.009429276, y: -0.5719278}
   serializedVersion: 2
   m_Size: {x: 0.3559172, y: 0.041851163}
---- !u!95 &9515494
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131516}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a665584082d21e14cad8a1c2e3316c61, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11402674
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4b61c5b6973b442a1c53e309407c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackList:
-  - attackAnimation: {fileID: 7400000, guid: d23d384f6ed514140a329677a7111bb0, type: 2}
-    frameHitboxes:
-    - {fileID: 6091460, guid: 3d57bcecc6fe3d94aba4a881dcae020b, type: 2}
-    - {fileID: 6002204, guid: 525cf32937fd84948bd08d1558046ce1, type: 2}
-    - {fileID: 6003614, guid: 606fd9727a1687d4b80a6ef3aa234b8a, type: 2}
 --- !u!114 &11437994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +120,28 @@ MonoBehaviour:
   jumpForce: 7
   jumpMin: 3
   cameraPosition: {x: 0, y: 1, z: -8}
+  idleSprites:
+    loop: 1
+    speed: 0.02
+    sprites:
+    - {fileID: 21300000, guid: d1834390c13ab7e41a48c935c2bbd621, type: 3}
+    - {fileID: 21300002, guid: d1834390c13ab7e41a48c935c2bbd621, type: 3}
+  runSprites:
+    loop: 1
+    speed: 0.02
+    sprites:
+    - {fileID: 21300000, guid: 0318c1b8c975c14408c24401d71b2755, type: 3}
+    - {fileID: 21300002, guid: 0318c1b8c975c14408c24401d71b2755, type: 3}
+  crouchSprites:
+    loop: 0
+    speed: 0
+    sprites:
+    - {fileID: 21300000, guid: bd77428adb7a0e141be15eedf7127404, type: 3}
+  jumpSprites:
+    loop: 0
+    speed: 0
+    sprites:
+    - {fileID: 21300000, guid: c7bdcfadccca1554e8607b6ba138e988, type: 3}
 --- !u!212 &21266660
 SpriteRenderer:
   m_ObjectHideFlags: 1
