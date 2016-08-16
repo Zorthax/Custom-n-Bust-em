@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Update ()
     {
 
-        GroundCheck();
+        AttackControl();
+        GroundCheck(); 
 
         float xMovement = CalculateXMovement();
         float yMovement = CalculateYMovement();
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         //Apply velocity
         rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
 
-        AttackControl();
+        
 
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
@@ -82,25 +83,25 @@ public class PlayerMovement : MonoBehaviour {
         float xMovement = 0;
 
         //Exit early if crouching
-        if (grounded)
+        if (grounded && !action)
         {
             anim.SetBool("Crouch", Input.GetKey(con.down));
             if (Input.GetKey(con.down)) return 0;
         }
 
         //Horizontal movement
-        if (Input.GetAxis("Horizontal") != 0) //Controller movement takes priority over keyboard
+        if (Input.GetAxis("Horizontal") != 0 && (!action)) //Controller movement takes priority over keyboard
         { xMovement = Input.GetAxis("Horizontal"); }
         else //keyboard movement
         {
-            if (Input.GetKey(con.left)) xMovement -= 1;
-            if (Input.GetKey(con.right)) xMovement += 1;
+            if (Input.GetKey(con.left) && (!action)) xMovement -= 1;
+            if (Input.GetKey(con.right) && (!action)) xMovement += 1;
         }
 
         //Flip sprite to face direction of movement
         Vector3 ls = transform.localScale;
-        if (xMovement < 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
-        if (xMovement > 0) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
+        if (xMovement < 0 && !action) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
+        if (xMovement > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
         if (xMovement != 0 && canJump) anim.SetBool("Running", true); else anim.SetBool("Running", false);
 
         return xMovement;
@@ -110,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         float yMovement = rb.velocity.y;
 
-        if (canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
+        if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
         {
             yMovement = jumpForce;
         }
@@ -125,17 +126,16 @@ public class PlayerMovement : MonoBehaviour {
 
     void AttackControl()
     {
+        anim.SetBool("Attack", false);
         anim.SetBool("Action", action);
-        if (anim.GetCurrentAnimatorStateInfo(0).tagHash != 1)
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Ground_Attack"))
         {
             action = false;
         }
 
         if ((Input.GetKeyDown(con.attack1) || Input.GetKeyDown(con.attack1ALT)))
         {
-            anim.SetTrigger("Attack");
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            
+            anim.SetBool("Attack", true);         
             action = true;
         }
 
