@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public float walkingSpeed = 5;
     public float jumpForce = 10;
     public float jumpMin = 2;
+	public float jumpFrame = 2;
     public Vector3 cameraPosition;
     AttackScript atk;
 
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     public MySprite runSprites;
     public MySprite crouchSprites;
     public MySprite jumpSprites;
+	public MySprite airSprites;
 
     //Animation stuff
     MySprite currentSprite;
@@ -115,6 +117,9 @@ public class PlayerMovement : MonoBehaviour {
                 break;
             }
         }
+
+		if (currentSprite == jumpSprites && spriteIndex < jumpFrame)
+			canJump = false;
     }
 
     float CalculateXMovement()
@@ -144,7 +149,7 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 ls = transform.localScale;
         if (xMovement < 0 && !action) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
         if (xMovement > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
-        if (!action) { if (xMovement != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
+        if (!action && canJump) { if (xMovement != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
 
         return xMovement;
     }
@@ -152,17 +157,26 @@ public class PlayerMovement : MonoBehaviour {
     float CalculateYMovement()
     {
         float yMovement = rb.velocity.y;
-        if (!action && !canJump) SetSprite(jumpSprites);
 
+		//Smooth jump animations
         if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
         {
-            yMovement = jumpForce;
+			SetSprite(jumpSprites);
         }
+		if (!action && !canJump && currentSprite == jumpSprites) 
+		{
+			if (Mathf.RoundToInt (spriteIndex) == jumpFrame)
+				yMovement = jumpForce;
+			else if (Mathf.RoundToInt (spriteIndex) >= jumpSprites.sprites.Length)
+				SetSprite (airSprites);
+		}
+		//Hold to jump higher
         if (yMovement > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
         { yMovement = jumpMin; }
-        if (grounded) yMovement -= 0.4f;
-        if (!action && !grounded && yMovement > 0.1f && canJump) SetSprite(jumpSprites); //Prevents animation change when jumping up platforms
 
+		if (grounded) yMovement -= 0.4f;//Smooth slope walking
+        if (!action && !grounded && yMovement > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
+		if (!action && !canJump && currentSprite != jumpSprites) SetSprite(airSprites); //Set air sprite when falling
 
         return yMovement;
     }

@@ -119,7 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 4
   jumpForce: 7
-  jumpMin: 3
+  jumpMin: 2
+  jumpFrame: 2
   cameraPosition: {x: 0, y: 1, z: -8}
   idleSprites:
     loop: 1
@@ -162,9 +163,21 @@ MonoBehaviour:
     - {fileID: 21300022, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   jumpSprites:
     loop: 0
+    speed: 0.2
+    sprites:
+    - {fileID: 21300000, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300002, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300004, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300006, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300008, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300010, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300012, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300014, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+  airSprites:
+    loop: 0
     speed: 0
     sprites:
-    - {fileID: 21300012, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300014, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   action: 0
 --- !u!114 &11463390
 MonoBehaviour:
