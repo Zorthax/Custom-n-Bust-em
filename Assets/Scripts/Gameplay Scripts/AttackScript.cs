@@ -6,7 +6,7 @@ public class AttackScript : MonoBehaviour {
     Animator anim;
     int neutralGround1;
     int frame = 0;
-    float animationSpeed = 0.005f;
+    public float animationSpeed = 0.005f;
     PolygonCollider2D localCollider;
 
     [System.Serializable]

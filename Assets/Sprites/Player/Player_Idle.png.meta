@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 49060f977bdd1cb4fb03e1723c615baf
-timeCreated: 1471307652
+guid: 39e48f541a1914940a2352b5bdff64bf
+timeCreated: 1471391701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -37,7 +37,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -3
+  textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
@@ -68,14 +68,16 @@ TextureImporter:
         y: 1536
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: -85.8, y: 51}
+        - {x: -85.8, y: -62}
+        - {x: 61.199997, y: -62}
+        - {x: 70.2, y: -3}
+        - {x: 70.2, y: 41}
+        - {x: 63.199997, y: 51}
     - name: Player_Idle_1
       rect:
         serializedVersion: 2
@@ -83,14 +85,16 @@ TextureImporter:
         y: 1536
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: -83.79999, y: 50}
+        - {x: -83.79999, y: -1}
+        - {x: -67.79999, y: -62}
+        - {x: 45.200012, y: -62}
+        - {x: 70.20001, y: -29}
+        - {x: 70.20001, y: 50}
     - name: Player_Idle_2
       rect:
         serializedVersion: 2
@@ -98,14 +102,20 @@ TextureImporter:
         y: 1536
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: 62.19995, y: 26}
+        - {x: 60.19995, y: 26}
+        - {x: 70.19995, y: 26}
+        - {x: 70.19995, y: 51}
+        - {x: -82.80005, y: 51}
+        - {x: -82.80005, y: -62}
+        - {x: 42.19995, y: -62}
+        - {x: 70.19995, y: 18}
+        - {x: 70.19995, y: 19}
+        - {x: 67.19995, y: 25}
     - name: Player_Idle_3
       rect:
         serializedVersion: 2
@@ -113,14 +123,23 @@ TextureImporter:
         y: 1536
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: 61.19995, y: 25}
+        - {x: 60.19995, y: 26}
+        - {x: 58.19995, y: 26}
+        - {x: 68.19995, y: 25}
+        - {x: 70.19995, y: 25}
+        - {x: 70.19995, y: 52}
+        - {x: -82.80005, y: 52}
+        - {x: -82.80005, y: -14}
+        - {x: -69.80005, y: -61}
+        - {x: -64.80005, y: -62}
+        - {x: 45.19995, y: -62}
+        - {x: 70.19995, y: 6}
+        - {x: 70.19995, y: 25}
     - name: Player_Idle_4
       rect:
         serializedVersion: 2
@@ -128,14 +147,22 @@ TextureImporter:
         y: 1024
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: 70.2, y: 18}
+        - {x: 67.2, y: 24}
+        - {x: 62.199997, y: 25}
+        - {x: 60.199997, y: 25}
+        - {x: 70.2, y: 25}
+        - {x: 70.2, y: 52}
+        - {x: -81.8, y: 52}
+        - {x: -81.8, y: 19}
+        - {x: -67.8, y: -62}
+        - {x: 38.199997, y: -62}
+        - {x: 41.199997, y: -59}
+        - {x: 70.2, y: 17}
     - name: Player_Idle_5
       rect:
         serializedVersion: 2
@@ -143,14 +170,20 @@ TextureImporter:
         y: 1024
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: 66.20001, y: 23}
+        - {x: 70.20001, y: 25}
+        - {x: 70.20001, y: 34}
+        - {x: 44.200012, y: 52}
+        - {x: -81.79999, y: 52}
+        - {x: -81.79999, y: -62}
+        - {x: 39.200012, y: -62}
+        - {x: 43.200012, y: -59}
+        - {x: 70.20001, y: 16}
+        - {x: 68.20001, y: 21}
     - name: Player_Idle_6
       rect:
         serializedVersion: 2
@@ -158,14 +191,16 @@ TextureImporter:
         y: 1024
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: -81.80005, y: 52}
+        - {x: -81.80005, y: -62}
+        - {x: 47.19995, y: -62}
+        - {x: 70.19995, y: -3}
+        - {x: 70.19995, y: 40}
+        - {x: 44.19995, y: 52}
     - name: Player_Idle_7
       rect:
         serializedVersion: 2
@@ -173,14 +208,17 @@ TextureImporter:
         y: 1024
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: -82.80005, y: 51}
+        - {x: -82.80005, y: -15}
+        - {x: -77.80005, y: -30}
+        - {x: -62.80005, y: -62}
+        - {x: 43.19995, y: -62}
+        - {x: 70.19995, y: 3}
+        - {x: 70.19995, y: 51}
     - name: Player_Idle_8
       rect:
         serializedVersion: 2
@@ -188,14 +226,17 @@ TextureImporter:
         y: 512
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: -83.8, y: 50}
+        - {x: -83.8, y: 11}
+        - {x: -76.8, y: -27}
+        - {x: -68.8, y: -62}
+        - {x: 59.199997, y: -62}
+        - {x: 70.2, y: -50}
+        - {x: 70.2, y: 50}
     - name: Player_Idle_9
       rect:
         serializedVersion: 2
@@ -203,14 +244,23 @@ TextureImporter:
         y: 512
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: 62.200012, y: 27}
+        - {x: 60.200012, y: 27}
+        - {x: 70.20001, y: 27}
+        - {x: 70.20001, y: 34}
+        - {x: 61.200012, y: 47}
+        - {x: 59.200012, y: 50}
+        - {x: -84.79999, y: 50}
+        - {x: -84.79999, y: -7}
+        - {x: -66.79999, y: -62}
+        - {x: 51.200012, y: -62}
+        - {x: 70.20001, y: 19}
+        - {x: 70.20001, y: 20}
+        - {x: 67.20001, y: 26}
     - name: Player_Idle_10
       rect:
         serializedVersion: 2
@@ -218,14 +268,18 @@ TextureImporter:
         y: 512
         width: 512
         height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -256, y: 256}
-        - {x: -256, y: -256}
-        - {x: 256, y: -256}
-        - {x: 256, y: 256}
+      - - {x: -84.80005, y: 51}
+        - {x: -84.80005, y: 11}
+        - {x: -63.80005, y: -59}
+        - {x: -58.80005, y: -62}
+        - {x: 38.19995, y: -62}
+        - {x: 63.19995, y: -56}
+        - {x: 70.19995, y: -22}
+        - {x: 70.19995, y: 51}
     outline: []
   spritePackingTag: 
   userData: 

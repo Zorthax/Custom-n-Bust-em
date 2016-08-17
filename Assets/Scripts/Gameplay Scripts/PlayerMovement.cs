@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //Receive list of every collision
         RaycastHit2D[] hits;
-        hits = Physics2D.BoxCastAll(transform.position - new Vector3(0, 0.65f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.01f); 
+        hits = Physics2D.BoxCastAll(transform.position - new Vector3(0, 0.5f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.01f); 
 
         //Find specific collision tags
         foreach (RaycastHit2D h in hits)

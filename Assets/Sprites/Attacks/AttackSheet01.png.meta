@@ -1,0 +1,379 @@
+fileFormatVersion: 2
+guid: 32ee055698554964695186dc753638ef
+timeCreated: 1471392613
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: AttackSheet01_0
+    21300002: AttackSheet01_1
+    21300004: AttackSheet01_2
+    21300006: AttackSheet01_3
+    21300008: AttackSheet01_4
+    21300010: AttackSheet01_5
+    21300012: AttackSheet01_6
+    21300014: AttackSheet01_7
+    21300016: AttackSheet01_8
+    21300018: AttackSheet01_9
+    21300020: AttackSheet01_10
+    21300022: AttackSheet01_11
+    21300024: AttackSheet01_12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: AttackSheet01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.199997, y: 52}
+        - {x: 55.199997, y: 54}
+        - {x: -56.800003, y: 54}
+        - {x: -95.8, y: 41}
+        - {x: -95.8, y: -5}
+        - {x: -74.8, y: -62}
+        - {x: 52.199997, y: -62}
+        - {x: 78.2, y: 8}
+        - {x: 78.2, y: 41}
+    - name: AttackSheet01_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.200012, y: 52}
+        - {x: 55.200012, y: 54}
+        - {x: -56.799988, y: 54}
+        - {x: -95.79999, y: 41}
+        - {x: -95.79999, y: -5}
+        - {x: -74.79999, y: -62}
+        - {x: 52.200012, y: -62}
+        - {x: 78.20001, y: 8}
+        - {x: 78.20001, y: 41}
+    - name: AttackSheet01_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 143.19995, y: 78}
+        - {x: 83.19995, y: 45}
+        - {x: 69.19995, y: 51}
+        - {x: 65.19995, y: 53}
+        - {x: 73.19995, y: 65}
+        - {x: 77.19995, y: 72}
+        - {x: 73.19995, y: 66}
+        - {x: 67.19995, y: 53}
+        - {x: 69.19995, y: 51}
+        - {x: 72.19995, y: 49}
+        - {x: 100.19995, y: 74}
+        - {x: 84.19995, y: 116}
+        - {x: -3.8000488, y: 116}
+        - {x: -68.80005, y: 44}
+        - {x: -68.80005, y: -52}
+        - {x: -61.80005, y: -53}
+        - {x: -57.80005, y: -68}
+        - {x: 97.19995, y: -68}
+        - {x: 160.19995, y: -39}
+        - {x: 160.19995, y: 21}
+        - {x: 147.19995, y: 71}
+    - name: AttackSheet01_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 208.19995, y: 66}
+        - {x: 201.19995, y: 89}
+        - {x: 87.19995, y: 116}
+        - {x: -52.80005, y: 116}
+        - {x: -39.80005, y: 5}
+        - {x: -58.80005, y: -55}
+        - {x: -58.80005, y: -58}
+        - {x: -53.80005, y: -64}
+        - {x: -33.80005, y: -67}
+        - {x: 0.19995117, y: -67}
+        - {x: 41.19995, y: -64}
+        - {x: 190.19995, y: 5}
+        - {x: 208.19995, y: 28}
+    - name: AttackSheet01_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 240.2, y: 76}
+        - {x: 236.2, y: 88}
+        - {x: 148.2, y: 116}
+        - {x: 110.2, y: 118}
+        - {x: -54.800003, y: 118}
+        - {x: -68.8, y: 108}
+        - {x: -32.800003, y: 5}
+        - {x: -73.8, y: -53}
+        - {x: -73.8, y: -64}
+        - {x: -68.8, y: -67}
+        - {x: -13.800003, y: -67}
+        - {x: 42.199997, y: -63}
+        - {x: 47.199997, y: -49}
+        - {x: 226.2, y: 21}
+        - {x: 240.2, y: 44}
+    - name: AttackSheet01_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 218.20001, y: 115}
+        - {x: 112.20001, y: 125}
+        - {x: -78.79999, y: 125}
+        - {x: -83.79999, y: 118}
+        - {x: -74.79999, y: 113}
+        - {x: -78.79999, y: 89}
+        - {x: -31.799988, y: 42}
+        - {x: -25.799988, y: -1}
+        - {x: -100.79999, y: -57}
+        - {x: -100.79999, y: -66}
+        - {x: -91.79999, y: -73}
+        - {x: -41.799988, y: -73}
+        - {x: 42.200012, y: -64}
+        - {x: 236.20001, y: 18}
+        - {x: 267.2, y: 51}
+        - {x: 267.2, y: 83}
+    - name: AttackSheet01_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 55.19995, y: 89}
+        - {x: 8.199951, y: 114}
+        - {x: -50.80005, y: 114}
+        - {x: -58.80005, y: 75}
+        - {x: -58.80005, y: -62}
+        - {x: 47.19995, y: -62}
+        - {x: 49.19995, y: -60}
+        - {x: 58.19995, y: -18}
+        - {x: 58.19995, y: 73}
+    - name: AttackSheet01_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87.19995, y: 116}
+        - {x: 14.199951, y: 116}
+        - {x: 6.199951, y: 114}
+        - {x: -68.80005, y: -30}
+        - {x: -68.80005, y: -65}
+        - {x: -62.80005, y: -68}
+        - {x: 97.19995, y: -68}
+        - {x: 160.19995, y: -39}
+        - {x: 160.19995, y: 31}
+        - {x: 151.19995, y: 73}
+    - name: AttackSheet01_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.800003, y: 113}
+        - {x: -62.800003, y: 113}
+        - {x: -12.800003, y: 58}
+        - {x: -91.8, y: 38}
+        - {x: -95.8, y: 35}
+        - {x: -95.8, y: 26}
+        - {x: -93.8, y: 19}
+        - {x: -57.800003, y: -72}
+        - {x: -8.800003, y: -75}
+        - {x: 166.2, y: -75}
+        - {x: 211.2, y: -54}
+        - {x: 211.2, y: -4}
+        - {x: 163.2, y: 36}
+    - name: AttackSheet01_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 91.20001, y: 70}
+        - {x: -37.799988, y: 115}
+        - {x: -66.79999, y: 115}
+        - {x: -76.79999, y: 102}
+        - {x: 46.200012, y: 53}
+        - {x: 52.200012, y: 51}
+        - {x: 49.200012, y: 52}
+        - {x: 4.200012, y: 61}
+        - {x: -91.79999, y: 43}
+        - {x: -95.79999, y: 37}
+        - {x: -95.79999, y: 26}
+        - {x: -93.79999, y: 19}
+        - {x: -80.79999, y: -66}
+        - {x: -69.79999, y: -76}
+        - {x: 242.20001, y: -76}
+        - {x: 242.20001, y: -9}
+        - {x: 166.20001, y: 41}
+    - name: AttackSheet01_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 169.19995, y: 41}
+        - {x: 32.19995, y: 97}
+        - {x: -81.80005, y: 130}
+        - {x: -104.80005, y: 130}
+        - {x: -113.80005, y: 122}
+        - {x: -113.80005, y: 115}
+        - {x: -5.800049, y: 43}
+        - {x: -53.80005, y: 25}
+        - {x: -113.80005, y: 45}
+        - {x: -113.80005, y: -44}
+        - {x: -94.80005, y: -70}
+        - {x: 17.199951, y: -78}
+        - {x: 193.19995, y: -78}
+        - {x: 221.19995, y: -72}
+        - {x: 255.19995, y: -59}
+        - {x: 255.19995, y: -11}
+    - name: AttackSheet01_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.19995, y: 52}
+        - {x: 55.19995, y: 54}
+        - {x: -56.80005, y: 54}
+        - {x: -95.80005, y: 41}
+        - {x: -95.80005, y: -5}
+        - {x: -74.80005, y: -62}
+        - {x: 52.19995, y: -62}
+        - {x: 78.19995, y: 8}
+        - {x: 78.19995, y: 41}
+    - name: AttackSheet01_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.199997, y: 52}
+        - {x: 55.199997, y: 54}
+        - {x: -56.800003, y: 54}
+        - {x: -95.8, y: 41}
+        - {x: -95.8, y: -5}
+        - {x: -74.8, y: -62}
+        - {x: 52.199997, y: -62}
+        - {x: 78.2, y: 8}
+        - {x: 78.2, y: 41}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
