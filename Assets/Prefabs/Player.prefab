@@ -120,7 +120,7 @@ MonoBehaviour:
   walkingSpeed: 4
   jumpForce: 7
   jumpMin: 2
-  jumpFrame: 2
+  jumpFrame: 1
   cameraPosition: {x: 0, y: 1, z: -8}
   idleSprites:
     loop: 1
@@ -166,13 +166,8 @@ MonoBehaviour:
     speed: 0.2
     sprites:
     - {fileID: 21300000, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300000, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
     - {fileID: 21300002, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300004, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300006, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300008, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300010, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300012, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300014, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   airSprites:
     loop: 0
     speed: 0
@@ -190,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4b61c5b6973b442a1c53e309407c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.2
+  animationSpeed: 0.25
   attackList:
   - sprites:
     - {fileID: 21300000, guid: 32ee055698554964695186dc753638ef, type: 3}
@@ -200,12 +195,29 @@ MonoBehaviour:
     - {fileID: 21300008, guid: 32ee055698554964695186dc753638ef, type: 3}
     - {fileID: 21300010, guid: 32ee055698554964695186dc753638ef, type: 3}
     - {fileID: 21300012, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300012, guid: 32ee055698554964695186dc753638ef, type: 3}
     frameHitboxes:
-    - {fileID: 6091460, guid: 3d57bcecc6fe3d94aba4a881dcae020b, type: 2}
-    - {fileID: 6002204, guid: 525cf32937fd84948bd08d1558046ce1, type: 2}
-    - {fileID: 6057426, guid: 606fd9727a1687d4b80a6ef3aa234b8a, type: 2}
+    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
     firstFrameOfAttack: 4
     lastFrameOfAttack: 6
+    twoHits: 1
+    secondHitFrame: 4
+    secondSprites:
+    - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
+    - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
+    secondFrameHitboxes:
+    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+    secondFirstFrameOfAttack: 1
+    secondLastFrameOfAttack: 3
 --- !u!212 &21266660
 SpriteRenderer:
   m_ObjectHideFlags: 1

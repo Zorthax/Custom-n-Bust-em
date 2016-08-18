@@ -645,9 +645,9 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.size
-      value: 3
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[0].sprites.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 444186, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -681,44 +681,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpFrame
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[0].secondHitFrame
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[2]
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[0].sprites.Array.data[7]
       value: 
-      objectReference: {fileID: 21300002, guid: 18a7149dfe876f742a98b44b8f54047a,
-        type: 3}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300006, guid: 18a7149dfe876f742a98b44b8f54047a,
-        type: 3}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300008, guid: 18a7149dfe876f742a98b44b8f54047a,
-        type: 3}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300010, guid: 18a7149dfe876f742a98b44b8f54047a,
-        type: 3}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[6]
-      value: 
-      objectReference: {fileID: 21300012, guid: 18a7149dfe876f742a98b44b8f54047a,
-        type: 3}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300014, guid: 18a7149dfe876f742a98b44b8f54047a,
-        type: 3}
-    - target: {fileID: 11437994, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: jumpSprites.sprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 18a7149dfe876f742a98b44b8f54047a,
+      objectReference: {fileID: 21300012, guid: 32ee055698554964695186dc753638ef,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
