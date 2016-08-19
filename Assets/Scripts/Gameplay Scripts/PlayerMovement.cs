@@ -54,6 +54,8 @@ public class PlayerMovement : MonoBehaviour {
     bool grounded;
     bool canJump;
     public bool action;
+    float xMovement;
+    float yMovement;
     
     
 
@@ -67,17 +69,18 @@ public class PlayerMovement : MonoBehaviour {
         renderor = GetComponent<SpriteRenderer>();
         currentSprite = idleSprites;
         action = false;
+        
+        
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-
         if (!action) AttackControl();
         GroundCheck(); 
 
-        float xMovement = CalculateXMovement();
-        float yMovement = CalculateYMovement();
+        xMovement = CalculateXMovement();
+        yMovement = CalculateYMovement();
 
         //Apply velocity
         rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
@@ -95,7 +98,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //Receive list of every collision
         RaycastHit2D[] hits;
-        hits = Physics2D.BoxCastAll(transform.position - new Vector3(0, 0.5f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.01f); 
+        hits = Physics2D.BoxCastAll(transform.position - new Vector3(0, 0.5f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.02f); 
 
         //Find specific collision tags
         foreach (RaycastHit2D h in hits)
@@ -110,7 +113,12 @@ public class PlayerMovement : MonoBehaviour {
                     canJump = false;
                 }
             }
-            if (h.rigidbody.tag != "Player" && h.rigidbody.tag != "NPC" && h.rigidbody.tag != "Passable")
+            if (h.rigidbody.tag != "Player" && h.rigidbody.tag != "NPC" && h.rigidbody.tag != "Slope" && h.rigidbody.tag != "Passable")
+            {
+                canJump = true;
+                break;
+            }
+            if (h.rigidbody.tag == "Slope")
             {
                 grounded = true;
                 canJump = true;
@@ -124,7 +132,7 @@ public class PlayerMovement : MonoBehaviour {
 
     float CalculateXMovement()
     {
-        float xMovement = 0;
+        float x = 0;
 
         //Exit early if crouching
         if (grounded && !action)
@@ -138,25 +146,25 @@ public class PlayerMovement : MonoBehaviour {
 
         //Horizontal movement
         if (Input.GetAxis("Horizontal") != 0 && (!action)) //Controller movement takes priority over keyboard
-        { xMovement = Input.GetAxis("Horizontal"); }
+        { x = Input.GetAxis("Horizontal"); }
         else //keyboard movement
         {
-            if (Input.GetKey(con.left) && (!action)) xMovement -= 1;
-            if (Input.GetKey(con.right) && (!action)) xMovement += 1;
+            if (Input.GetKey(con.left) && (!action)) x -= 1;
+            if (Input.GetKey(con.right) && (!action)) x += 1;
         }
 
         //Flip sprite to face direction of movement
         Vector3 ls = transform.localScale;
-        if (xMovement < 0 && !action) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
-        if (xMovement > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
-        if (!action && canJump) { if (xMovement != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
+        if (x < 0 && !action) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
+        if (x > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
+        if (!action && canJump) { if (x != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
 
-        return xMovement;
+        return x;
     }
 
     float CalculateYMovement()
     {
-        float yMovement = rb.velocity.y;
+        float y = rb.velocity.y;
 
 		//Smooth jump animations
         if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
@@ -166,19 +174,19 @@ public class PlayerMovement : MonoBehaviour {
 		if (!action && !canJump && currentSprite == jumpSprites) 
 		{
 			if (Mathf.RoundToInt (spriteIndex) == jumpFrame)
-				yMovement = jumpForce;
+				y = jumpForce;
 			else if (Mathf.RoundToInt (spriteIndex) >= jumpSprites.sprites.Length)
 				SetSprite (airSprites);
 		}
 		//Hold to jump higher
-        if (yMovement > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
-        { yMovement = jumpMin; }
+        if (y > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
+        { y = jumpMin; }
 
-		if (grounded) yMovement -= 0.4f;//Smooth slope walking
-        if (!action && !grounded && yMovement > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
+		if (grounded) yMovement -= 0.8f;//Smooth slope walking
+        if (!action && !grounded && y > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
 		if (!action && !canJump && currentSprite != jumpSprites) SetSprite(airSprites); //Set air sprite when falling
 
-        return yMovement;
+        return y;
     }
 
     void AttackControl()
@@ -190,5 +198,4 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    
 }

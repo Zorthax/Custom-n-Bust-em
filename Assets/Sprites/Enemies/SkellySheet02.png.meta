@@ -1,0 +1,555 @@
+fileFormatVersion: 2
+guid: b662f0b6386064b4faf792b7839ebd71
+timeCreated: 1471582732
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SkellySheet02_0
+    21300002: SkellySheet02_1
+    21300004: SkellySheet02_2
+    21300006: SkellySheet02_3
+    21300008: SkellySheet02_4
+    21300010: SkellySheet02_5
+    21300012: SkellySheet02_6
+    21300014: SkellySheet02_7
+    21300016: SkellySheet02_8
+    21300018: SkellySheet02_9
+    21300020: SkellySheet02_10
+    21300022: SkellySheet02_11
+    21300024: SkellySheet02_12
+    21300026: SkellySheet02_13
+    21300028: SkellySheet02_14
+    21300030: SkellySheet02_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SkellySheet02_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79, y: 40}
+        - {x: 50, y: 58}
+        - {x: 46, y: 59}
+        - {x: -70, y: 59}
+        - {x: -71, y: 54}
+        - {x: -71, y: 18}
+        - {x: -54, y: -40}
+        - {x: -26, y: -91}
+        - {x: 5, y: -91}
+        - {x: 10, y: -88}
+        - {x: 15, y: -82}
+        - {x: 15, y: -76}
+        - {x: 40, y: -91}
+        - {x: 65, y: -91}
+        - {x: 70, y: -78}
+        - {x: 62, y: -74}
+        - {x: 79, y: -29}
+    - name: SkellySheet02_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 52}
+        - {x: -105, y: 20}
+        - {x: -105, y: -21}
+        - {x: -82, y: -60}
+        - {x: -58, y: -93}
+        - {x: 52, y: -93}
+        - {x: 90, y: -65}
+        - {x: 90, y: 14}
+        - {x: 43, y: 52}
+    - name: SkellySheet02_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: -58}
+        - {x: 50, y: -59}
+        - {x: 77, y: -63}
+        - {x: 83, y: -41}
+        - {x: 83, y: 1}
+        - {x: 78, y: 13}
+        - {x: 32, y: 49}
+        - {x: -20, y: 49}
+        - {x: -30, y: 33}
+        - {x: -110, y: 18}
+        - {x: -110, y: -33}
+        - {x: -66, y: -93}
+        - {x: 60, y: -93}
+        - {x: 42, y: -53}
+        - {x: 40, y: -48}
+        - {x: 43, y: -55}
+    - name: SkellySheet02_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 58, y: 44}
+        - {x: -40, y: 44}
+        - {x: -110, y: 28}
+        - {x: -110, y: -40}
+        - {x: -82, y: -93}
+        - {x: 64, y: -93}
+        - {x: 70, y: -89}
+        - {x: 76, y: -56}
+        - {x: 76, y: 38}
+    - name: SkellySheet02_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 42}
+        - {x: -58, y: -25}
+        - {x: -58, y: -89}
+        - {x: -57, y: -96}
+        - {x: 62, y: -96}
+        - {x: 78, y: -71}
+        - {x: 78, y: -2}
+        - {x: 62, y: 42}
+    - name: SkellySheet02_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48, y: 43}
+        - {x: -5, y: 43}
+        - {x: -60, y: -20}
+        - {x: -60, y: -83}
+        - {x: -53, y: -96}
+        - {x: 57, y: -96}
+        - {x: 79, y: -53}
+        - {x: 79, y: -18}
+        - {x: 50, y: 42}
+    - name: SkellySheet02_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46, y: 44}
+        - {x: -7, y: 44}
+        - {x: -62, y: -26}
+        - {x: -62, y: -57}
+        - {x: -50, y: -96}
+        - {x: 62, y: -96}
+        - {x: 79, y: -50}
+        - {x: 79, y: -16}
+        - {x: 68, y: 32}
+    - name: SkellySheet02_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46, y: 41}
+        - {x: -46, y: -95}
+        - {x: 46, y: -95}
+        - {x: 81, y: -56}
+        - {x: 81, y: -2}
+        - {x: 52, y: 41}
+    - name: SkellySheet02_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 51, y: -55}
+        - {x: 46, y: -53}
+        - {x: 31, y: -48}
+        - {x: 62, y: -48}
+        - {x: 68, y: -38}
+        - {x: 68, y: 25}
+        - {x: 19, y: 55}
+        - {x: -51, y: 55}
+        - {x: -58, y: 33}
+        - {x: -58, y: -80}
+        - {x: -50, y: -94}
+        - {x: -11, y: -94}
+        - {x: 51, y: -87}
+        - {x: 62, y: -63}
+        - {x: 58, y: -50}
+        - {x: 54, y: -52}
+      - - {x: -64, y: -28}
+        - {x: -69, y: -30}
+        - {x: -69, y: -35}
+        - {x: -64, y: -40}
+        - {x: -61, y: -40}
+        - {x: -55, y: -36}
+        - {x: -55, y: -32}
+        - {x: -59, y: -28}
+      - - {x: -63, y: -14}
+        - {x: -68, y: -16}
+        - {x: -68, y: -21}
+        - {x: -66, y: -26}
+        - {x: -59, y: -26}
+        - {x: -54, y: -25}
+        - {x: -54, y: -16}
+        - {x: -55, y: -14}
+    - name: SkellySheet02_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 36}
+        - {x: -71, y: -94}
+        - {x: 51, y: -94}
+        - {x: 68, y: -83}
+        - {x: 68, y: 36}
+      - - {x: -78, y: -43}
+        - {x: -87, y: -43}
+        - {x: -88, y: -45}
+        - {x: -89, y: -49}
+        - {x: -86, y: -52}
+        - {x: -81, y: -52}
+        - {x: -79, y: -51}
+        - {x: -78, y: -48}
+      - - {x: -97, y: -20}
+        - {x: -97, y: -27}
+        - {x: -96, y: -29}
+        - {x: -89, y: -29}
+        - {x: -86, y: -26}
+        - {x: -86, y: -22}
+        - {x: -87, y: -20}
+      - - {x: -12, y: 43}
+        - {x: -12, y: 37}
+        - {x: -11, y: 35}
+        - {x: -3, y: 35}
+        - {x: -2, y: 38}
+        - {x: -2, y: 43}
+      - - {x: -46, y: 54}
+        - {x: -47, y: 53}
+        - {x: -47, y: 49}
+        - {x: -46, y: 45}
+        - {x: -42, y: 45}
+        - {x: -37, y: 50}
+        - {x: -37, y: 54}
+      - - {x: -22, y: 60}
+        - {x: -26, y: 55}
+        - {x: -26, y: 46}
+        - {x: -24, y: 45}
+        - {x: -18, y: 45}
+        - {x: -11, y: 52}
+        - {x: -11, y: 57}
+        - {x: -12, y: 60}
+    - name: SkellySheet02_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 36}
+        - {x: -71, y: -94}
+        - {x: 51, y: -94}
+        - {x: 68, y: -83}
+        - {x: 68, y: 36}
+    - name: SkellySheet02_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 57}
+        - {x: -29, y: 57}
+        - {x: -30, y: 56}
+        - {x: -35, y: 49}
+        - {x: -67, y: -16}
+        - {x: -67, y: -59}
+        - {x: -63, y: -65}
+        - {x: -50, y: -71}
+        - {x: -46, y: -94}
+        - {x: -36, y: -101}
+        - {x: 73, y: -101}
+        - {x: 93, y: -69}
+        - {x: 93, y: -15}
+        - {x: 63, y: 13}
+    - name: SkellySheet02_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43, y: 23}
+        - {x: -4, y: 43}
+        - {x: -55, y: 43}
+        - {x: -67, y: 32}
+        - {x: -67, y: -97}
+        - {x: 38, y: -97}
+        - {x: 65, y: -93}
+        - {x: 86, y: -42}
+        - {x: 86, y: -27}
+        - {x: 71, y: -3}
+      - - {x: -64, y: 38}
+        - {x: -70, y: 38}
+        - {x: -71, y: 32}
+        - {x: -69, y: 30}
+        - {x: -64, y: 30}
+        - {x: -61, y: 33}
+        - {x: -61, y: 37}
+      - - {x: -62, y: 58}
+        - {x: -68, y: 54}
+        - {x: -68, y: 50}
+        - {x: -60, y: 44}
+        - {x: -51, y: 44}
+        - {x: -51, y: 49}
+        - {x: -54, y: 56}
+        - {x: -58, y: 58}
+      - - {x: -40, y: 60}
+        - {x: -41, y: 58}
+        - {x: -41, y: 53}
+        - {x: -39, y: 51}
+        - {x: -34, y: 51}
+        - {x: -31, y: 52}
+        - {x: -31, y: 58}
+        - {x: -35, y: 60}
+    - name: SkellySheet02_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27, y: -38}
+        - {x: 28, y: -38}
+        - {x: 30, y: -41}
+        - {x: 39, y: -45}
+        - {x: 58, y: -53}
+        - {x: 75, y: -40}
+        - {x: 75, y: 23}
+        - {x: 74, y: 27}
+        - {x: 41, y: 41}
+        - {x: -71, y: 41}
+        - {x: -78, y: 34}
+        - {x: -83, y: 18}
+        - {x: -83, y: -20}
+        - {x: -55, y: -80}
+        - {x: -33, y: -70}
+        - {x: -26, y: -64}
+        - {x: -24, y: -57}
+        - {x: -32, y: -79}
+        - {x: -39, y: -85}
+        - {x: -42, y: -92}
+        - {x: -40, y: -97}
+        - {x: 24, y: -97}
+        - {x: 64, y: -79}
+        - {x: 35, y: -45}
+        - {x: 28, y: -38}
+        - {x: 21, y: -35}
+      - - {x: -93, y: 22}
+        - {x: -93, y: 15}
+        - {x: -91, y: 14}
+        - {x: -85, y: 14}
+        - {x: -84, y: 16}
+        - {x: -84, y: 22}
+      - - {x: -91, y: 43}
+        - {x: -96, y: 41}
+        - {x: -96, y: 35}
+        - {x: -95, y: 32}
+        - {x: -79, y: 32}
+        - {x: -79, y: 38}
+        - {x: -81, y: 43}
+      - - {x: -71, y: 53}
+        - {x: -73, y: 49}
+        - {x: -73, y: 47}
+        - {x: -70, y: 44}
+        - {x: -65, y: 44}
+        - {x: -63, y: 45}
+        - {x: -63, y: 51}
+        - {x: -65, y: 53}
+    - name: SkellySheet02_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27, y: -38}
+        - {x: 28, y: -38}
+        - {x: 30, y: -41}
+        - {x: 39, y: -45}
+        - {x: 58, y: -53}
+        - {x: 75, y: -40}
+        - {x: 75, y: -15}
+        - {x: 61, y: 14}
+        - {x: 15, y: 41}
+        - {x: -71, y: 41}
+        - {x: -83, y: 29}
+        - {x: -83, y: -28}
+        - {x: -55, y: -80}
+        - {x: -33, y: -70}
+        - {x: -26, y: -64}
+        - {x: -24, y: -57}
+        - {x: -32, y: -79}
+        - {x: -39, y: -85}
+        - {x: -42, y: -92}
+        - {x: -40, y: -97}
+        - {x: 24, y: -97}
+        - {x: 64, y: -79}
+        - {x: 35, y: -45}
+        - {x: 28, y: -38}
+        - {x: 21, y: -35}
+    - name: SkellySheet02_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 63, y: 66}
+        - {x: -46, y: 66}
+        - {x: -60, y: 55}
+        - {x: -57, y: 52}
+        - {x: -52, y: 51}
+        - {x: -57, y: 51}
+        - {x: -64, y: 48}
+        - {x: -67, y: 43}
+        - {x: -112, y: -6}
+        - {x: -107, y: -12}
+        - {x: -105, y: -14}
+        - {x: -104, y: -14}
+        - {x: -97, y: -21}
+        - {x: -96, y: -21}
+        - {x: -98, y: -21}
+        - {x: -102, y: -17}
+        - {x: -107, y: -13}
+        - {x: -119, y: -1}
+        - {x: -126, y: -4}
+        - {x: -126, y: -13}
+        - {x: -81, y: -98}
+        - {x: -34, y: -102}
+        - {x: 98, y: -102}
+        - {x: 125, y: -66}
+        - {x: 125, y: 30}
+        - {x: 113, y: 64}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

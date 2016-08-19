@@ -7,6 +7,7 @@ TagManager:
   - Controls
   - Passable
   - PlayerAttack
+  - Slope
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - PlayerAttack
   - Enemy
   - EnemyAttack
-  - 
+  - PlayerCollider
   - 
   - 
   - 
