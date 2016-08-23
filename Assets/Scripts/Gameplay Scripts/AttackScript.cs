@@ -25,6 +25,8 @@ public class AttackScript : MonoBehaviour {
         public PolygonCollider2D[] secondFrameHitboxes;
         public int secondFirstFrameOfAttack;
         public int secondLastFrameOfAttack;
+        public Vector2 knockback1;
+        public Vector2 knockback2;
     }
     public Attack[] attackList;
 
@@ -122,5 +124,18 @@ public class AttackScript : MonoBehaviour {
     {
         if (!secondAttack && spriteIndex >= currentAttack.secondHitFrame && Input.GetKeyDown(attackType))
         { attackBuffer = true; }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("Hit Enemy");
+            float scale = transform.lossyScale.x;
+            if (!secondAttack) other.transform.GetComponent<EnemyBasics>().ApplyHit(
+                    new Vector2(currentAttack.knockback1.x * scale, currentAttack.knockback1.y));
+            else other.transform.GetComponent<EnemyBasics>().ApplyHit(
+                    new Vector2(currentAttack.knockback2.x * scale, currentAttack.knockback2.y));
+        }
     }
 }

@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool action;
     float xMovement;
     float yMovement;
+    bool slowDown = false;
     
     
 
@@ -74,10 +75,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 	
 	// Update is called once per frame
+
 	void Update ()
     {
         if (!action) AttackControl();
-        GroundCheck(); 
+        GroundCheck();
 
         xMovement = CalculateXMovement();
         yMovement = CalculateYMovement();
@@ -113,11 +115,27 @@ public class PlayerMovement : MonoBehaviour {
                     canJump = false;
                 }
             }
-            if (h.rigidbody.tag != "Player" && h.rigidbody.tag != "NPC" && h.rigidbody.tag != "Slope" && h.rigidbody.tag != "Passable")
+            if (h.rigidbody.tag != "Player" && h.transform.tag != "NPC" && h.rigidbody.tag != "Slope" && h.rigidbody.tag != "Passable" && h.transform.tag != "Enemy")
             {
                 canJump = true;
                 break;
             }
+        }
+
+        SlopeCheck();
+
+		if (currentSprite == jumpSprites && spriteIndex < jumpFrame)
+			canJump = false;
+    }
+
+    void SlopeCheck()
+    {
+        RaycastHit2D[] hits;
+        hits = Physics2D.BoxCastAll(transform.position - new Vector3(0, 0.5f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.03f);
+
+        //Find specific collision tags
+        foreach (RaycastHit2D h in hits)
+        {
             if (h.rigidbody.tag == "Slope")
             {
                 grounded = true;
@@ -125,11 +143,7 @@ public class PlayerMovement : MonoBehaviour {
                 break;
             }
         }
-
-		if (currentSprite == jumpSprites && spriteIndex < jumpFrame)
-			canJump = false;
     }
-
     float CalculateXMovement()
     {
         float x = 0;
@@ -159,6 +173,7 @@ public class PlayerMovement : MonoBehaviour {
         if (x > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
         if (!action && canJump) { if (x != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
 
+        if (slowDown) x /= 7;
         return x;
     }
 
@@ -170,19 +185,25 @@ public class PlayerMovement : MonoBehaviour {
         if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
         {
 			SetSprite(jumpSprites);
+            if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
+            { y = jumpMin; }
         }
 		if (!action && !canJump && currentSprite == jumpSprites) 
 		{
-			if (Mathf.RoundToInt (spriteIndex) == jumpFrame)
-				y = jumpForce;
-			else if (Mathf.RoundToInt (spriteIndex) >= jumpSprites.sprites.Length)
-				SetSprite (airSprites);
-		}
+            if (Mathf.RoundToInt(spriteIndex) == jumpFrame && rb.velocity.y < jumpMin / 2)
+            { y = jumpForce; }
+            else if (Mathf.RoundToInt(spriteIndex) >= jumpSprites.sprites.Length)
+                SetSprite(airSprites);
+            //Hold to jump higher
+            if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)) && (y == 0))
+            { y = jumpMin; }
+
+        }
 		//Hold to jump higher
         if (y > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
-        { y = jumpMin; }
+        { y = jumpMin; canJump = false; }
 
-		if (grounded) yMovement -= 0.8f;//Smooth slope walking
+		if (grounded) y -= 0.5f;//Smooth slope walking
         if (!action && !grounded && y > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
 		if (!action && !canJump && currentSprite != jumpSprites) SetSprite(airSprites); //Set air sprite when falling
 
@@ -195,6 +216,22 @@ public class PlayerMovement : MonoBehaviour {
         {
             atk.InputAttack(con.attack1, 0, canJump);
             action = true;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            slowDown = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            slowDown = false;
         }
     }
 

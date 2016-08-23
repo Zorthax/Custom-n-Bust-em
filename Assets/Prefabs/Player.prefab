@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 464278}
   - 114: {fileID: 11463390}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Attack Hitboxes
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.09, y: 2.36, z: 0}
+  m_LocalPosition: {x: 1.09, y: -2.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 464278}
@@ -117,9 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d891dd32d0ff9f34b81b1c36d7bb45bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 4
+  walkingSpeed: 5
   jumpForce: 7
-  jumpMin: 2
+  jumpMin: 4
   jumpFrame: 1
   cameraPosition: {x: 0, y: 1, z: -8}
   idleSprites:
@@ -217,6 +217,8 @@ MonoBehaviour:
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
     secondFirstFrameOfAttack: 1
     secondLastFrameOfAttack: 3
+    knockback1: {x: 15, y: 3}
+    knockback2: {x: 0, y: 0}
 --- !u!212 &21266660
 SpriteRenderer:
   m_ObjectHideFlags: 1

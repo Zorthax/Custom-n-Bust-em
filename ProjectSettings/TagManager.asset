@@ -8,6 +8,8 @@ TagManager:
   - Passable
   - PlayerAttack
   - Slope
+  - Enemy
+  - NPC
   layers:
   - Default
   - TransparentFX
