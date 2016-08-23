@@ -85,7 +85,7 @@ public class EnemyBasics : MonoBehaviour {
         if (stunned)
         {
             rb.velocity = new Vector2(rb.velocity.x / 1.1f, y);
-            if (Mathf.Abs(rb.velocity.x) < 0.2f && Mathf.Abs(rb.velocity.y) < 0.2f) stunned = false;
+            if (Mathf.Abs(rb.velocity.x) < 0.1f && Mathf.Abs(rb.velocity.y) < 0.2f) stunned = false;
             if (x > 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
             if (x < 0) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
         }
@@ -98,7 +98,8 @@ public class EnemyBasics : MonoBehaviour {
     {
         stunned = true;
         rb.velocity = knockback;
-        SetSprite(knockbackSprite);
+        currentSprite = knockbackSprite;
+        spriteIndex = 0;
 
     }
 }

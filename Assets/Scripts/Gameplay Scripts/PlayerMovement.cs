@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour {
 
         xMovement = CalculateXMovement();
         yMovement = CalculateYMovement();
+        EnemyCheck();
 
         //Apply velocity
         rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
@@ -173,7 +174,7 @@ public class PlayerMovement : MonoBehaviour {
         if (x > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
         if (!action && canJump) { if (x != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
 
-        if (slowDown) x /= 7;
+        if (slowDown) x /= 3;
         return x;
     }
 
@@ -216,6 +217,23 @@ public class PlayerMovement : MonoBehaviour {
         {
             atk.InputAttack(con.attack1, 0, canJump);
             action = true;
+        }
+    }
+
+    void EnemyCheck()
+    {
+        RaycastHit2D[] hits;
+        hits = Physics2D.BoxCastAll(transform.position, col.size, 0, rb.velocity, 0.0f);
+
+        //Find specific collision tags
+        foreach (RaycastHit2D h in hits)
+        {
+            slowDown = false;
+            if (h.rigidbody.tag == "Enemy")
+            {
+                slowDown = true;
+                break;
+            }
         }
     }
 

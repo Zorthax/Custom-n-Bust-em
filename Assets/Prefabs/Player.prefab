@@ -217,8 +217,8 @@ MonoBehaviour:
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
     secondFirstFrameOfAttack: 1
     secondLastFrameOfAttack: 3
-    knockback1: {x: 15, y: 3}
-    knockback2: {x: 0, y: 0}
+    knockback1: {x: 1, y: 1}
+    knockback2: {x: 10, y: -1}
 --- !u!212 &21266660
 SpriteRenderer:
   m_ObjectHideFlags: 1

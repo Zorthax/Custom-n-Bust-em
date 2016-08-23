@@ -240,6 +240,14 @@ Prefab:
       propertyPath: m_TagString
       value: Slope
       objectReference: {fileID: 0}
+    - target: {fileID: 5084968, guid: 6d13425d803b7cc4aa92a29933829189, type: 2}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084968, guid: 6d13425d803b7cc4aa92a29933829189, type: 2}
+      propertyPath: m_AngularDrag
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6144382, guid: 6d13425d803b7cc4aa92a29933829189, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6d13425d803b7cc4aa92a29933829189, type: 2}
@@ -895,22 +903,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: attackList.Array.data[0].knockback1.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: attackList.Array.data[0].knockback2.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: attackList.Array.data[0].knockback2.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: attackList.Array.data[0].knockback1.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
   m_IsPrefabParent: 0
@@ -1130,7 +1122,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2103367082}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 01f27fd356398aa4a9dcab30103f24a0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -0.00000035211647, y: -0.13375098}
