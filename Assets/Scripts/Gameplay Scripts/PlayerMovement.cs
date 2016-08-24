@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour {
         EnemyCheck();
 
         //Apply velocity
-        rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
+        if (!action) rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
 
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;

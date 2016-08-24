@@ -185,9 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4b61c5b6973b442a1c53e309407c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.2
   attackList:
-  - sprites:
+  - animationSpeed: 0.2
+    sprites:
     - {fileID: 21300000, guid: 32ee055698554964695186dc753638ef, type: 3}
     - {fileID: 21300002, guid: 32ee055698554964695186dc753638ef, type: 3}
     - {fileID: 21300004, guid: 32ee055698554964695186dc753638ef, type: 3}
@@ -199,26 +199,74 @@ MonoBehaviour:
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-    firstFrameOfAttack: 4
-    lastFrameOfAttack: 6
-    twoHits: 1
-    secondHitFrame: 1
-    secondSprites:
-    - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
-    - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
-    - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
-    - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
-    - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
-    - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
-    - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
-    secondFrameHitboxes:
+    firstFrameOfAttack: 3
+    lastFrameOfAttack: 5
+    firstFrameBuffer: 1
+    knockback: {x: 1, y: 1}
+    changeMomentum: 0
+    momentumFrame: 0
+    momentum: {x: 0, y: 0}
+    hasSecondHit: 1
+    secondAttack:
+      animationSpeed: 0.2
+      sprites:
+      - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
+      frameHitboxes:
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      firstFrameOfAttack: 1
+      lastFrameOfAttack: 3
+      firstFrameBuffer: 0
+      knockback: {x: 10, y: -1}
+      changeMomentum: 0
+      momentumFrame: 0
+      momentum: {x: 0, y: 0}
+      hasSecondHit: 0
+  - animationSpeed: 0.15
+    sprites:
+    - {fileID: 21300022, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
+    - {fileID: 21300024, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
+    - {fileID: 21300026, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
+    - {fileID: 21300028, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
+    - {fileID: 21300030, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
+    frameHitboxes:
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
     - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-    secondFirstFrameOfAttack: 1
-    secondLastFrameOfAttack: 3
-    knockback1: {x: 1, y: 1}
-    knockback2: {x: 10, y: -1}
+    firstFrameOfAttack: 2
+    lastFrameOfAttack: 3
+    firstFrameBuffer: 0
+    knockback: {x: 1, y: -2}
+    changeMomentum: 1
+    momentumFrame: 1
+    momentum: {x: 5, y: -5}
+    hasSecondHit: 1
+    secondAttack:
+      animationSpeed: 0
+      sprites:
+      - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
+      frameHitboxes:
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      firstFrameOfAttack: 1
+      lastFrameOfAttack: 3
+      firstFrameBuffer: 0
+      knockback: {x: 0, y: 0}
+      changeMomentum: 0
+      momentumFrame: 0
+      momentum: {x: 0, y: 0}
+      hasSecondHit: 0
 --- !u!212 &21266660
 SpriteRenderer:
   m_ObjectHideFlags: 1

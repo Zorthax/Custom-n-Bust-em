@@ -5,8 +5,10 @@ public class AttackScript : MonoBehaviour {
 
     Animator anim;
     int neutralGround1;
+    int upGround1;
+    int neutralAir1;
     int frame = 0;
-    public float animationSpeed = 0.005f;
+    //public float animationSpeed = 0.005f;
     PolygonCollider2D localCollider;
     bool secondAttack;
     bool attackBuffer;
@@ -15,35 +17,53 @@ public class AttackScript : MonoBehaviour {
     [System.Serializable]
     public class Attack
     {
+        public float animationSpeed;
         public Sprite[] sprites;
         public PolygonCollider2D[] frameHitboxes;
         public int firstFrameOfAttack;
         public int lastFrameOfAttack;
-        public bool twoHits;
-        public float secondHitFrame;
-        public Sprite[] secondSprites;
-        public PolygonCollider2D[] secondFrameHitboxes;
-        public int secondFirstFrameOfAttack;
-        public int secondLastFrameOfAttack;
-        public Vector2 knockback1;
-        public Vector2 knockback2;
+        public float firstFrameBuffer;
+        public Vector2 knockback;
+        public bool changeMomentum;
+        public int momentumFrame;
+        public Vector2 momentum;
+
+        public bool hasSecondHit;
+        
+
     }
-    public Attack[] attackList;
+    [System.Serializable]
+    public class OriginalAttack : Attack { public SecondAttack secondAttack; }
+    [System.Serializable]
+    public class SecondAttack : Attack { }
+    public OriginalAttack[] attackList;
 
     //Animation stuff
-    Attack currentAttack;
+    OriginalAttack currentAttack;
     float spriteIndex = 0;
     SpriteRenderer renderor;
     void Animation()
     {
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
-        if (!secondAttack) renderor.sprite = currentAttack.sprites[Mathf.RoundToInt(spriteIndex)];
-        else if (secondAttack) renderor.sprite = currentAttack.secondSprites[Mathf.RoundToInt(spriteIndex)];
-        if (secondAttack && spriteIndex <= currentAttack.secondSprites.Length - 1) //Second attack's sprites
-            spriteIndex += animationSpeed;
+        //Change physical sprite
+        if (!secondAttack)
+        {
+            renderor.sprite = currentAttack.sprites[Mathf.RoundToInt(spriteIndex)];
+            if (currentAttack.changeMomentum && Mathf.RoundToInt(spriteIndex) == currentAttack.momentumFrame)
+            {
+                GetComponentInParent<Rigidbody2D>().velocity = new Vector2(currentAttack.momentum.x * transform.lossyScale.x, currentAttack.momentum.y);
+            }
+        }
+        else if (secondAttack)
+        {
+            renderor.sprite = currentAttack.secondAttack.sprites[Mathf.RoundToInt(spriteIndex)];
+        }
+
+        if (secondAttack && spriteIndex <= currentAttack.secondAttack.sprites.Length - 1) //Second attack's sprites
+        { spriteIndex += currentAttack.secondAttack.animationSpeed; }
         else if (!secondAttack && spriteIndex <= currentAttack.sprites.Length - 1) //First attack's sprites
-            spriteIndex += animationSpeed;
-        else if (!secondAttack && attackBuffer)
+        { spriteIndex += currentAttack.animationSpeed; }
+        else if (!secondAttack && attackBuffer && currentAttack.hasSecondHit)
         {
             spriteIndex = 0;
             secondAttack = true;
@@ -65,6 +85,7 @@ public class AttackScript : MonoBehaviour {
         renderor = GetComponentInParent<SpriteRenderer>();
 
         neutralGround1 = 0;
+        neutralAir1 = 1;
         currentAttack = null;
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
         localCollider.isTrigger = true;
@@ -76,12 +97,11 @@ public class AttackScript : MonoBehaviour {
     {
         if (currentAttack != null)
         {
-            NextAttack();
+            BufferNextAttack();
             Animation();
             if (currentAttack != null)
             {
                 SetHitBox();
-                
             }
             else
             {
@@ -96,7 +116,7 @@ public class AttackScript : MonoBehaviour {
     {
         if (attackKey == con.attack1)
         {
-            if (direction == 0) { if (onGround) currentAttack = attackList[neutralGround1]; }
+            if (direction == 0) { if (onGround) currentAttack = attackList[neutralGround1]; else currentAttack = attackList[neutralAir1]; }
             spriteIndex = 0;
             secondAttack = false;
             attackType = attackKey;
@@ -108,9 +128,9 @@ public class AttackScript : MonoBehaviour {
         
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
         localCollider.isTrigger = true;
-        if (secondAttack && spriteIndex >= currentAttack.secondFirstFrameOfAttack && spriteIndex <= currentAttack.secondLastFrameOfAttack)//Second attack's hitboxes
+        if (secondAttack && spriteIndex >= currentAttack.secondAttack.firstFrameOfAttack && spriteIndex <= currentAttack.secondAttack.lastFrameOfAttack)//Second attack's hitboxes
         {
-            localCollider.SetPath(0, currentAttack.secondFrameHitboxes[Mathf.RoundToInt(spriteIndex) - currentAttack.secondFirstFrameOfAttack].GetPath(0));
+            localCollider.SetPath(0, currentAttack.secondAttack.frameHitboxes[Mathf.RoundToInt(spriteIndex) - currentAttack.secondAttack.firstFrameOfAttack].GetPath(0));
             return;
         }
         if (!secondAttack && spriteIndex >= currentAttack.firstFrameOfAttack && spriteIndex <= currentAttack.lastFrameOfAttack) //First attack's hitboxes
@@ -120,9 +140,11 @@ public class AttackScript : MonoBehaviour {
         }
         localCollider.pathCount = 0;
     }
-    void NextAttack()
+    void BufferNextAttack()
     {
-        if (!secondAttack && spriteIndex >= currentAttack.secondHitFrame && Input.GetKeyDown(attackType))
+        //if (!secondAttack && spriteIndex >= currentAttack.secondHitFrame && Input.GetKeyDown(attackType))
+        //{ attackBuffer = true; }
+        if (!secondAttack && currentAttack.hasSecondHit && spriteIndex >= currentAttack.firstFrameBuffer && Input.GetKeyDown(attackType))
         { attackBuffer = true; }
     }
 
@@ -133,9 +155,9 @@ public class AttackScript : MonoBehaviour {
             Debug.Log("Hit Enemy");
             float scale = transform.lossyScale.x;
             if (!secondAttack) other.transform.GetComponent<EnemyBasics>().ApplyHit(
-                    new Vector2(currentAttack.knockback1.x * scale, currentAttack.knockback1.y));
+                    new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y));
             else other.transform.GetComponent<EnemyBasics>().ApplyHit(
-                    new Vector2(currentAttack.knockback2.x * scale, currentAttack.knockback2.y));
+                    new Vector2(currentAttack.secondAttack.knockback.x * scale, currentAttack.secondAttack.knockback.y));
         }
     }
 }

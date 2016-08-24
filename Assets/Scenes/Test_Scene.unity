@@ -903,6 +903,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[1].momentum.x
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
   m_IsPrefabParent: 0
