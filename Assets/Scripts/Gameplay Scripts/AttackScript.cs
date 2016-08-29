@@ -24,6 +24,7 @@ public class AttackScript : MonoBehaviour {
         public int lastFrameOfAttack;
         public float firstFrameBuffer;
 		public float damage;
+		public float stun;
         public Vector2 knockback;
 		public string uniqueType = "default";
 		public float endLag;
@@ -156,9 +157,9 @@ public class AttackScript : MonoBehaviour {
             //Debug.Log("Hit Enemy");
             float scale = transform.lossyScale.x;
             if (!secondAttack) other.transform.GetComponent<EnemyBasics>().ApplyHit(
-				new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y), currentAttack.damage);
+				new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y), currentAttack.damage, currentAttack.stun);
             else other.transform.GetComponent<EnemyBasics>().ApplyHit(
-				new Vector2(currentAttack.secondAttack.knockback.x * scale, currentAttack.secondAttack.knockback.y), currentAttack.secondAttack.damage);
+				new Vector2(currentAttack.secondAttack.knockback.x * scale, currentAttack.secondAttack.knockback.y), currentAttack.secondAttack.damage, currentAttack.secondAttack.stun);
 			behaviour.MyTriggerEnter (spriteIndex, other.GetComponent<Rigidbody2D>());
         }
     }

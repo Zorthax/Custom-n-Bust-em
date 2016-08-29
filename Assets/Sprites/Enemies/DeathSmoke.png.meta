@@ -1,0 +1,293 @@
+fileFormatVersion: 2
+guid: 5789e49765e1d9748bcea6833637415b
+timeCreated: 1472446038
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DeathSmoke_0
+    21300002: DeathSmoke_1
+    21300004: DeathSmoke_2
+    21300006: DeathSmoke_3
+    21300008: DeathSmoke_4
+    21300010: DeathSmoke_5
+    21300012: DeathSmoke_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: DeathSmoke_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -63, y: -40}
+        - {x: -61, y: -42}
+        - {x: -57, y: -43}
+        - {x: -58, y: -44}
+        - {x: -63, y: -41}
+        - {x: -64, y: -41}
+        - {x: -71, y: -45}
+        - {x: -71, y: -55}
+        - {x: -54, y: -60}
+        - {x: 56, y: -60}
+        - {x: 77, y: -19}
+        - {x: 77, y: 39}
+        - {x: 32, y: 69}
+        - {x: -15, y: 69}
+        - {x: -71, y: 27}
+        - {x: -71, y: -3}
+    - name: DeathSmoke_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 684
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88, y: 66}
+        - {x: -46, y: 66}
+        - {x: -54, y: 62}
+        - {x: -62, y: 51}
+        - {x: -114, y: 49}
+        - {x: -115, y: 47}
+        - {x: -115, y: -29}
+        - {x: -57, y: -68}
+        - {x: 101, y: -68}
+        - {x: 130, y: -32}
+        - {x: 130, y: 48}
+        - {x: 129, y: 51}
+    - name: DeathSmoke_2
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 684
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 135, y: 114}
+        - {x: 43, y: 75}
+        - {x: -43, y: 114}
+        - {x: -79, y: 114}
+        - {x: -146, y: 50}
+        - {x: -146, y: 24}
+        - {x: -144, y: 14}
+        - {x: -114, y: -52}
+        - {x: -108, y: -65}
+        - {x: -103, y: -69}
+        - {x: -94, y: -74}
+        - {x: -60, y: -106}
+        - {x: 104, y: -106}
+        - {x: 170, y: 9}
+        - {x: 170, y: 81}
+        - {x: 145, y: 114}
+    - name: DeathSmoke_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 135, y: 120}
+        - {x: 17, y: 78}
+        - {x: -19, y: 94}
+        - {x: -69, y: 144}
+        - {x: -82, y: 144}
+        - {x: -93, y: 113}
+        - {x: -76, y: 33}
+        - {x: -123, y: 10}
+        - {x: -127, y: -11}
+        - {x: -127, y: -81}
+        - {x: -44, y: -123}
+        - {x: 70, y: -123}
+        - {x: 127, y: -88}
+        - {x: 139, y: -32}
+        - {x: 139, y: 89}
+      - - {x: -111, y: 24}
+        - {x: -154, y: 24}
+        - {x: -154, y: 15}
+        - {x: -111, y: 15}
+        - {x: -109, y: 18}
+        - {x: -109, y: 23}
+      - - {x: -144, y: 51}
+        - {x: -150, y: 51}
+        - {x: -153, y: 47}
+        - {x: -153, y: 45}
+        - {x: -150, y: 41}
+        - {x: -134, y: 41}
+        - {x: -134, y: 48}
+        - {x: -136, y: 50}
+      - - {x: 136, y: 50}
+        - {x: 138, y: 49}
+        - {x: 148, y: 49}
+        - {x: 165, y: 57}
+        - {x: 165, y: 63}
+        - {x: 149, y: 63}
+        - {x: 136, y: 59}
+    - name: DeathSmoke_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 344
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 167, y: 55}
+        - {x: 167, y: 62}
+        - {x: 164, y: 67}
+        - {x: 134, y: 74}
+        - {x: 167, y: 150}
+        - {x: 167, y: 155}
+        - {x: 154, y: 155}
+        - {x: 49, y: 74}
+        - {x: -14, y: 102}
+        - {x: -58, y: 114}
+        - {x: -82, y: 97}
+        - {x: -74, y: 82}
+        - {x: -148, y: 24}
+        - {x: -148, y: -64}
+        - {x: -71, y: -133}
+        - {x: 42, y: -133}
+        - {x: 92, y: -125}
+        - {x: 128, y: -110}
+        - {x: 141, y: -20}
+      - - {x: -78, y: 150}
+        - {x: -78, y: 142}
+        - {x: -72, y: 107}
+        - {x: -68, y: 105}
+        - {x: -64, y: 105}
+        - {x: -59, y: 116}
+        - {x: -59, y: 131}
+        - {x: -73, y: 150}
+    - name: DeathSmoke_5
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 344
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 148, y: 9}
+        - {x: 148, y: 36}
+        - {x: 140, y: 47}
+        - {x: 127, y: 59}
+        - {x: 116, y: 83}
+        - {x: 113, y: 86}
+        - {x: 104, y: 87}
+        - {x: 56, y: 79}
+        - {x: -1, y: 99}
+        - {x: -33, y: 110}
+        - {x: -69, y: 110}
+        - {x: -85, y: 69}
+        - {x: -134, y: 32}
+        - {x: -141, y: -2}
+        - {x: -141, y: -58}
+        - {x: -131, y: -71}
+        - {x: -75, y: -121}
+        - {x: -35, y: -130}
+        - {x: 96, y: -130}
+        - {x: 147, y: -88}
+        - {x: 142, y: -17}
+    - name: DeathSmoke_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 142, y: -23}
+        - {x: 149, y: 0}
+        - {x: 149, y: 41}
+        - {x: 147, y: 51}
+        - {x: 119, y: 70}
+        - {x: 106, y: 71}
+        - {x: 0, y: 89}
+        - {x: -24, y: 103}
+        - {x: -41, y: 111}
+        - {x: -75, y: 111}
+        - {x: -94, y: 89}
+        - {x: -114, y: 63}
+        - {x: -144, y: 43}
+        - {x: -140, y: -14}
+        - {x: -148, y: -26}
+        - {x: -148, y: -55}
+        - {x: -81, y: -114}
+        - {x: -42, y: -134}
+        - {x: 1, y: -134}
+        - {x: 24, y: -132}
+        - {x: 42, y: -134}
+        - {x: 88, y: -134}
+        - {x: 119, y: -126}
+        - {x: 144, y: -88}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

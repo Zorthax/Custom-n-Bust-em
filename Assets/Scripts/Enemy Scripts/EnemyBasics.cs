@@ -5,6 +5,7 @@ public class EnemyBasics : MonoBehaviour {
 
 	public float hpTotal;
 	float hp;
+	float stunTime;
 
     public bool basicWalking = true;
     public float walkSpeed = 4;
@@ -71,10 +72,21 @@ public class EnemyBasics : MonoBehaviour {
 
 		hp = hpTotal;
     }
-	
+
+	void FixedUpdate()
+	{
+		//On death
+		if (hp <= 0) {
+			Instantiate (Resources.Load ("DeathSmoke"), transform.position, new Quaternion (0, 0, 0, 0));
+			Destroy (gameObject);
+		}
+
+	}
+
 	// Update is called once per frame
 	void Update ()
     {
+
 	    if (Random.Range(0, walkRarity) >= walkRarity - 2)
         {
             float i = Random.value;
@@ -89,6 +101,8 @@ public class EnemyBasics : MonoBehaviour {
             else x = 0;
         }
 
+		if (stunTime > 0)
+			stunTime -= Time.deltaTime;
         y = rb.velocity.y;
 
         if (!stunned) rb.velocity = new Vector2(x * walkSpeed, y);
@@ -101,22 +115,29 @@ public class EnemyBasics : MonoBehaviour {
         if (stunned)
         {
             rb.velocity = new Vector2(rb.velocity.x / 1.1f, y);
-            if (Mathf.Abs(rb.velocity.x) < 0.1f && Mathf.Abs(rb.velocity.y) < 0.2f) stunned = false;
+			if (stunTime <= 0)
+				stunned = false;
             if (x > 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
             if (x < 0) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
         }
+
+
 
         Animation();
 
     }
 
-	public void ApplyHit(Vector2 knockback, float damage)
+	public void ApplyHit(Vector2 knockback, float damage, float stun)
     {
-        stunned = true;
-        rb.velocity = knockback;
-        currentSprite = knockbackSprite;
-        spriteIndex = 0;
-		hp -= damage;
+		if (stunTime <= 0) {
+			stunned = true;
+			rb.velocity = knockback;
+			currentSprite = knockbackSprite;
+			spriteIndex = 0;
+			hp -= damage;
+			stunTime = stun;
+		}
+
 
     }
 

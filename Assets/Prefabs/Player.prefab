@@ -205,6 +205,7 @@ MonoBehaviour:
     lastFrameOfAttack: 5
     firstFrameBuffer: 1
     damage: 1
+    stun: 0.2
     knockback: {x: 1, y: 1}
     uniqueType: default
     endLag: 0.2
@@ -226,6 +227,7 @@ MonoBehaviour:
       lastFrameOfAttack: 3
       firstFrameBuffer: 0
       damage: 2
+      stun: 0.3
       knockback: {x: 10, y: -1}
       uniqueType: default
       endLag: 0
@@ -240,11 +242,11 @@ MonoBehaviour:
     frameHitboxes:
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
-    - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
     firstFrameOfAttack: 1
-    lastFrameOfAttack: 3
+    lastFrameOfAttack: 2
     firstFrameBuffer: 0
-    damage: 1
+    damage: 2
+    stun: 0.3
     knockback: {x: 6, y: -3}
     uniqueType: DropKick
     endLag: 0.2
@@ -266,6 +268,7 @@ MonoBehaviour:
       lastFrameOfAttack: 3
       firstFrameBuffer: 0
       damage: 0
+      stun: 0
       knockback: {x: 0, y: 0}
       uniqueType: default
       endLag: 0
