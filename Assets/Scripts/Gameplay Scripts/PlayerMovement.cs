@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpMin = 2;
 	public float jumpFrame = 2;
     public Vector3 cameraPosition;
+	public float endLag;
     AttackScript atk;
 
     [Space(5)]
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour {
     Rigidbody2D rb;
     BoxCollider2D col;
     
-    bool grounded;
+    bool onSlope;
     bool canJump;
     public bool action;
     float xMovement;
@@ -95,7 +96,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void GroundCheck()
     {
-        grounded = false; //Being grounded will apply extra gravity for smooth movement on slopes
+        onSlope = false; //will apply extra gravity for smooth movement on slopes
         canJump = false;
         col.isTrigger = false;
 
@@ -139,7 +140,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (h.rigidbody.tag == "Slope")
             {
-                grounded = true;
+                onSlope = true;
                 canJump = true;
                 break;
             }
@@ -150,7 +151,7 @@ public class PlayerMovement : MonoBehaviour {
         float x = 0;
 
         //Exit early if crouching
-        if (grounded && !action)
+        if (onSlope && !action)
         {
             if (Input.GetKey(con.down))
             {
@@ -204,8 +205,8 @@ public class PlayerMovement : MonoBehaviour {
         if (y > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
         { y = jumpMin; canJump = false; }
 
-		if (grounded) y -= 0.5f;//Smooth slope walking
-        if (!action && !grounded && y > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
+		if (onSlope) y -= 0.5f;//Smooth slope walking
+        if (!action && !onSlope && y > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
 		if (!action && !canJump && currentSprite != jumpSprites) SetSprite(airSprites); //Set air sprite when falling
 
         return y;
@@ -213,11 +214,14 @@ public class PlayerMovement : MonoBehaviour {
 
     void AttackControl()
     {
-        if (Input.GetKeyDown(con.attack1) || Input.GetKeyDown(con.attack1ALT))
-        {
-            atk.InputAttack(con.attack1, 0, canJump);
-            action = true;
-        }
+		if (endLag <= 0 && (Input.GetKeyDown (con.attack1) || Input.GetKeyDown (con.attack1ALT))) {
+			atk.InputAttack (con.attack1, 0, canJump);
+			action = true;
+			if (canJump)
+				rb.velocity = new Vector2 (0, 0);
+		} else if (endLag > 0)
+			endLag -= Time.deltaTime;
+
     }
 
     void EnemyCheck()

@@ -3,6 +3,9 @@ using System.Collections;
 
 public class EnemyBasics : MonoBehaviour {
 
+	public float hpTotal;
+	float hp;
+
     public bool basicWalking = true;
     public float walkSpeed = 4;
     public float walkRarity = 30;
@@ -20,6 +23,9 @@ public class EnemyBasics : MonoBehaviour {
     bool stunned = true;
     float x = 0;
     float y = 0;
+
+	Texture2D red;
+	Texture2D darkRed;
 
     //Animation stuff
     MySprite currentSprite;
@@ -54,6 +60,16 @@ public class EnemyBasics : MonoBehaviour {
         currentSprite = idleSprite;
         rb = GetComponent<Rigidbody2D>();
         renderor = GetComponent<SpriteRenderer>();
+
+		red = new Texture2D(1, 1);
+		red.SetPixel (0, 0, new Color(1, 0, 0, 1));
+		red.Apply ();
+
+		darkRed = new Texture2D(1, 1);
+		darkRed.SetPixel (0, 0, new Color(0.5f, 0, 0, 1));
+		darkRed.Apply ();
+
+		hp = hpTotal;
     }
 	
 	// Update is called once per frame
@@ -94,12 +110,29 @@ public class EnemyBasics : MonoBehaviour {
 
     }
 
-    public void ApplyHit(Vector2 knockback)
+	public void ApplyHit(Vector2 knockback, float damage)
     {
         stunned = true;
         rb.velocity = knockback;
         currentSprite = knockbackSprite;
         spriteIndex = 0;
+		hp -= damage;
 
     }
+
+	void OnGUI()
+	{
+		GUI.DrawTexture (new Rect (Camera.main.WorldToScreenPoint(transform.position).x - 25, 
+			(Screen.height - Camera.main.WorldToScreenPoint(transform.position).y) -30, 50, 5), darkRed);
+
+		GUI.DrawTexture (new Rect (Camera.main.WorldToScreenPoint(transform.position).x - 25, 
+			(Screen.height - Camera.main.WorldToScreenPoint(transform.position).y) -30, 50 / (hpTotal / hp), 5), red);
+		
+
+	}
+
+	public void DrawHealth()
+	{
+
+	}
 }

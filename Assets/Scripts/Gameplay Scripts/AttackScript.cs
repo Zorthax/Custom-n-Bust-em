@@ -8,11 +8,11 @@ public class AttackScript : MonoBehaviour {
     int upGround1;
     int neutralAir1;
     int frame = 0;
-    //public float animationSpeed = 0.005f;
     PolygonCollider2D localCollider;
     bool secondAttack;
     bool attackBuffer;
     KeyCode attackType;
+	AttackBehaviours behaviour;
 
     [System.Serializable]
     public class Attack
@@ -23,10 +23,10 @@ public class AttackScript : MonoBehaviour {
         public int firstFrameOfAttack;
         public int lastFrameOfAttack;
         public float firstFrameBuffer;
+		public float damage;
         public Vector2 knockback;
-        public bool changeMomentum;
-        public int momentumFrame;
-        public Vector2 momentum;
+		public string uniqueType = "default";
+		public float endLag;
 
         public bool hasSecondHit;
         
@@ -45,14 +45,12 @@ public class AttackScript : MonoBehaviour {
     void Animation()
     {
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
+		spriteIndex = behaviour.MyUpdate (spriteIndex);
+
         //Change physical sprite
         if (!secondAttack)
         {
             renderor.sprite = currentAttack.sprites[Mathf.RoundToInt(spriteIndex)];
-            if (currentAttack.changeMomentum && Mathf.RoundToInt(spriteIndex) == currentAttack.momentumFrame)
-            {
-                GetComponentInParent<Rigidbody2D>().velocity = new Vector2(currentAttack.momentum.x * transform.lossyScale.x, currentAttack.momentum.y);
-            }
         }
         else if (secondAttack)
         {
@@ -70,6 +68,7 @@ public class AttackScript : MonoBehaviour {
         }
         else
         {
+			GetComponentInParent<PlayerMovement>().endLag = currentAttack.endLag;
             currentAttack = null;
             secondAttack = false;
         }
@@ -83,6 +82,7 @@ public class AttackScript : MonoBehaviour {
         anim = GetComponentInParent<Animator>();
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         renderor = GetComponentInParent<SpriteRenderer>();
+		behaviour = GetComponent<AttackBehaviours> ();
 
         neutralGround1 = 0;
         neutralAir1 = 1;
@@ -120,6 +120,7 @@ public class AttackScript : MonoBehaviour {
             spriteIndex = 0;
             secondAttack = false;
             attackType = attackKey;
+			behaviour.SetType(currentAttack.uniqueType);
         }
     }
 
@@ -152,12 +153,13 @@ public class AttackScript : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("Hit Enemy");
+            //Debug.Log("Hit Enemy");
             float scale = transform.lossyScale.x;
             if (!secondAttack) other.transform.GetComponent<EnemyBasics>().ApplyHit(
-                    new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y));
+				new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y), currentAttack.damage);
             else other.transform.GetComponent<EnemyBasics>().ApplyHit(
-                    new Vector2(currentAttack.secondAttack.knockback.x * scale, currentAttack.secondAttack.knockback.y));
+				new Vector2(currentAttack.secondAttack.knockback.x * scale, currentAttack.secondAttack.knockback.y), currentAttack.secondAttack.damage);
+			behaviour.MyTriggerEnter (spriteIndex, other.GetComponent<Rigidbody2D>());
         }
     }
 }

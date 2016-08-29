@@ -136,6 +136,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.5999999
       objectReference: {fileID: 0}
+    - target: {fileID: 21287472, guid: 6d13425d803b7cc4aa92a29933829189, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -725897755
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d13425d803b7cc4aa92a29933829189, type: 2}
   m_IsPrefabParent: 0
@@ -601,6 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e76e2b04f6f5144a8ceb83d4160afb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpTotal: 10
   basicWalking: 1
   walkSpeed: 3
   walkRarity: 80
@@ -902,10 +907,6 @@ Prefab:
     - target: {fileID: 444186, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
-      propertyPath: attackList.Array.data[1].momentum.x
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}

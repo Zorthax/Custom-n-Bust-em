@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 464278}
   - 114: {fileID: 11463390}
+  - 114: {fileID: 11495946}
   m_Layer: 11
   m_Name: Attack Hitboxes
   m_TagString: PlayerAttack
@@ -89,9 +90,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.012128353, y: -0.058636904}
+  m_Offset: {x: -0.036377072, y: -0.058636904}
   serializedVersion: 2
-  m_Size: {x: 0.46538693, y: 0.7480602}
+  m_Size: {x: 0.4168896, y: 0.7480602}
 --- !u!61 &6191810
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -103,9 +104,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.05389142, y: -0.43710065}
+  m_Offset: {x: -0.03722036, y: -0.43710065}
   serializedVersion: 2
-  m_Size: {x: 0.43811923, y: 0.031479478}
+  m_Size: {x: 0.4169014, y: 0.031479478}
 --- !u!114 &11437994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +123,7 @@ MonoBehaviour:
   jumpMin: 4
   jumpFrame: 1
   cameraPosition: {x: 0, y: 1, z: -8}
+  endLag: 0
   idleSprites:
     loop: 1
     speed: 0.2
@@ -202,10 +204,10 @@ MonoBehaviour:
     firstFrameOfAttack: 3
     lastFrameOfAttack: 5
     firstFrameBuffer: 1
+    damage: 1
     knockback: {x: 1, y: 1}
-    changeMomentum: 0
-    momentumFrame: 0
-    momentum: {x: 0, y: 0}
+    uniqueType: default
+    endLag: 0.2
     hasSecondHit: 1
     secondAttack:
       animationSpeed: 0.2
@@ -223,10 +225,10 @@ MonoBehaviour:
       firstFrameOfAttack: 1
       lastFrameOfAttack: 3
       firstFrameBuffer: 0
+      damage: 2
       knockback: {x: 10, y: -1}
-      changeMomentum: 0
-      momentumFrame: 0
-      momentum: {x: 0, y: 0}
+      uniqueType: default
+      endLag: 0
       hasSecondHit: 0
   - animationSpeed: 0.15
     sprites:
@@ -236,16 +238,17 @@ MonoBehaviour:
     - {fileID: 21300028, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300030, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     frameHitboxes:
-    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-    - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-    firstFrameOfAttack: 2
+    - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
+    - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
+    - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
+    firstFrameOfAttack: 1
     lastFrameOfAttack: 3
     firstFrameBuffer: 0
-    knockback: {x: 1, y: -2}
-    changeMomentum: 1
-    momentumFrame: 1
-    momentum: {x: 5, y: -5}
-    hasSecondHit: 1
+    damage: 1
+    knockback: {x: 6, y: -3}
+    uniqueType: DropKick
+    endLag: 0.2
+    hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
       sprites:
@@ -262,11 +265,22 @@ MonoBehaviour:
       firstFrameOfAttack: 1
       lastFrameOfAttack: 3
       firstFrameBuffer: 0
+      damage: 0
       knockback: {x: 0, y: 0}
-      changeMomentum: 0
-      momentumFrame: 0
-      momentum: {x: 0, y: 0}
+      uniqueType: default
+      endLag: 0
       hasSecondHit: 0
+--- !u!114 &11495946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955705bd47d510f4dbd8c82355773a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21266660
 SpriteRenderer:
   m_ObjectHideFlags: 1
