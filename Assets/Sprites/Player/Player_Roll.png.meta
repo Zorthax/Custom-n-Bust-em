@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: e960a3538cc353d4889004f235bd45c5
+timeCreated: 1472522803
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player_Roll_0
+    21300002: Player_Roll_1
+    21300004: Player_Roll_2
+    21300006: Player_Roll_3
+    21300008: Player_Roll_4
+    21300010: Player_Roll_5
+    21300012: Player_Roll_6
+    21300014: Player_Roll_7
+    21300016: Player_Roll_8
+    21300018: Player_Roll_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Player_Roll_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49.800003, y: 3.880005}
+        - {x: -83.8, y: -1.1199951}
+        - {x: -83.8, y: -64.119995}
+        - {x: -67.8, y: -69.119995}
+        - {x: 51.199997, y: -69.119995}
+        - {x: 51.199997, y: -26.119995}
+        - {x: 48.199997, y: 3.880005}
+    - name: Player_Roll_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68.79999, y: -6.119995}
+        - {x: -86.79999, y: -11.119995}
+        - {x: -86.79999, y: -32.119995}
+        - {x: -51.799988, y: -71.119995}
+        - {x: 52.200012, y: -71.119995}
+        - {x: 55.200012, y: -63.119995}
+        - {x: 55.200012, y: -15.119995}
+        - {x: 41.200012, y: -6.119995}
+    - name: Player_Roll_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62.80005, y: 1.8800049}
+        - {x: -81.80005, y: -11.119995}
+        - {x: -81.80005, y: -27.119995}
+        - {x: -32.80005, y: -72.119995}
+        - {x: 36.19995, y: -72.119995}
+        - {x: 40.19995, y: -63.119995}
+        - {x: 40.19995, y: -5.119995}
+        - {x: 28.199951, y: 1.8800049}
+    - name: Player_Roll_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.800049, y: 14.880005}
+        - {x: -57.80005, y: 8.880005}
+        - {x: -69.80005, y: -2.119995}
+        - {x: -69.80005, y: -25.119995}
+        - {x: -43.80005, y: -71.119995}
+        - {x: 29.199951, y: -71.119995}
+        - {x: 40.19995, y: -65.119995}
+        - {x: 40.19995, y: -7.119995}
+        - {x: 20.199951, y: 14.880005}
+    - name: Player_Roll_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.199997, y: 18.880005}
+        - {x: -52.800003, y: 18.880005}
+        - {x: -52.800003, y: -66.119995}
+        - {x: -38.800003, y: -70.119995}
+        - {x: 25.199997, y: -70.119995}
+        - {x: 26.199997, y: -69.119995}
+        - {x: 39.199997, y: -37.119995}
+        - {x: 39.199997, y: 15.880005}
+    - name: Player_Roll_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.799988, y: 30.880005}
+        - {x: -25.799988, y: 30.880005}
+        - {x: -47.799988, y: -9.119995}
+        - {x: -47.799988, y: -68.119995}
+        - {x: 29.200012, y: -68.119995}
+        - {x: 59.200012, y: -38.119995}
+        - {x: 59.200012, y: -10.119995}
+        - {x: 37.200012, y: 16.880005}
+    - name: Player_Roll_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.80005, y: -19.119995}
+        - {x: -41.80005, y: -43.119995}
+        - {x: -30.800049, y: -53.119995}
+        - {x: -8.800049, y: -69.119995}
+        - {x: 68.19995, y: -69.119995}
+        - {x: 68.19995, y: -49.119995}
+        - {x: 65.19995, y: -32.119995}
+        - {x: 19.199951, y: 18.880005}
+        - {x: -21.800049, y: 18.880005}
+        - {x: -29.800049, y: 16.880005}
+    - name: Player_Roll_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.199951, y: 16.880005}
+        - {x: -43.80005, y: 16.880005}
+        - {x: -43.80005, y: -45.119995}
+        - {x: -28.800049, y: -77.119995}
+        - {x: 27.199951, y: -77.119995}
+        - {x: 50.19995, y: -70.119995}
+        - {x: 50.19995, y: -48.119995}
+        - {x: 41.19995, y: -1.1199951}
+    - name: Player_Roll_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.800003, y: 23.880005}
+        - {x: -54.800003, y: 16.880005}
+        - {x: -54.800003, y: -61.119995}
+        - {x: -24.800003, y: -79.119995}
+        - {x: 39.199997, y: -79.119995}
+        - {x: 39.199997, y: 17.880005}
+        - {x: 35.199997, y: 23.880005}
+    - name: Player_Roll_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.7999878, y: 21.880005}
+        - {x: -33.799988, y: 34.880005}
+        - {x: -87.79999, y: 34.880005}
+        - {x: -87.79999, y: 0.8800049}
+        - {x: -45.799988, y: -69.119995}
+        - {x: 33.200012, y: -69.119995}
+        - {x: 55.200012, y: -66.119995}
+        - {x: 55.200012, y: 2.880005}
+        - {x: 42.200012, y: 15.880005}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

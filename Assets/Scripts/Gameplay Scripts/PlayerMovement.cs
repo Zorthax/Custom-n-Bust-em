@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float jumpFrame = 2;
     public Vector3 cameraPosition;
 	public float endLag;
+	float stunTime;
     AttackScript atk;
 
     [Space(5)]
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
     public MySprite crouchSprites;
     public MySprite jumpSprites;
 	public MySprite airSprites;
+	public MySprite knockbackSprites;
 
     //Animation stuff
     MySprite currentSprite;
@@ -79,16 +81,23 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update ()
     {
-        if (!action) AttackControl();
-        GroundCheck();
+		if (stunTime <= 0) {
 
-        xMovement = CalculateXMovement();
-        yMovement = CalculateYMovement();
-        EnemyCheck();
+			if (!action)
+				AttackControl ();
+			GroundCheck ();
 
-        //Apply velocity
-        if (!action) rb.velocity = new Vector2(xMovement * walkingSpeed, yMovement);
+			xMovement = CalculateXMovement ();
+			yMovement = CalculateYMovement ();
+			EnemyCheck ();
 
+			//Apply velocity
+			if (!action)
+				rb.velocity = new Vector2 (xMovement * walkingSpeed, yMovement);
+		} else {
+			stunTime -= Time.deltaTime;
+			SetSprite (knockbackSprites);
+		}
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
         if (!action) Animation();
@@ -257,4 +266,13 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+	public void ApplyHit(Vector2 knockback, float stun, float damage)
+	{
+		if (stunTime <= 0) {
+			action = false;
+			rb.velocity = knockback;
+			stunTime = stun;
+			SetSprite (knockbackSprites);
+		}
+	}
 }

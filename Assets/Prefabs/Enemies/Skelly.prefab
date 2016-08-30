@@ -28,8 +28,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496822}
-  m_Layer: 14
-  m_Name: GameObject
+  - 114: {fileID: 11483232}
+  m_Layer: 13
+  m_Name: Attack Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,6 +152,37 @@ MonoBehaviour:
     - {fileID: 21300024, guid: b662f0b6386064b4faf792b7839ebd71, type: 3}
     - {fileID: 21300026, guid: b662f0b6386064b4faf792b7839ebd71, type: 3}
     - {fileID: 21300028, guid: b662f0b6386064b4faf792b7839ebd71, type: 3}
+  action: 0
+--- !u!114 &11483232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52dca10ef81baa43887772661bfa8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundAttack:
+    animationSpeed: 0.15
+    sprites:
+    - {fileID: 21300020, guid: ab050e09dbed86d449f2c24da016b922, type: 3}
+    - {fileID: 21300022, guid: ab050e09dbed86d449f2c24da016b922, type: 3}
+    - {fileID: 21300024, guid: ab050e09dbed86d449f2c24da016b922, type: 3}
+    - {fileID: 21300026, guid: ab050e09dbed86d449f2c24da016b922, type: 3}
+    - {fileID: 21300028, guid: ab050e09dbed86d449f2c24da016b922, type: 3}
+    - {fileID: 21300030, guid: ab050e09dbed86d449f2c24da016b922, type: 3}
+    frameHitboxes:
+    - {fileID: 6029716, guid: 6c0ed9bc08056b84694113f1aefdfb2e, type: 2}
+    - {fileID: 6029716, guid: 6c0ed9bc08056b84694113f1aefdfb2e, type: 2}
+    firstFrameOfAttack: 2
+    lastFrameOfAttack: 3
+    damage: 3
+    stun: 0.5
+    knockback: {x: 5, y: 3}
+    endLag: 1.5
+  attackDistance: 2
 --- !u!212 &21257262
 SpriteRenderer:
   m_ObjectHideFlags: 1

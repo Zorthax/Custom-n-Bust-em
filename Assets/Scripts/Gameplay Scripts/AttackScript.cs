@@ -3,11 +3,9 @@ using System.Collections;
 
 public class AttackScript : MonoBehaviour {
 
-    Animator anim;
     int neutralGround1;
     int upGround1;
     int neutralAir1;
-    int frame = 0;
     PolygonCollider2D localCollider;
     bool secondAttack;
     bool attackBuffer;
@@ -30,7 +28,6 @@ public class AttackScript : MonoBehaviour {
 		public float endLag;
 
         public bool hasSecondHit;
-        
 
     }
     [System.Serializable]
@@ -80,7 +77,6 @@ public class AttackScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        anim = GetComponentInParent<Animator>();
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         renderor = GetComponentInParent<SpriteRenderer>();
 		behaviour = GetComponent<AttackBehaviours> ();

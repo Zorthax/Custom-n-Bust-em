@@ -66,7 +66,7 @@ public class DropKick : Attack
 
 	public override void OnTriggerEnter(float spriteIndex, Rigidbody2D rb, Rigidbody2D enemyRb)
 	{
-		Debug.Log ("Dropkick hit");
+		//Debug.Log ("Dropkick hit");
 		rb.velocity = new Vector2 (-3 * rb.transform.localScale.x, 4); 
 	}
 }

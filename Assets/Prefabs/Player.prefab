@@ -175,6 +175,11 @@ MonoBehaviour:
     speed: 0
     sprites:
     - {fileID: 21300014, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+  knockbackSprites:
+    loop: 0
+    speed: 0
+    sprites:
+    - {fileID: 21300016, guid: e960a3538cc353d4889004f235bd45c5, type: 3}
   action: 0
 --- !u!114 &11463390
 MonoBehaviour:
@@ -245,7 +250,7 @@ MonoBehaviour:
     firstFrameOfAttack: 1
     lastFrameOfAttack: 2
     firstFrameBuffer: 0
-    damage: 2
+    damage: 1
     stun: 0.3
     knockback: {x: 6, y: -3}
     uniqueType: DropKick

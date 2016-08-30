@@ -17,10 +17,11 @@ public class EnemyBasics : MonoBehaviour {
     public MySprite runSprite;
     public MySprite knockbackSprite;
 
+	public bool action = false;
+
     Rigidbody2D rb;
 
     bool agro = false;
-    bool grounded = true;
     bool stunned = true;
     float x = 0;
     float y = 0;
@@ -87,43 +88,52 @@ public class EnemyBasics : MonoBehaviour {
 	void Update ()
     {
 
-	    if (Random.Range(0, walkRarity) >= walkRarity - 2)
-        {
-            float i = Random.value;
-            if (i < 0.3f)
-            {
-                x = -1;
-            }
-            else if (i < 0.6f)
-            {
-                x = 1;
-            }
-            else x = 0;
-        }
-
 		if (stunTime > 0)
 			stunTime -= Time.deltaTime;
-        y = rb.velocity.y;
 
-        if (!stunned) rb.velocity = new Vector2(x * walkSpeed, y);
 
-        Vector3 ls = transform.localScale;
-        if (x < 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
-        if (x > 0) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
-        if (!stunned) { if (x != 0) SetSprite(runSprite); else SetSprite(idleSprite); }
+		if (!stunned && !action) 
+		{
+			if (Random.Range (0, walkRarity) >= walkRarity - 2) {
+				float i = Random.value;
+				if (i < 0.3f) {
+					x = -1;
+				} else if (i < 0.6f) {
+					x = 1;
+				} else
+					x = 0;
+			}
+
+
+			y = rb.velocity.y;
+
+			rb.velocity = new Vector2 (x * walkSpeed, y);
+
+			Vector3 ls = transform.localScale;
+			if (x < 0)
+				transform.localScale = new Vector3 (-Mathf.Abs (ls.x), ls.y, ls.z);
+			if (x > 0)
+				transform.localScale = new Vector3 (Mathf.Abs (ls.x), ls.y, ls.z);
+			if (x != 0)
+				SetSprite (runSprite);
+			else
+				SetSprite (idleSprite);
+			
+		}
 
         if (stunned)
         {
+			Vector3 ls = transform.localScale;
             rb.velocity = new Vector2(rb.velocity.x / 1.1f, y);
 			if (stunTime <= 0)
 				stunned = false;
-            if (x > 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
-            if (x < 0) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
+			if (rb.velocity.x > 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
+			if (rb.velocity.x < 0) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
         }
 
 
 
-        Animation();
+		if (!action) Animation();
 
     }
 
@@ -152,8 +162,8 @@ public class EnemyBasics : MonoBehaviour {
 
 	}
 
-	public void DrawHealth()
+	public void SetAttackState(bool attacking)
 	{
-
+		action = attacking;
 	}
 }
