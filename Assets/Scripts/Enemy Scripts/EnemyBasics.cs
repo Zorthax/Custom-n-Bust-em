@@ -6,6 +6,9 @@ public class EnemyBasics : MonoBehaviour {
 	public float hpTotal;
 	float hp;
 	float stunTime;
+	public int healthBitsMin;
+	public int healthBitsMax;
+	int healthBits;
 
     public bool basicWalking = true;
     public float walkSpeed = 4;
@@ -63,13 +66,8 @@ public class EnemyBasics : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         renderor = GetComponent<SpriteRenderer>();
 
-		red = new Texture2D(1, 1);
-		red.SetPixel (0, 0, new Color(1, 0, 0, 1));
-		red.Apply ();
-
-		darkRed = new Texture2D(1, 1);
-		darkRed.SetPixel (0, 0, new Color(0.5f, 0, 0, 1));
-		darkRed.Apply ();
+		healthBits = Random.Range (healthBitsMin, healthBitsMax);
+		SetGUIColors ();
 
 		hp = hpTotal;
     }
@@ -79,6 +77,10 @@ public class EnemyBasics : MonoBehaviour {
 		//On death
 		if (hp <= 0) {
 			Instantiate (Resources.Load ("DeathSmoke"), transform.position, new Quaternion (0, 0, 0, 0));
+
+			for (int i = 0; i < healthBits; i++) {
+				Instantiate (Resources.Load ("HealthBit"), transform.position, new Quaternion (0, 0, 0, 0));
+			}
 			Destroy (gameObject);
 		}
 
@@ -124,7 +126,7 @@ public class EnemyBasics : MonoBehaviour {
         if (stunned)
         {
 			Vector3 ls = transform.localScale;
-            rb.velocity = new Vector2(rb.velocity.x / 1.1f, y);
+			rb.velocity = new Vector2(rb.velocity.x / 1.1f, rb.velocity.y / 1.1f);
 			if (stunTime <= 0)
 				stunned = false;
 			if (rb.velocity.x > 0) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
@@ -158,8 +160,17 @@ public class EnemyBasics : MonoBehaviour {
 
 		GUI.DrawTexture (new Rect (Camera.main.WorldToScreenPoint(transform.position).x - 25, 
 			(Screen.height - Camera.main.WorldToScreenPoint(transform.position).y) -30, 50 / (hpTotal / hp), 5), red);
-		
+	}
 
+	void SetGUIColors()
+	{
+		red = new Texture2D(1, 1);
+		red.SetPixel (0, 0, new Color(1, 0, 0, 1));
+		red.Apply ();
+
+		darkRed = new Texture2D(1, 1);
+		darkRed.SetPixel (0, 0, new Color(0.5f, 0, 0, 1));
+		darkRed.Apply ();
 	}
 
 	public void SetAttackState(bool attacking)

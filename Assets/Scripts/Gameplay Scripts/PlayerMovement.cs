@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
     [Header("Basics")]
+	public float hpTotal;
+	float hp;
     public float walkingSpeed = 5;
     public float jumpForce = 10;
     public float jumpMin = 2;
@@ -21,6 +23,14 @@ public class PlayerMovement : MonoBehaviour {
     public MySprite jumpSprites;
 	public MySprite airSprites;
 	public MySprite knockbackSprites;
+
+	[Space(5)]
+	[Header("GUI")]
+	public Vector2 healthBarPosition;
+	public Vector2 healthBarSize;
+	//GUI stuff
+	Texture2D red;
+	Texture2D darkRed;
 
     //Animation stuff
     MySprite currentSprite;
@@ -73,6 +83,8 @@ public class PlayerMovement : MonoBehaviour {
         renderor = GetComponent<SpriteRenderer>();
         currentSprite = idleSprites;
         action = false;
+		hp = hpTotal;
+		SetGUIColors ();
         
         
     }
@@ -223,8 +235,17 @@ public class PlayerMovement : MonoBehaviour {
 
     void AttackControl()
     {
+		float yInput = 0;
+		if (Input.GetAxis("Vertical") != 0) //Controller movement takes priority over keyboard
+		{ yInput = Input.GetAxis("Vertical"); }
+		else //keyboard movement
+		{
+			if (Input.GetKey(con.down)) yInput -= 1;
+			if (Input.GetKey(con.up)) yInput += 1;
+		}
+
 		if (endLag <= 0 && (Input.GetKeyDown (con.attack1) || Input.GetKeyDown (con.attack1ALT))) {
-			atk.InputAttack (con.attack1, 0, canJump);
+			atk.InputAttack (con.attack1, yInput, canJump);
 			action = true;
 			if (canJump)
 				rb.velocity = new Vector2 (0, 0);
@@ -242,7 +263,7 @@ public class PlayerMovement : MonoBehaviour {
         foreach (RaycastHit2D h in hits)
         {
             slowDown = false;
-            if (h.rigidbody.tag == "Enemy")
+			if (h.transform.tag == "Enemy")
             {
                 slowDown = true;
                 break;
@@ -252,10 +273,15 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.transform.tag == "Enemy")
-        {
-            slowDown = true;
-        }
+		if (other.transform.tag == "Enemy") 
+		{
+			slowDown = true;
+		} 
+		else if (other.transform.tag == "HealthBit") 
+		{
+			hp++;
+			Destroy (other.gameObject);
+		}
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -273,6 +299,25 @@ public class PlayerMovement : MonoBehaviour {
 			rb.velocity = knockback;
 			stunTime = stun;
 			SetSprite (knockbackSprites);
+			hp -= damage;
 		}
+	}
+
+	void OnGUI()
+	{
+		GUI.DrawTexture (new Rect (healthBarPosition.x, healthBarPosition.y, healthBarSize.x, healthBarSize.y), darkRed);
+
+		GUI.DrawTexture (new Rect (healthBarPosition.x, healthBarPosition.y, healthBarSize.x / (hpTotal / hp), healthBarSize.y), red);
+	}
+
+	void SetGUIColors()
+	{
+		red = new Texture2D(1, 1);
+		red.SetPixel (0, 0, new Color(1, 0, 0, 1));
+		red.Apply ();
+
+		darkRed = new Texture2D(1, 1);
+		darkRed.SetPixel (0, 0, new Color(0.5f, 0, 0, 1));
+		darkRed.Apply ();
 	}
 }

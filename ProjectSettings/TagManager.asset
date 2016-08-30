@@ -10,6 +10,7 @@ TagManager:
   - Slope
   - Enemy
   - NPC
+  - HealthBit
   layers:
   - Default
   - TransparentFX

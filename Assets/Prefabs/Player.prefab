@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d891dd32d0ff9f34b81b1c36d7bb45bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpTotal: 60
   walkingSpeed: 5
   jumpForce: 7
   jumpMin: 4
@@ -180,6 +181,8 @@ MonoBehaviour:
     speed: 0
     sprites:
     - {fileID: 21300016, guid: e960a3538cc353d4889004f235bd45c5, type: 3}
+  healthBarPosition: {x: 80, y: 10}
+  healthBarSize: {x: 150, y: 20}
   action: 0
 --- !u!114 &11463390
 MonoBehaviour:
@@ -211,7 +214,7 @@ MonoBehaviour:
     firstFrameBuffer: 1
     damage: 1
     stun: 0.2
-    knockback: {x: 1, y: 1}
+    knockback: {x: 1, y: 0}
     uniqueType: default
     endLag: 0.2
     hasSecondHit: 1
@@ -255,6 +258,53 @@ MonoBehaviour:
     knockback: {x: 6, y: -3}
     uniqueType: DropKick
     endLag: 0.2
+    hasSecondHit: 0
+    secondAttack:
+      animationSpeed: 0
+      sprites:
+      - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
+      - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
+      frameHitboxes:
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
+      firstFrameOfAttack: 1
+      lastFrameOfAttack: 3
+      firstFrameBuffer: 0
+      damage: 0
+      stun: 0
+      knockback: {x: 0, y: 0}
+      uniqueType: default
+      endLag: 0
+      hasSecondHit: 0
+  - animationSpeed: 0.2
+    sprites:
+    - {fileID: 21300000, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300000, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300002, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300004, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300006, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300008, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300010, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    - {fileID: 21300012, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
+    frameHitboxes:
+    - {fileID: 6059630, guid: ed843e2a19396da46a87f3b3396ee8ec, type: 2}
+    - {fileID: 6059630, guid: ed843e2a19396da46a87f3b3396ee8ec, type: 2}
+    - {fileID: 6059630, guid: ed843e2a19396da46a87f3b3396ee8ec, type: 2}
+    - {fileID: 6059630, guid: ed843e2a19396da46a87f3b3396ee8ec, type: 2}
+    - {fileID: 6059630, guid: ed843e2a19396da46a87f3b3396ee8ec, type: 2}
+    firstFrameOfAttack: 2
+    lastFrameOfAttack: 6
+    firstFrameBuffer: 0
+    damage: 2
+    stun: 0.5
+    knockback: {x: -10, y: 8}
+    uniqueType: Thrust
+    endLag: 0.05
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0

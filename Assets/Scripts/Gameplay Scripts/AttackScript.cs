@@ -4,6 +4,7 @@ using System.Collections;
 public class AttackScript : MonoBehaviour {
 
     int neutralGround1;
+	int downGround1;
     int upGround1;
     int neutralAir1;
     PolygonCollider2D localCollider;
@@ -83,6 +84,7 @@ public class AttackScript : MonoBehaviour {
 
         neutralGround1 = 0;
         neutralAir1 = 1;
+		downGround1 = 2;
         currentAttack = null;
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
         localCollider.isTrigger = true;
@@ -109,11 +111,14 @@ public class AttackScript : MonoBehaviour {
             GetComponentInParent<PlayerMovement>().action = false;
 	}
 
-    public void InputAttack(KeyCode attackKey, int direction, bool onGround)
+    public void InputAttack(KeyCode attackKey, float direction, bool onGround)
     {
         if (attackKey == con.attack1)
         {
-            if (direction == 0) { if (onGround) currentAttack = attackList[neutralGround1]; else currentAttack = attackList[neutralAir1]; }
+            if (direction == 0) 
+			{ if (onGround) currentAttack = attackList[neutralGround1]; else currentAttack = attackList[neutralAir1]; }
+			if (direction < 0) 
+			{ if (onGround) currentAttack = attackList[downGround1]; else currentAttack = attackList[neutralAir1]; }
             spriteIndex = 0;
             secondAttack = false;
             attackType = attackKey;
@@ -150,7 +155,7 @@ public class AttackScript : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            //Debug.Log("Hit Enemy");
+			Debug.Log(currentAttack.knockback);
             float scale = transform.lossyScale.x;
             if (!secondAttack) other.transform.GetComponent<EnemyBasics>().ApplyHit(
 				new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y), currentAttack.damage, currentAttack.stun);

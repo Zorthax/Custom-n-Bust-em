@@ -19,6 +19,9 @@ public class AttackBehaviours : MonoBehaviour
 		case "DropKick":
 			attack = new DropKick ();
 			break;
+		case "Thrust":
+			attack = new Thrust ();
+			break;
 		default:
 			attack = new Attack ();
 			break;
@@ -57,7 +60,7 @@ public class DropKick : Attack
 		if (Mathf.Floor (spriteIndex) == 0)
 			rb.velocity = new Vector2 (4 * rb.transform.localScale.x, -5);
 		if (rb.velocity.y >= 0 && rb.velocity.y < 0.2f && spriteIndex < 3) {
-			rb.velocity = new Vector2 (-2 * rb.transform.localScale.x, 0); 
+			rb.velocity = new Vector2 (-3 * rb.transform.localScale.x, 0); 
 			return 4.0f;
 		}
 		else
@@ -68,5 +71,18 @@ public class DropKick : Attack
 	{
 		//Debug.Log ("Dropkick hit");
 		rb.velocity = new Vector2 (-3 * rb.transform.localScale.x, 4); 
+	}
+}
+
+public class Thrust : Attack
+{
+	public override float Update(float spriteIndex, Rigidbody2D rb)
+	{
+		if (Mathf.Floor (spriteIndex) == 2)
+			rb.velocity = new Vector2 (6 * rb.transform.localScale.x, rb.velocity.y);
+		if (Mathf.Floor (spriteIndex) == 6)
+			rb.velocity = new Vector2 (0, rb.velocity.y);
+
+		return spriteIndex;
 	}
 }
