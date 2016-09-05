@@ -30,6 +30,7 @@ GameObject:
   - 61: {fileID: 6191810}
   - 61: {fileID: 6149198}
   - 114: {fileID: 11437994}
+  - 114: {fileID: 11448298}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -119,12 +120,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpTotal: 60
+  spTotal: 6
   walkingSpeed: 5
   jumpForce: 7
   jumpMin: 4
   jumpFrame: 1
   cameraPosition: {x: 0, y: 1, z: -8}
   endLag: 0
+  action: 0
+--- !u!114 &11448298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6e1aceca0bc8b4284faf1ba3f6fce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   idleSprites:
     loop: 1
     speed: 0.2
@@ -156,14 +170,6 @@ MonoBehaviour:
     - {fileID: 21300018, guid: e288ce2dc8249414598a0da105391860, type: 3}
     - {fileID: 21300020, guid: e288ce2dc8249414598a0da105391860, type: 3}
     - {fileID: 21300022, guid: e288ce2dc8249414598a0da105391860, type: 3}
-  crouchSprites:
-    loop: 1
-    speed: 0.1
-    sprites:
-    - {fileID: 21300016, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300018, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300020, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
-    - {fileID: 21300022, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   jumpSprites:
     loop: 0
     speed: 0.2
@@ -175,15 +181,26 @@ MonoBehaviour:
     loop: 0
     speed: 0
     sprites:
-    - {fileID: 21300014, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
+    - {fileID: 21300012, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   knockbackSprites:
     loop: 0
     speed: 0
     sprites:
     - {fileID: 21300016, guid: e960a3538cc353d4889004f235bd45c5, type: 3}
-  healthBarPosition: {x: 80, y: 10}
-  healthBarSize: {x: 150, y: 20}
-  action: 0
+  shieldSprites:
+    loop: 0
+    speed: 0
+    sprites:
+    - {fileID: 21300000, guid: f833519a6bf20cd4280d9fe6f5667c26, type: 3}
+  healthBarPosition: {x: 74, y: 26}
+  healthBarSize: {x: 150, y: 29}
+  manaBarPosition: {x: 74, y: 60}
+  manaBarSize: {x: 150, y: 14}
+  shield: {fileID: 2800000, guid: 5ee0fe61560e0c74b9259374f33e4da7, type: 3}
+  shieldBack: {fileID: 2800000, guid: 0cb42835d2b27af42be67bcdba52e738, type: 3}
+  shieldPosition: {x: 50, y: 50}
+  shieldRadius: 60
+  boldSize: 10
 --- !u!114 &11463390
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -155,7 +155,7 @@ public class AttackScript : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-			Debug.Log(currentAttack.knockback);
+			//Debug.Log(currentAttack.knockback);
             float scale = transform.lossyScale.x;
             if (!secondAttack) other.transform.GetComponent<EnemyBasics>().ApplyHit(
 				new Vector2(currentAttack.knockback.x * scale, currentAttack.knockback.y), currentAttack.damage, currentAttack.stun);

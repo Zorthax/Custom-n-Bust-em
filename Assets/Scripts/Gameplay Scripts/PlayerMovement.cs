@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Basics")]
 	public float hpTotal;
 	float hp;
+	public float spTotal;
+	float sp;
     public float walkingSpeed = 5;
     public float jumpForce = 10;
     public float jumpMin = 2;
@@ -14,23 +16,6 @@ public class PlayerMovement : MonoBehaviour {
 	public float endLag;
 	float stunTime;
     AttackScript atk;
-
-    [Space(5)]
-    [Header("Sprites")]
-    public MySprite idleSprites;
-    public MySprite runSprites;
-    public MySprite crouchSprites;
-    public MySprite jumpSprites;
-	public MySprite airSprites;
-	public MySprite knockbackSprites;
-
-	[Space(5)]
-	[Header("GUI")]
-	public Vector2 healthBarPosition;
-	public Vector2 healthBarSize;
-	//GUI stuff
-	Texture2D red;
-	Texture2D darkRed;
 
     //Animation stuff
     MySprite currentSprite;
@@ -51,14 +36,6 @@ public class PlayerMovement : MonoBehaviour {
             spriteIndex = 0;
         }
     }
-    [System.Serializable]
-    public class MySprite
-    {
-        public bool loop;
-        public float speed;
-        public Sprite[] sprites;
-    }
-
 
     static Controls con;
     Rigidbody2D rb;
@@ -66,11 +43,12 @@ public class PlayerMovement : MonoBehaviour {
     
     bool onSlope;
     bool canJump;
+	bool shielding;
     public bool action;
     float xMovement;
     float yMovement;
     bool slowDown = false;
-    
+	PlayerSprites sprites;
     
 
     // Use this for initialization
@@ -81,22 +59,30 @@ public class PlayerMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         atk = GetComponentInChildren<AttackScript>();
         renderor = GetComponent<SpriteRenderer>();
-        currentSprite = idleSprites;
+		sprites = GetComponent<PlayerSprites> ();
+        currentSprite = sprites.idleSprites;
         action = false;
-		hp = hpTotal;
-		SetGUIColors ();
-        
-        
+		shielding = false;
+		hp = hpTotal; 
+		sp = spTotal;
     }
-	
-	// Update is called once per frame
 
+	void FixedUpdate()
+	{
+		if (hp > hpTotal)
+			hp = hpTotal;
+		if (sp > spTotal)
+			sp = spTotal;
+	}
 	void Update ()
     {
 		if (stunTime <= 0) {
 
-			if (!action)
+			if (!action) 
+			{
 				AttackControl ();
+				CheckShield ();
+			}
 			GroundCheck ();
 
 			xMovement = CalculateXMovement ();
@@ -108,11 +94,12 @@ public class PlayerMovement : MonoBehaviour {
 				rb.velocity = new Vector2 (xMovement * walkingSpeed, yMovement);
 		} else {
 			stunTime -= Time.deltaTime;
-			SetSprite (knockbackSprites);
+			SetSprite (sprites.knockbackSprites);
 		}
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
         if (!action) Animation();
+		sprites.SetStats (hpTotal, hp, spTotal, sp);
 	}
 
     void GroundCheck()
@@ -128,17 +115,17 @@ public class PlayerMovement : MonoBehaviour {
         //Find specific collision tags
         foreach (RaycastHit2D h in hits)
         {
-            if (h.rigidbody.tag == "Passable")
+			if (h.transform.tag == "Passable")
             {
                 canJump = true;
-                if (Input.GetKey(con.down)) //Jump down from platform
+				if (Input.GetKey(con.down) && yMovement <= 0) //Jump down from platform
                 {
                     col.isTrigger = true;
                     transform.position -= new Vector3(0, 0.1f, 0);
                     canJump = false;
                 }
             }
-            if (h.rigidbody.tag != "Player" && h.transform.tag != "NPC" && h.rigidbody.tag != "Slope" && h.rigidbody.tag != "Passable" && h.transform.tag != "Enemy")
+			if (h.transform.tag != "Player" && h.transform.tag != "NPC" && h.transform.tag != "Slope" && h.transform.tag != "Passable" && h.transform.tag != "Enemy")
             {
                 canJump = true;
                 break;
@@ -147,7 +134,7 @@ public class PlayerMovement : MonoBehaviour {
 
         SlopeCheck();
 
-		if (currentSprite == jumpSprites && spriteIndex < jumpFrame)
+		if (currentSprite == sprites.jumpSprites && spriteIndex < jumpFrame)
 			canJump = false;
     }
 
@@ -159,7 +146,7 @@ public class PlayerMovement : MonoBehaviour {
         //Find specific collision tags
         foreach (RaycastHit2D h in hits)
         {
-            if (h.rigidbody.tag == "Slope")
+            if (h.transform.tag == "Slope")
             {
                 onSlope = true;
                 canJump = true;
@@ -170,33 +157,26 @@ public class PlayerMovement : MonoBehaviour {
     float CalculateXMovement()
     {
         float x = 0;
-
-        //Exit early if crouching
-        if (onSlope && !action)
-        {
-            if (Input.GetKey(con.down))
-            {
-                SetSprite(crouchSprites);
-                return 0;
-            }
-        }
+		if (shielding && !canJump)
+			x = xMovement;
 
         //Horizontal movement
-        if (Input.GetAxis("Horizontal") != 0 && (!action)) //Controller movement takes priority over keyboard
+        if (Input.GetAxis("Horizontal") != 0 && (!action && !shielding)) //Controller movement takes priority over keyboard
         { x = Input.GetAxis("Horizontal"); }
-        else //keyboard movement
+		else if (!action && !shielding) //keyboard movement
         {
-            if (Input.GetKey(con.left) && (!action)) x -= 1;
-            if (Input.GetKey(con.right) && (!action)) x += 1;
+            if (Input.GetKey(con.left)) x -= 1;
+            if (Input.GetKey(con.right)) x += 1;
         }
 
         //Flip sprite to face direction of movement
         Vector3 ls = transform.localScale;
         if (x < 0 && !action) transform.localScale = new Vector3(-Mathf.Abs(ls.x), ls.y, ls.z);
         if (x > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
-        if (!action && canJump) { if (x != 0) SetSprite(runSprites); else SetSprite(idleSprites); }
+		if (!action && !shielding && canJump) { if (x != 0) SetSprite(sprites.runSprites); else SetSprite(sprites.idleSprites); }
 
-        if (slowDown) x /= 3;
+		if (slowDown) x /= 3;
+		if (shielding) x /= 1.02f;
         return x;
     }
 
@@ -207,16 +187,16 @@ public class PlayerMovement : MonoBehaviour {
 		//Smooth jump animations
         if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
         {
-			SetSprite(jumpSprites);
+			SetSprite(sprites.jumpSprites);
             if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
             { y = jumpMin; }
         }
-		if (!action && !canJump && currentSprite == jumpSprites) 
+		if (!action && !canJump && currentSprite == sprites.jumpSprites) 
 		{
             if (Mathf.RoundToInt(spriteIndex) == jumpFrame && rb.velocity.y < jumpMin / 2)
             { y = jumpForce; }
-            else if (Mathf.RoundToInt(spriteIndex) >= jumpSprites.sprites.Length)
-                SetSprite(airSprites);
+            else if (Mathf.RoundToInt(spriteIndex) >= sprites.jumpSprites.sprites.Length)
+                SetSprite(sprites.airSprites);
             //Hold to jump higher
             if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)) && (y == 0))
             { y = jumpMin; }
@@ -227,8 +207,8 @@ public class PlayerMovement : MonoBehaviour {
         { y = jumpMin; canJump = false; }
 
 		if (onSlope) y -= 0.5f;//Smooth slope walking
-        if (!action && !onSlope && y > 0.1f && canJump) SetSprite(airSprites); //Prevents animation change when jumping up platforms
-		if (!action && !canJump && currentSprite != jumpSprites) SetSprite(airSprites); //Set air sprite when falling
+        if (!action && !shielding && !onSlope && y > 0.1f && canJump) SetSprite(sprites.airSprites); //Prevents animation change when jumping up platforms
+		if (!action && !shielding &&  !canJump && currentSprite != sprites.jumpSprites) SetSprite(sprites.airSprites); //Set air sprite when falling
 
         return y;
     }
@@ -247,6 +227,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (endLag <= 0 && (Input.GetKeyDown (con.attack1) || Input.GetKeyDown (con.attack1ALT))) {
 			atk.InputAttack (con.attack1, yInput, canJump);
 			action = true;
+			shielding = false;
 			if (canJump)
 				rb.velocity = new Vector2 (0, 0);
 		} else if (endLag > 0)
@@ -294,30 +275,27 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void ApplyHit(Vector2 knockback, float stun, float damage)
 	{
-		if (stunTime <= 0) {
+		if (stunTime <= 0 && !shielding) {
 			action = false;
 			rb.velocity = knockback;
 			stunTime = stun;
-			SetSprite (knockbackSprites);
+			SetSprite (sprites.knockbackSprites);
 			hp -= damage;
 		}
 	}
 
-	void OnGUI()
+	void CheckShield()
 	{
-		GUI.DrawTexture (new Rect (healthBarPosition.x, healthBarPosition.y, healthBarSize.x, healthBarSize.y), darkRed);
-
-		GUI.DrawTexture (new Rect (healthBarPosition.x, healthBarPosition.y, healthBarSize.x / (hpTotal / hp), healthBarSize.y), red);
-	}
-
-	void SetGUIColors()
-	{
-		red = new Texture2D(1, 1);
-		red.SetPixel (0, 0, new Color(1, 0, 0, 1));
-		red.Apply ();
-
-		darkRed = new Texture2D(1, 1);
-		darkRed.SetPixel (0, 0, new Color(0.5f, 0, 0, 1));
-		darkRed.Apply ();
+		if (sp > 0 && (Input.GetKey (con.shield) || Input.GetKey (con.shieldALT))) 
+		{
+			shielding = true;
+			SetSprite(sprites.shieldSprites);
+			sp -= Time.deltaTime;
+		} 
+		else 
+		{
+			shielding = false;
+			if (sp < spTotal) sp += Time.deltaTime;
+		}
 	}
 }
