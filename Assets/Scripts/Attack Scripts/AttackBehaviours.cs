@@ -57,9 +57,9 @@ public class DropKick : Attack
 {
 	public override float Update(float spriteIndex, Rigidbody2D rb)
 	{
-		if (Mathf.Floor (spriteIndex) == 0)
-			rb.velocity = new Vector2 (4 * rb.transform.localScale.x, -5);
-		if (rb.velocity.y >= 0 && rb.velocity.y < 0.2f && spriteIndex < 3) {
+		if (Mathf.Floor (spriteIndex) == 1)
+			rb.velocity = new Vector2 (4 * rb.transform.localScale.x, -6);
+		if (rb.velocity.y >= 0 && rb.velocity.y < 0.2f && spriteIndex > 2 && spriteIndex < 4) {
 			rb.velocity = new Vector2 (-3 * rb.transform.localScale.x, 0); 
 			return 4.0f;
 		}
@@ -70,7 +70,7 @@ public class DropKick : Attack
 	public override void OnTriggerEnter(float spriteIndex, Rigidbody2D rb, Rigidbody2D enemyRb)
 	{
 		//Debug.Log ("Dropkick hit");
-		rb.velocity = new Vector2 (-3 * rb.transform.localScale.x, 4); 
+		rb.velocity = new Vector2 (-3 * rb.transform.localScale.x, 5); 
 	}
 }
 

@@ -100,7 +100,7 @@ public class PlayerSprites : MonoBehaviour {
 		//Mana bar
 		GUI.DrawTexture (new Rect (manaBarPosition.x - boldSize / 2, manaBarPosition.y - boldSize / 2, manaBarSize.x + boldSize, manaBarSize.y + boldSize), black);
 		GUI.DrawTexture (new Rect (manaBarPosition.x, manaBarPosition.y, manaBarSize.x, manaBarSize.y), darkGreen);
-		GUI.DrawTexture (new Rect (manaBarPosition.x, manaBarPosition.y, manaBarSize.x / (hpTotal / mp), manaBarSize.y), green);
+		GUI.DrawTexture (new Rect (manaBarPosition.x, manaBarPosition.y, manaBarSize.x / (mpTotal / mp), manaBarSize.y), green);
 
 		float scale = shieldRadius / (spTotal / sp);
 

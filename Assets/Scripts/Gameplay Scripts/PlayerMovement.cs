@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Basics")]
 	public float hpTotal;
 	float hp;
-	public float spTotal;
-	float sp;
     public float walkingSpeed = 5;
     public float jumpForce = 10;
     public float jumpMin = 2;
@@ -16,6 +14,14 @@ public class PlayerMovement : MonoBehaviour {
 	public float endLag;
 	float stunTime;
     AttackScript atk;
+
+	public float spTotal;
+	float sp;
+	public float shieldRechargeDelay;
+	public float shieldBreakDelay;
+	public float shieldThickness;
+	float shieldDelay;
+	bool shieldBroken;
 
     //Animation stuff
     MySprite currentSprite;
@@ -65,6 +71,7 @@ public class PlayerMovement : MonoBehaviour {
 		shielding = false;
 		hp = hpTotal; 
 		sp = spTotal;
+		shieldDelay = 0;
     }
 
 	void FixedUpdate()
@@ -76,12 +83,15 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void Update ()
     {
+		if (!action)
+			CheckShield ();
+
 		if (stunTime <= 0) {
 
 			if (!action) 
 			{
 				AttackControl ();
-				CheckShield ();
+
 			}
 			GroundCheck ();
 
@@ -224,7 +234,9 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetKey(con.up)) yInput += 1;
 		}
 
-		if (endLag <= 0 && (Input.GetKeyDown (con.attack1) || Input.GetKeyDown (con.attack1ALT))) {
+		if (endLag <= 0 && (Input.GetKeyDown (con.attack1) || Input.GetKeyDown (con.attack1ALT))) 
+		{
+			SetSprite(sprites.idleSprites);
 			atk.InputAttack (con.attack1, yInput, canJump);
 			action = true;
 			shielding = false;
@@ -282,11 +294,36 @@ public class PlayerMovement : MonoBehaviour {
 			SetSprite (sprites.knockbackSprites);
 			hp -= damage;
 		}
+		if (shielding) 
+		{
+			sp -= damage / shieldThickness;
+			//stunTime = stun;
+		}
 	}
 
 	void CheckShield()
 	{
-		if (sp > 0 && (Input.GetKey (con.shield) || Input.GetKey (con.shieldALT))) 
+		if (sp < -0.01f)
+			sp = -0.01f;
+
+		if (shieldDelay > 0) 
+		{
+			shieldDelay -= Time.deltaTime;
+		}
+
+		if (sp < 0 && shieldDelay <= 0) 
+		{
+			shieldDelay = shieldBreakDelay;
+			sp = 0.001f;
+			shieldBroken = true;
+		}
+
+		if (sp > spTotal - 0.5f) 
+		{
+			shieldBroken = false;
+		}
+
+		if (stunTime <= 0 && !shieldBroken && sp > 0 && (Input.GetKey (con.shield) || Input.GetKey (con.shieldALT))) 
 		{
 			shielding = true;
 			SetSprite(sprites.shieldSprites);
@@ -294,8 +331,18 @@ public class PlayerMovement : MonoBehaviour {
 		} 
 		else 
 		{
-			shielding = false;
-			if (sp < spTotal) sp += Time.deltaTime;
+			if (stunTime <= 0) shielding = false;
+			if (shieldDelay <= 0) 
+			{
+				if (sp < spTotal)
+					sp += Time.deltaTime;
+			}
+		}
+
+		if (shieldDelay <= 0 && (Input.GetKeyUp (con.shield) || Input.GetKeyUp (con.shieldALT))) 
+		{
+			if (!shieldBroken) shieldDelay = shieldRechargeDelay;
+			if (sp < 0) sp = 0.001f;
 		}
 	}
 }

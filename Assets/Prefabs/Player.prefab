@@ -120,13 +120,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpTotal: 60
-  spTotal: 6
   walkingSpeed: 5
   jumpForce: 7
   jumpMin: 4
   jumpFrame: 1
   cameraPosition: {x: 0, y: 1, z: -8}
   endLag: 0
+  spTotal: 10
+  shieldRechargeDelay: 1
+  shieldBreakDelay: 2
+  shieldThickness: 20
   action: 0
 --- !u!114 &11448298
 MonoBehaviour:
@@ -257,8 +260,9 @@ MonoBehaviour:
       uniqueType: default
       endLag: 0
       hasSecondHit: 0
-  - animationSpeed: 0.15
+  - animationSpeed: 0.2
     sprites:
+    - {fileID: 21300022, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300022, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300024, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300026, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
@@ -267,12 +271,13 @@ MonoBehaviour:
     frameHitboxes:
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
-    firstFrameOfAttack: 1
-    lastFrameOfAttack: 2
+    - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
+    firstFrameOfAttack: 2
+    lastFrameOfAttack: 4
     firstFrameBuffer: 0
     damage: 1
     stun: 0.3
-    knockback: {x: 6, y: -3}
+    knockback: {x: 6, y: 1}
     uniqueType: DropKick
     endLag: 0.2
     hasSecondHit: 0
@@ -317,7 +322,7 @@ MonoBehaviour:
     firstFrameOfAttack: 2
     lastFrameOfAttack: 6
     firstFrameBuffer: 0
-    damage: 2
+    damage: 1
     stun: 0.5
     knockback: {x: -10, y: 8}
     uniqueType: Thrust
