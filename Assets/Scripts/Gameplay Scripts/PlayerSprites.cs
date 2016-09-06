@@ -82,12 +82,14 @@ public class PlayerSprites : MonoBehaviour {
 		black.Apply ();
 	}
 
-	public void SetStats(float _hpTotal, float _hp, float _spTotal, float _sp)
+	public void SetStats(float _hpTotal, float _hp, float _spTotal, float _sp, float _mpTotal, float _mp)
 	{
 		hpTotal = _hpTotal;
 		hp = _hp;
 		spTotal = _spTotal;
 		sp = _sp;
+		mpTotal = _mpTotal;
+		mp = _mp;
 	}
 
 	void OnGUI()

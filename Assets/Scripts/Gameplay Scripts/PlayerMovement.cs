@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Basics")]
 	public float hpTotal;
 	float hp;
+	public float mpTotal;
+	public float mp;
     public float walkingSpeed = 5;
     public float jumpForce = 10;
     public float jumpMin = 2;
@@ -109,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
         if (!action) Animation();
-		sprites.SetStats (hpTotal, hp, spTotal, sp);
+		sprites.SetStats (hpTotal, hp, spTotal, sp, mpTotal, mp);
 	}
 
     void GroundCheck()
@@ -128,7 +130,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (h.transform.tag == "Passable")
             {
                 canJump = true;
-				if (Input.GetKey(con.down) && yMovement <= 0) //Jump down from platform
+				if (Input.GetKey(con.down) && yMovement <= 0 || Input.GetAxis("Vertical") < 0) //Jump down from platform
                 {
                     col.isTrigger = true;
                     transform.position -= new Vector3(0, 0.1f, 0);
@@ -242,6 +244,15 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			SetSprite(sprites.idleSprites);
 			atk.InputAttack (con.attack1, yInput, canJump);
+			action = true;
+			shielding = false;
+			if (canJump)
+				rb.velocity = new Vector2 (0, 0);
+		} 
+		else if (endLag <= 0 && (Input.GetKeyDown (con.attack2) || Input.GetKeyDown (con.attack2ALT))) 
+		{
+			SetSprite(sprites.idleSprites);
+			atk.InputAttack (con.attack2, yInput, canJump);
 			action = true;
 			shielding = false;
 			if (canJump)

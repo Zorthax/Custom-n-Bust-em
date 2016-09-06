@@ -51,13 +51,6 @@ public class EnemyBasics : MonoBehaviour {
             spriteIndex = 0;
         }
     }
-    [System.Serializable]
-    public class MySprite
-    {
-        public bool loop;
-        public float speed;
-        public Sprite[] sprites;
-    }
 
     // Use this for initialization
     void Start ()

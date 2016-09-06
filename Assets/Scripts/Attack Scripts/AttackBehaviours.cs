@@ -33,11 +33,18 @@ public class AttackBehaviours : MonoBehaviour
 		case "Hurricane":
 			attack = new Hurricane ();
 			break;
+		case "RisingKick":
+			attack = new RisingKick ();
+			break;
+		case "SwordThrow":
+			attack = new SwordThrow ();
+			break;
 		default:
 			attack = new Attack ();
 			break;
 		}
 		attack._player = player;
+		attack._rb = rb;
 	}
 
 	public float MyUpdate(float spriteIndex)
@@ -57,6 +64,7 @@ public class AttackBehaviours : MonoBehaviour
 public class Attack
 {
 	public PlayerMovement _player;
+	public Rigidbody2D _rb;
 	public virtual float Update(float spriteIndex, Rigidbody2D rb)
 	{
 		return spriteIndex;
@@ -68,10 +76,22 @@ public class Attack
 
 	protected bool OnGround(float spriteIndex)
 	{
-		if ((Mathf.Floor (spriteIndex) >= 1 && _player.canJump))
+		if (Mathf.Floor (spriteIndex) >= 1 && _player.canJump
+			&& Mathf.Abs(_rb.velocity.y) < 0.2f)
 			return true;
 		else
 			return false;
+	}
+}
+
+public class Air : Attack
+{
+	public override float Update(float spriteIndex, Rigidbody2D rb)
+	{
+		if (OnGround(spriteIndex))
+			return 50;
+
+		return spriteIndex;
 	}
 }
 
@@ -82,7 +102,7 @@ public class DropKick : Attack
 		if (OnGround(spriteIndex))
 			return 50;
 		if (Mathf.Floor (spriteIndex) == 1)
-			rb.velocity = new Vector2(4 * rb.transform.lossyScale.x, -6);
+			rb.velocity = new Vector2(4 * rb.transform.lossyScale.x, -8);
 		if (rb.velocity.y >= 0 && rb.velocity.y < 0.2f && spriteIndex > 2 && spriteIndex < 4) {
 			rb.velocity = new Vector2 (-3 * rb.transform.lossyScale.x, 0); 
 			return 4.0f;
@@ -122,17 +142,6 @@ public class Shoryuken : Attack
 	}
 }
 
-public class Air : Attack
-{
-	public override float Update(float spriteIndex, Rigidbody2D rb)
-	{
-		if (OnGround(spriteIndex))
-			return 50;
-
-		return spriteIndex;
-	}
-}
-
 public class Hurricane : Attack
 {
 	public override float Update(float spriteIndex, Rigidbody2D rb)
@@ -152,5 +161,41 @@ public class Hurricane : Attack
 		else
 			direc = -1;
 		enemyRb.GetComponent<EnemyBasics> ().ApplyHit (new Vector2 (7 * direc, 1), 2, 0.6f);
+	}
+}
+
+public class RisingKick : Attack
+{
+	public override float Update(float spriteIndex, Rigidbody2D rb)
+	{
+		if (Mathf.Floor (spriteIndex) == 1)
+			rb.velocity = new Vector2 (0, 20);
+		if (Mathf.Floor (spriteIndex) > 1)
+			rb.velocity = new Vector2 (0, 1);
+
+		return spriteIndex;
+	}
+
+	public override void OnTriggerEnter(float spriteIndex, Rigidbody2D rb, Rigidbody2D enemyRb)
+	{
+		//Debug.Log ("Dropkick hit");
+		if (Mathf.Floor (spriteIndex) == 1)
+		enemyRb.GetComponent<EnemyBasics> ().ApplyHit (new Vector2 (0, 25), 2, 0.6f);
+	}
+}
+
+public class SwordThrow : Attack
+{
+	bool thrown = false;
+	public override float Update(float spriteIndex, Rigidbody2D rb)
+	{
+		if (Mathf.Floor (spriteIndex) == 4 && !thrown) 
+		{
+			GameObject sword = Object.Instantiate(Resources.Load("Sword"), rb.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
+			sword.transform.localScale = rb.transform.lossyScale;
+			thrown = true;
+		}
+
+		return spriteIndex;
 	}
 }

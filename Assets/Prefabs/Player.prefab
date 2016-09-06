@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpTotal: 60
+  mpTotal: 10
+  mp: 10
   walkingSpeed: 5
   jumpForce: 7
   jumpMin: 4
@@ -236,6 +238,7 @@ MonoBehaviour:
     damage: 1
     stun: 0.2
     knockback: {x: 1, y: 0}
+    manaCost: 0
     uniqueType: default
     endLag: 0.2
     hasSecondHit: 1
@@ -258,12 +261,12 @@ MonoBehaviour:
       damage: 2
       stun: 0.3
       knockback: {x: 10, y: -1}
+      manaCost: 0
       uniqueType: default
       endLag: 0
       hasSecondHit: 0
   - animationSpeed: 0.2
     sprites:
-    - {fileID: 21300022, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300022, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300024, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300026, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
@@ -273,12 +276,13 @@ MonoBehaviour:
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
     - {fileID: 6088022, guid: 375511de00115fd48b2273dc57f7e6a4, type: 2}
-    firstFrameOfAttack: 2
-    lastFrameOfAttack: 4
+    firstFrameOfAttack: 1
+    lastFrameOfAttack: 3
     firstFrameBuffer: 0
     damage: 1
     stun: 0.3
     knockback: {x: 6, y: 1}
+    manaCost: 0
     uniqueType: DropKick
     endLag: 0.2
     hasSecondHit: 0
@@ -292,6 +296,7 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
+      manaCost: 0
       uniqueType: default
       endLag: 0
       hasSecondHit: 0
@@ -317,6 +322,7 @@ MonoBehaviour:
     damage: 1
     stun: 0.5
     knockback: {x: -10, y: 8}
+    manaCost: 0
     uniqueType: Thrust
     endLag: 0.05
     hasSecondHit: 0
@@ -330,6 +336,7 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
+      manaCost: 0
       uniqueType: default
       endLag: 0
       hasSecondHit: 0
@@ -373,6 +380,7 @@ MonoBehaviour:
     damage: 4
     stun: 1
     knockback: {x: 8, y: 12}
+    manaCost: 0
     uniqueType: Shoryuken
     endLag: 0.2
     hasSecondHit: 0
@@ -386,10 +394,11 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
+      manaCost: 0
       uniqueType: default
       endLag: 0
       hasSecondHit: 0
-  - animationSpeed: 0.25
+  - animationSpeed: 0.2
     sprites:
     - {fileID: 21300000, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
     - {fileID: 21300002, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
@@ -413,6 +422,7 @@ MonoBehaviour:
     damage: 1
     stun: 0.3
     knockback: {x: 3, y: -3}
+    manaCost: 0
     uniqueType: Air
     endLag: 0.2
     hasSecondHit: 0
@@ -426,6 +436,7 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
+      manaCost: 0
       uniqueType: default
       endLag: 0
       hasSecondHit: 0
@@ -461,10 +472,11 @@ MonoBehaviour:
     firstFrameOfAttack: 5
     lastFrameOfAttack: 14
     firstFrameBuffer: 0
-    damage: 1
-    stun: 0.6
-    knockback: {x: 3, y: -3}
-    uniqueType: Air
+    damage: 0
+    stun: 0
+    knockback: {x: 0, y: 0}
+    manaCost: 0
+    uniqueType: Hurricane
     endLag: 0.2
     hasSecondHit: 0
     secondAttack:
@@ -477,6 +489,83 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
+      manaCost: 0
+      uniqueType: default
+      endLag: 0
+      hasSecondHit: 0
+  - animationSpeed: 0.25
+    sprites:
+    - {fileID: 21300000, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300002, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300004, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300006, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300008, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300010, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300012, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300014, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300016, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    - {fileID: 21300018, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
+    frameHitboxes:
+    - {fileID: 6085348, guid: 22d585e4045e52f4385bba20ca035d7f, type: 2}
+    - {fileID: 6085348, guid: 22d585e4045e52f4385bba20ca035d7f, type: 2}
+    - {fileID: 6085348, guid: 22d585e4045e52f4385bba20ca035d7f, type: 2}
+    - {fileID: 6085348, guid: 22d585e4045e52f4385bba20ca035d7f, type: 2}
+    - {fileID: 6085348, guid: 22d585e4045e52f4385bba20ca035d7f, type: 2}
+    - {fileID: 6085348, guid: 22d585e4045e52f4385bba20ca035d7f, type: 2}
+    firstFrameOfAttack: 1
+    lastFrameOfAttack: 6
+    firstFrameBuffer: 0
+    damage: 2
+    stun: 0.6
+    knockback: {x: 3, y: 7}
+    manaCost: 0
+    uniqueType: RisingKick
+    endLag: 0
+    hasSecondHit: 0
+    secondAttack:
+      animationSpeed: 0
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
+      firstFrameBuffer: 0
+      damage: 0
+      stun: 0
+      knockback: {x: 0, y: 0}
+      manaCost: 0
+      uniqueType: default
+      endLag: 0
+      hasSecondHit: 0
+  - animationSpeed: 0.2
+    sprites:
+    - {fileID: 21300006, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
+    - {fileID: 21300008, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
+    - {fileID: 21300010, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
+    - {fileID: 21300012, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
+    - {fileID: 21300014, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
+    - {fileID: 21300016, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
+    frameHitboxes: []
+    firstFrameOfAttack: 0
+    lastFrameOfAttack: 0
+    firstFrameBuffer: 0
+    damage: 0
+    stun: 0
+    knockback: {x: 0, y: 0}
+    manaCost: 2
+    uniqueType: SwordThrow
+    endLag: 0.2
+    hasSecondHit: 0
+    secondAttack:
+      animationSpeed: 0
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
+      firstFrameBuffer: 0
+      damage: 0
+      stun: 0
+      knockback: {x: 0, y: 0}
+      manaCost: 0
       uniqueType: default
       endLag: 0
       hasSecondHit: 0

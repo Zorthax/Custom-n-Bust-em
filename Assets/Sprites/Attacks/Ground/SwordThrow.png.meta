@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: bc32d56a91d3fc946b152cc5215ff677
+timeCreated: 1473137901
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SwordThrow_0
+    21300002: SwordThrow_1
+    21300004: SwordThrow_2
+    21300006: SwordThrow_3
+    21300008: SwordThrow_4
+    21300010: SwordThrow_5
+    21300012: SwordThrow_6
+    21300014: SwordThrow_7
+    21300016: SwordThrow_8
+    21300018: SwordThrow_9
+    21300020: SwordThrow_10
+    21300022: SwordThrow_11
+    21300024: SwordThrow_12
+    21300026: SwordThrow_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SwordThrow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48.199997, y: 15.880005}
+        - {x: 54.199997, y: 58.880005}
+        - {x: 41.199997, y: 80.880005}
+        - {x: 18.199997, y: 80.880005}
+        - {x: -30.800003, y: 72.880005}
+        - {x: -30.800003, y: -19.119995}
+        - {x: -17.800003, y: -63.119995}
+        - {x: 1.199997, y: -63.119995}
+        - {x: 44.199997, y: -45.119995}
+        - {x: 61.199997, y: -12.119995}
+        - {x: 61.199997, y: 4.880005}
+        - {x: 53.199997, y: 21.880005}
+    - name: SwordThrow_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35.200012, y: 61.880005}
+        - {x: -18.799988, y: 61.880005}
+        - {x: -27.799988, y: 30.880005}
+        - {x: -27.799988, y: 22.880005}
+        - {x: -26.799988, y: 19.880005}
+        - {x: -20.799988, y: 12.880005}
+        - {x: -27.799988, y: 19.880005}
+        - {x: -27.799988, y: 23.880005}
+        - {x: -28.799988, y: 28.880005}
+        - {x: -30.799988, y: 40.880005}
+        - {x: -49.799988, y: 54.880005}
+        - {x: -52.799988, y: 54.880005}
+        - {x: -52.799988, y: -10.119995}
+        - {x: -50.799988, y: -22.119995}
+        - {x: -23.799988, y: -62.119995}
+        - {x: 13.200012, y: -62.119995}
+        - {x: 43.200012, y: -23.119995}
+        - {x: 52.200012, y: 3.880005}
+        - {x: 52.200012, y: 57.880005}
+    - name: SwordThrow_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.800049, y: 67.880005}
+        - {x: -65.80005, y: 67.880005}
+        - {x: -65.80005, y: 32.880005}
+        - {x: -45.80005, y: -61.119995}
+        - {x: -36.80005, y: -68.119995}
+        - {x: 41.19995, y: -68.119995}
+        - {x: 62.19995, y: -5.119995}
+        - {x: 62.19995, y: 30.880005}
+        - {x: 46.19995, y: 50.880005}
+    - name: SwordThrow_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -83.80005, y: 45.880005}
+        - {x: -83.80005, y: 23.880005}
+        - {x: -74.80005, y: 4.880005}
+        - {x: -37.80005, y: -67.119995}
+        - {x: 46.19995, y: -67.119995}
+        - {x: 68.19995, y: -1.1199951}
+        - {x: 68.19995, y: 30.880005}
+        - {x: 48.19995, y: 45.880005}
+    - name: SwordThrow_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 113.2, y: -13.119995}
+        - {x: 53.199997, y: 45.880005}
+        - {x: -22.800003, y: 45.880005}
+        - {x: -76.8, y: 30.880005}
+        - {x: -76.8, y: 19.880005}
+        - {x: -70.8, y: 0.8800049}
+        - {x: -42.800003, y: -67.119995}
+        - {x: 56.199997, y: -67.119995}
+        - {x: 124.2, y: -39.119995}
+        - {x: 125.2, y: -33.119995}
+        - {x: 125.2, y: -17.119995}
+    - name: SwordThrow_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.799988, y: 54.880005}
+        - {x: -38.799988, y: 27.880005}
+        - {x: -38.799988, y: -68.119995}
+        - {x: 50.200012, y: -68.119995}
+        - {x: 59.200012, y: -48.119995}
+        - {x: 59.200012, y: 54.880005}
+    - name: SwordThrow_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.800049, y: 45.880005}
+        - {x: -27.800049, y: 27.880005}
+        - {x: -45.80005, y: -23.119995}
+        - {x: -45.80005, y: -67.119995}
+        - {x: 35.19995, y: -67.119995}
+        - {x: 63.19995, y: -38.119995}
+        - {x: 63.19995, y: 45.880005}
+    - name: SwordThrow_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 51.19995, y: -36.119995}
+        - {x: 59.19995, y: -32.119995}
+        - {x: 59.19995, y: 32.880005}
+        - {x: 44.19995, y: 42.880005}
+        - {x: 1.1999512, y: 42.880005}
+        - {x: -22.800049, y: 35.880005}
+        - {x: -45.80005, y: -29.119995}
+        - {x: -45.80005, y: -67.119995}
+        - {x: 38.19995, y: -67.119995}
+        - {x: 41.19995, y: -65.119995}
+        - {x: 35.19995, y: -42.119995}
+        - {x: 32.19995, y: -40.119995}
+    - name: SwordThrow_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88.2, y: 50.880005}
+        - {x: -76.8, y: 50.880005}
+        - {x: -76.8, y: -27.119995}
+        - {x: -52.800003, y: -68.119995}
+        - {x: 115.2, y: -68.119995}
+        - {x: 121.2, y: -66.119995}
+        - {x: 125.2, y: -39.119995}
+        - {x: 125.2, y: -12.119995}
+    - name: SwordThrow_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.799988, y: 67.880005}
+        - {x: -65.79999, y: 67.880005}
+        - {x: -65.79999, y: 32.880005}
+        - {x: -45.799988, y: -61.119995}
+        - {x: -36.799988, y: -68.119995}
+        - {x: 41.200012, y: -68.119995}
+        - {x: 62.200012, y: -5.119995}
+        - {x: 62.200012, y: 30.880005}
+        - {x: 46.200012, y: 50.880005}
+    - name: SwordThrow_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 58.19995, y: 35.880005}
+        - {x: -11.800049, y: 35.880005}
+        - {x: -42.80005, y: 12.880005}
+        - {x: -42.80005, y: -23.119995}
+        - {x: 1.1999512, y: -54.119995}
+        - {x: 64.19995, y: -54.119995}
+        - {x: 74.19995, y: -51.119995}
+        - {x: 87.19995, y: -23.119995}
+        - {x: 87.19995, y: 15.880005}
+        - {x: 74.19995, y: 27.880005}
+    - name: SwordThrow_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.800049, y: 1.8800049}
+        - {x: -27.800049, y: 1.8800049}
+        - {x: -32.80005, y: -2.119995}
+        - {x: -32.80005, y: -29.119995}
+        - {x: -21.800049, y: -54.119995}
+        - {x: 22.199951, y: -54.119995}
+        - {x: 25.199951, y: -49.119995}
+        - {x: 25.199951, y: -29.119995}
+        - {x: -0.8000488, y: -0.11999512}
+      - - {x: -4.800049, y: 30.880005}
+        - {x: -4.800049, y: 1.8800049}
+        - {x: 14.199951, y: -17.119995}
+        - {x: 45.19995, y: -17.119995}
+        - {x: 49.19995, y: -16.119995}
+        - {x: 49.19995, y: 14.880005}
+        - {x: 33.19995, y: 30.880005}
+    - name: SwordThrow_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.199997, y: 3.880005}
+        - {x: -17.800003, y: -19.119995}
+        - {x: -17.800003, y: -43.119995}
+        - {x: -6.800003, y: -50.119995}
+        - {x: 32.199997, y: -50.119995}
+        - {x: 52.199997, y: -28.119995}
+        - {x: 52.199997, y: -1.1199951}
+        - {x: 49.199997, y: 3.880005}
+      - - {x: 18.199997, y: 31.880005}
+        - {x: -9.800003, y: 31.880005}
+        - {x: -24.800003, y: 18.880005}
+        - {x: -31.800003, y: -4.119995}
+        - {x: -31.800003, y: -15.119995}
+        - {x: -21.800003, y: -31.119995}
+        - {x: -18.800003, y: -34.119995}
+        - {x: -5.800003, y: -34.119995}
+        - {x: 33.199997, y: 2.880005}
+        - {x: 33.199997, y: 25.880005}
+        - {x: 30.199997, y: 28.880005}
+    - name: SwordThrow_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.200012, y: 22.880005}
+        - {x: 11.200012, y: -44.119995}
+        - {x: 39.200012, y: -44.119995}
+        - {x: 52.200012, y: -24.119995}
+        - {x: 52.200012, y: 14.880005}
+        - {x: 38.200012, y: 22.880005}
+      - - {x: -26.799988, y: 20.880005}
+        - {x: -33.799988, y: 9.880005}
+        - {x: -33.799988, y: -19.119995}
+        - {x: -28.799988, y: -41.119995}
+        - {x: -20.799988, y: -43.119995}
+        - {x: -9.799988, y: -43.119995}
+        - {x: 7.200012, y: -28.119995}
+        - {x: 7.200012, y: 10.880005}
+        - {x: 3.2000122, y: 20.880005}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

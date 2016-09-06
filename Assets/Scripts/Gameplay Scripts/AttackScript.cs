@@ -8,10 +8,17 @@ public class AttackScript : MonoBehaviour {
     int upGround1;
     int neutralAir1;
 	int downAir1;
+	int neutralGround2;
+	int downGround2;
+	int upGround2;
+	int neutralAir2;
+	int downAir2;
+
     PolygonCollider2D localCollider;
     bool secondAttack;
     bool attackBuffer;
     KeyCode attackType;
+	KeyCode attackTypeALT;
 	AttackBehaviours behaviour;
 
     [System.Serializable]
@@ -26,6 +33,7 @@ public class AttackScript : MonoBehaviour {
 		public float damage;
 		public float stun;
         public Vector2 knockback;
+		public float manaCost;
 		public string uniqueType = "default";
 		public float endLag;
 
@@ -91,6 +99,10 @@ public class AttackScript : MonoBehaviour {
 		downGround1 = 2;
 		upGround1 = 3;
 		downAir1 = 4;
+
+		neutralGround2 = 7;
+		upGround2 = 6;
+		downAir2 = 1;
         currentAttack = null;
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
         localCollider.isTrigger = true;
@@ -130,8 +142,27 @@ public class AttackScript : MonoBehaviour {
             spriteIndex = 0;
             secondAttack = false;
             attackType = attackKey;
+			attackTypeALT = con.attack1ALT;
 			behaviour.SetType(currentAttack.uniqueType);
         }
+
+		if (attackKey == con.attack2)
+		{
+			if (direction == 0) 
+			{ if (onGround) currentAttack = attackList[neutralGround2]; else currentAttack = attackList[neutralAir2]; }
+			if (direction < 0) 
+			{ if (onGround) currentAttack = attackList[downGround2]; else currentAttack = attackList[downAir2]; }
+			if (direction > 0) 
+			{ if (onGround) currentAttack = attackList[upGround2]; else currentAttack = attackList[neutralAir2]; }
+			spriteIndex = 0;
+			secondAttack = false;
+			attackType = attackKey;
+			attackTypeALT = con.attack2ALT;
+			behaviour.SetType(currentAttack.uniqueType);
+		}
+
+		if (GetComponentInParent<PlayerMovement> ().mp < currentAttack.manaCost)
+			spriteIndex = currentAttack.sprites.Length - 1;
     }
 
     void SetHitBox()
@@ -155,7 +186,7 @@ public class AttackScript : MonoBehaviour {
     {
         //if (!secondAttack && spriteIndex >= currentAttack.secondHitFrame && Input.GetKeyDown(attackType))
         //{ attackBuffer = true; }
-        if (!secondAttack && currentAttack.hasSecondHit && spriteIndex >= currentAttack.firstFrameBuffer && Input.GetKeyDown(attackType))
+		if (!secondAttack && currentAttack.hasSecondHit && spriteIndex >= currentAttack.firstFrameBuffer && (Input.GetKeyDown(attackType) || Input.GetKeyDown(attackTypeALT)))
         { attackBuffer = true; }
     }
 
