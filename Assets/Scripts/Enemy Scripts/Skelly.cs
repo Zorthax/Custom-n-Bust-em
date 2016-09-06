@@ -65,6 +65,13 @@ public class Skelly : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+
+		if (basics.stunned) 
+		{
+			attacking = false;
+			basics.SetAttackState (attacking);
+			Destroy(gameObject.GetComponent<PolygonCollider2D>());
+		}
 		if (attacking && currentAttack != null) 
 		{
 			Animation ();
@@ -81,7 +88,7 @@ public class Skelly : MonoBehaviour {
 
 	void AttackPlayer()
 	{
-		if (Vector2.Distance (player.position, transform.position) < attackDistance) 
+		if (!basics.stunned && Vector2.Distance (player.position, transform.position) < attackDistance) 
 		{
 			if ((parent.lossyScale.x < 0 && player.position.x < transform.position.x)
 			    || (parent.lossyScale.x >= 0 && player.position.x >= transform.position.x)) 

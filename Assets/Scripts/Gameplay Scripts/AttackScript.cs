@@ -7,6 +7,7 @@ public class AttackScript : MonoBehaviour {
 	int downGround1;
     int upGround1;
     int neutralAir1;
+	int downAir1;
     PolygonCollider2D localCollider;
     bool secondAttack;
     bool attackBuffer;
@@ -46,15 +47,18 @@ public class AttackScript : MonoBehaviour {
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
 		spriteIndex = behaviour.MyUpdate (spriteIndex);
 
-        //Change physical sprite
-        if (!secondAttack)
-        {
-            renderor.sprite = currentAttack.sprites[Mathf.RoundToInt(spriteIndex)];
-        }
-        else if (secondAttack)
-        {
-            renderor.sprite = currentAttack.secondAttack.sprites[Mathf.RoundToInt(spriteIndex)];
-        }
+		if (spriteIndex <= currentAttack.sprites.Length || spriteIndex <= currentAttack.secondAttack.sprites.Length) 
+		{
+			//Change physical sprite
+			if (!secondAttack) 
+			{
+				renderor.sprite = currentAttack.sprites [Mathf.RoundToInt (spriteIndex)];
+			} 
+			else if (secondAttack) 
+			{
+				renderor.sprite = currentAttack.secondAttack.sprites [Mathf.RoundToInt (spriteIndex)];
+			}
+		}
 
         if (secondAttack && spriteIndex <= currentAttack.secondAttack.sprites.Length - 1) //Second attack's sprites
         { spriteIndex += currentAttack.secondAttack.animationSpeed; }
@@ -83,8 +87,10 @@ public class AttackScript : MonoBehaviour {
 		behaviour = GetComponent<AttackBehaviours> ();
 
         neutralGround1 = 0;
-        neutralAir1 = 1;
+        neutralAir1 = 5;
 		downGround1 = 2;
+		upGround1 = 3;
+		downAir1 = 4;
         currentAttack = null;
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
         localCollider.isTrigger = true;
@@ -118,7 +124,9 @@ public class AttackScript : MonoBehaviour {
             if (direction == 0) 
 			{ if (onGround) currentAttack = attackList[neutralGround1]; else currentAttack = attackList[neutralAir1]; }
 			if (direction < 0) 
-			{ if (onGround) currentAttack = attackList[downGround1]; else currentAttack = attackList[neutralAir1]; }
+			{ if (onGround) currentAttack = attackList[downGround1]; else currentAttack = attackList[downAir1]; }
+			if (direction > 0) 
+			{ if (onGround) currentAttack = attackList[upGround1]; else currentAttack = attackList[neutralAir1]; }
             spriteIndex = 0;
             secondAttack = false;
             attackType = attackKey;

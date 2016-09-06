@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
     BoxCollider2D col;
     
     bool onSlope;
-    bool canJump;
+    public bool canJump;
 	bool shielding;
     public bool action;
     float xMovement;
@@ -100,8 +100,8 @@ public class PlayerMovement : MonoBehaviour {
 			EnemyCheck ();
 
 			//Apply velocity
-			if (!action)
-				rb.velocity = new Vector2 (xMovement * walkingSpeed, yMovement);
+
+			rb.velocity = new Vector2 (xMovement, yMovement);
 		} else {
 			stunTime -= Time.deltaTime;
 			SetSprite (sprites.knockbackSprites);
@@ -167,17 +167,21 @@ public class PlayerMovement : MonoBehaviour {
     float CalculateXMovement()
     {
         float x = 0;
-		if (shielding && !canJump)
-			x = xMovement;
+		//if (shielding && !canJump)
+		//	x = xMovement;
 
         //Horizontal movement
-        if (Input.GetAxis("Horizontal") != 0 && (!action && !shielding)) //Controller movement takes priority over keyboard
-        { x = Input.GetAxis("Horizontal"); }
-		else if (!action && !shielding) //keyboard movement
+		if (Input.GetAxis ("Horizontal") != 0 && ((!action && !shielding) || !canJump)) { //Controller movement takes priority over keyboard
+			x = Input.GetAxis("Horizontal") * walkingSpeed; }
+		else if ((!action && !shielding) || !canJump) //keyboard movement
         {
-            if (Input.GetKey(con.left)) x -= 1;
-            if (Input.GetKey(con.right)) x += 1;
+			if (Input.GetKey(con.left)) x -= 1 * walkingSpeed;
+			if (Input.GetKey(con.right)) x += 1 * walkingSpeed;
         }
+		else if (action)
+		{
+			x = rb.velocity.x;
+		}
 
         //Flip sprite to face direction of movement
         Vector3 ls = transform.localScale;
@@ -185,7 +189,7 @@ public class PlayerMovement : MonoBehaviour {
         if (x > 0 && !action) transform.localScale = new Vector3(Mathf.Abs(ls.x), ls.y, ls.z);
 		if (!action && !shielding && canJump) { if (x != 0) SetSprite(sprites.runSprites); else SetSprite(sprites.idleSprites); }
 
-		if (slowDown) x /= 3;
+		//if (slowDown) x /= 3;
 		if (shielding) x /= 1.02f;
         return x;
     }
@@ -323,7 +327,7 @@ public class PlayerMovement : MonoBehaviour {
 			shieldBroken = false;
 		}
 
-		if (stunTime <= 0 && !shieldBroken && sp > 0 && (Input.GetKey (con.shield) || Input.GetKey (con.shieldALT))) 
+		if (endLag <= 0 && stunTime <= 0 && !shieldBroken && sp > 0 && (Input.GetKey (con.shield) || Input.GetKey (con.shieldALT))) 
 		{
 			shielding = true;
 			SetSprite(sprites.shieldSprites);

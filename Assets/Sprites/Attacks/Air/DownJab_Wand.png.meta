@@ -1,0 +1,388 @@
+fileFormatVersion: 2
+guid: 754fb3bbf2639204e83681c7a46c1602
+timeCreated: 1473124142
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DownJab_Wand_0
+    21300002: DownJab_Wand_1
+    21300004: DownJab_Wand_2
+    21300006: DownJab_Wand_3
+    21300008: DownJab_Wand_4
+    21300010: DownJab_Wand_5
+    21300012: DownJab_Wand_6
+    21300014: DownJab_Wand_7
+    21300016: DownJab_Wand_8
+    21300018: DownJab_Wand_9
+    21300020: DownJab_Wand_10
+    21300022: DownJab_Wand_11
+    21300024: DownJab_Wand_12
+    21300026: DownJab_Wand_13
+    21300028: DownJab_Wand_14
+    21300030: DownJab_Wand_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 128
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: DownJab_Wand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30.199997, y: 40.880005}
+        - {x: -33.800003, y: 40.880005}
+        - {x: -47.800003, y: -10.119995}
+        - {x: -47.800003, y: -77.119995}
+        - {x: -19.800003, y: -103.119995}
+        - {x: -4.800003, y: -103.119995}
+        - {x: 42.199997, y: -7.119995}
+        - {x: 42.199997, y: 21.880005}
+    - name: DownJab_Wand_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.799988, y: 41.880005}
+        - {x: -47.799988, y: 17.880005}
+        - {x: -47.799988, y: -71.119995}
+        - {x: -29.799988, y: -103.119995}
+        - {x: 14.200012, y: -103.119995}
+        - {x: 46.200012, y: -40.119995}
+        - {x: 46.200012, y: 20.880005}
+        - {x: 33.200012, y: 41.880005}
+    - name: DownJab_Wand_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.800049, y: 42.880005}
+        - {x: -46.80005, y: -15.119995}
+        - {x: -47.80005, y: -22.119995}
+        - {x: -47.80005, y: -67.119995}
+        - {x: -18.800049, y: -103.119995}
+        - {x: -0.8000488, y: -103.119995}
+        - {x: 47.19995, y: -20.119995}
+        - {x: 47.19995, y: 19.880005}
+        - {x: 26.199951, y: 42.880005}
+    - name: DownJab_Wand_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.800049, y: 43.880005}
+        - {x: -31.800049, y: 37.880005}
+        - {x: -47.80005, y: 1.8800049}
+        - {x: -47.80005, y: -71.119995}
+        - {x: -46.80005, y: -75.119995}
+        - {x: -21.800049, y: -103.119995}
+        - {x: 0.19995117, y: -103.119995}
+        - {x: 47.19995, y: -15.119995}
+        - {x: 47.19995, y: 21.880005}
+        - {x: 27.199951, y: 43.880005}
+    - name: DownJab_Wand_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.199997, y: 45.880005}
+        - {x: -0.80000305, y: 45.880005}
+        - {x: -30.800003, y: 42.880005}
+        - {x: -46.800003, y: -15.119995}
+        - {x: -47.800003, y: -21.119995}
+        - {x: -47.800003, y: -68.119995}
+        - {x: -22.800003, y: -103.119995}
+        - {x: 9.199997, y: -103.119995}
+        - {x: 45.199997, y: -49.119995}
+        - {x: 45.199997, y: 20.880005}
+        - {x: 43.199997, y: 23.880005}
+    - name: DownJab_Wand_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.200012, y: 45.880005}
+        - {x: -0.7999878, y: 45.880005}
+        - {x: -30.799988, y: 42.880005}
+        - {x: -46.799988, y: -15.119995}
+        - {x: -47.799988, y: -21.119995}
+        - {x: -47.799988, y: -68.119995}
+        - {x: -22.799988, y: -103.119995}
+        - {x: 9.200012, y: -103.119995}
+        - {x: 45.200012, y: -49.119995}
+        - {x: 45.200012, y: 20.880005}
+        - {x: 43.200012, y: 23.880005}
+    - name: DownJab_Wand_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.800049, y: 43.880005}
+        - {x: -31.800049, y: 37.880005}
+        - {x: -47.80005, y: 1.8800049}
+        - {x: -47.80005, y: -71.119995}
+        - {x: -46.80005, y: -75.119995}
+        - {x: -21.800049, y: -103.119995}
+        - {x: 0.19995117, y: -103.119995}
+        - {x: 47.19995, y: -15.119995}
+        - {x: 47.19995, y: 21.880005}
+        - {x: 27.199951, y: 43.880005}
+    - name: DownJab_Wand_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.199951, y: 42.880005}
+        - {x: -25.800049, y: 41.880005}
+        - {x: -46.80005, y: -15.119995}
+        - {x: -47.80005, y: -22.119995}
+        - {x: -47.80005, y: -67.119995}
+        - {x: -18.800049, y: -103.119995}
+        - {x: -0.8000488, y: -103.119995}
+        - {x: 47.19995, y: -20.119995}
+        - {x: 47.19995, y: 17.880005}
+        - {x: 20.199951, y: 42.880005}
+    - name: DownJab_Wand_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.800003, y: 62.880005}
+        - {x: -48.800003, y: -37.119995}
+        - {x: -48.800003, y: -66.119995}
+        - {x: -47.800003, y: -67.119995}
+        - {x: 74.2, y: -67.119995}
+        - {x: 80.2, y: -61.119995}
+        - {x: 80.2, y: 62.880005}
+    - name: DownJab_Wand_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.799988, y: 68.880005}
+        - {x: -48.799988, y: 29.880005}
+        - {x: -48.799988, y: -67.119995}
+        - {x: 103.20001, y: -67.119995}
+        - {x: 115.20001, y: -56.119995}
+        - {x: 115.20001, y: 28.880005}
+        - {x: 72.20001, y: 68.880005}
+    - name: DownJab_Wand_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.800049, y: 69.880005}
+        - {x: -37.80005, y: 42.880005}
+        - {x: -48.80005, y: -20.119995}
+        - {x: -48.80005, y: -67.119995}
+        - {x: 99.19995, y: -67.119995}
+        - {x: 115.19995, y: -58.119995}
+        - {x: 115.19995, y: 30.880005}
+        - {x: 41.19995, y: 69.880005}
+    - name: DownJab_Wand_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.80005, y: 68.880005}
+        - {x: -48.80005, y: 47.880005}
+        - {x: -48.80005, y: -67.119995}
+        - {x: 77.19995, y: -67.119995}
+        - {x: 115.19995, y: -28.119995}
+        - {x: 115.19995, y: 20.880005}
+        - {x: 41.19995, y: 68.880005}
+    - name: DownJab_Wand_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 111.2, y: -6.119995}
+        - {x: 99.2, y: -0.11999512}
+        - {x: 48.199997, y: 64.880005}
+        - {x: 21.199997, y: 68.880005}
+        - {x: -9.800003, y: 68.880005}
+        - {x: -48.800003, y: 18.880005}
+        - {x: -48.800003, y: -67.119995}
+        - {x: 59.199997, y: -67.119995}
+        - {x: 60.199997, y: -64.119995}
+        - {x: 113.2, y: -15.119995}
+        - {x: 115.2, y: -9.119995}
+    - name: DownJab_Wand_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.799988, y: 67.880005}
+        - {x: -43.799988, y: 33.880005}
+        - {x: -48.799988, y: -4.119995}
+        - {x: -48.799988, y: -67.119995}
+        - {x: 76.20001, y: -67.119995}
+        - {x: 115.20001, y: -36.119995}
+        - {x: 115.20001, y: 39.880005}
+        - {x: 63.200012, y: 67.880005}
+    - name: DownJab_Wand_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.80005, y: 68.880005}
+        - {x: -48.80005, y: 59.880005}
+        - {x: -48.80005, y: -67.119995}
+        - {x: 78.19995, y: -67.119995}
+        - {x: 114.19995, y: -7.119995}
+        - {x: 114.19995, y: 34.880005}
+        - {x: 40.19995, y: 68.880005}
+    - name: DownJab_Wand_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.4, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.80005, y: 68.880005}
+        - {x: -48.80005, y: 66.880005}
+        - {x: -48.80005, y: -67.119995}
+        - {x: 100.19995, y: -67.119995}
+        - {x: 114.19995, y: -57.119995}
+        - {x: 114.19995, y: 57.880005}
+        - {x: 101.19995, y: 68.880005}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

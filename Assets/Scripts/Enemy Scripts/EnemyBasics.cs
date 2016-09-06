@@ -25,7 +25,7 @@ public class EnemyBasics : MonoBehaviour {
     Rigidbody2D rb;
 
     bool agro = false;
-    bool stunned = true;
+    public bool stunned = true;
     float x = 0;
     float y = 0;
 

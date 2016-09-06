@@ -130,6 +130,7 @@ MonoBehaviour:
   shieldRechargeDelay: 1
   shieldBreakDelay: 2
   shieldThickness: 20
+  canJump: 0
   action: 0
 --- !u!114 &11448298
 MonoBehaviour:
@@ -283,19 +284,10 @@ MonoBehaviour:
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
-      sprites:
-      - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
-      frameHitboxes:
-      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-      firstFrameOfAttack: 1
-      lastFrameOfAttack: 3
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
       firstFrameBuffer: 0
       damage: 0
       stun: 0
@@ -330,19 +322,157 @@ MonoBehaviour:
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
-      sprites:
-      - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300018, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300020, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300022, guid: 32ee055698554964695186dc753638ef, type: 3}
-      - {fileID: 21300024, guid: 32ee055698554964695186dc753638ef, type: 3}
-      frameHitboxes:
-      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-      - {fileID: 6054172, guid: a716533ca4cb1044292dc8979eeecf3f, type: 2}
-      firstFrameOfAttack: 1
-      lastFrameOfAttack: 3
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
+      firstFrameBuffer: 0
+      damage: 0
+      stun: 0
+      knockback: {x: 0, y: 0}
+      uniqueType: default
+      endLag: 0
+      hasSecondHit: 0
+  - animationSpeed: 0.35
+    sprites:
+    - {fileID: 21300000, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300000, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300000, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300002, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300002, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300004, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300006, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300008, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300010, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300012, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300014, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300016, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300018, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300020, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300022, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300024, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300026, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300028, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300030, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300030, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    - {fileID: 21300030, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
+    frameHitboxes:
+    - {fileID: 6032534, guid: 95aa12977f7c5e447823ea7fda7fc404, type: 2}
+    - {fileID: 6032534, guid: 95aa12977f7c5e447823ea7fda7fc404, type: 2}
+    - {fileID: 6032534, guid: 95aa12977f7c5e447823ea7fda7fc404, type: 2}
+    - {fileID: 6032534, guid: 95aa12977f7c5e447823ea7fda7fc404, type: 2}
+    - {fileID: 6032534, guid: 95aa12977f7c5e447823ea7fda7fc404, type: 2}
+    - {fileID: 6032534, guid: 95aa12977f7c5e447823ea7fda7fc404, type: 2}
+    - {fileID: 6044374, guid: 612fa98d7d99fc64c990f8717277d3dc, type: 2}
+    - {fileID: 6044374, guid: 612fa98d7d99fc64c990f8717277d3dc, type: 2}
+    - {fileID: 6044374, guid: 612fa98d7d99fc64c990f8717277d3dc, type: 2}
+    - {fileID: 6044374, guid: 612fa98d7d99fc64c990f8717277d3dc, type: 2}
+    firstFrameOfAttack: 5
+    lastFrameOfAttack: 14
+    firstFrameBuffer: 0
+    damage: 4
+    stun: 1
+    knockback: {x: 8, y: 12}
+    uniqueType: Shoryuken
+    endLag: 0.2
+    hasSecondHit: 0
+    secondAttack:
+      animationSpeed: 0
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
+      firstFrameBuffer: 0
+      damage: 0
+      stun: 0
+      knockback: {x: 0, y: 0}
+      uniqueType: default
+      endLag: 0
+      hasSecondHit: 0
+  - animationSpeed: 0.25
+    sprites:
+    - {fileID: 21300000, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300002, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300004, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300006, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300008, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300010, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300012, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    - {fileID: 21300014, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
+    frameHitboxes:
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    - {fileID: 6005144, guid: 61e9fd125a84dcc4bbbc9296088a9abc, type: 2}
+    firstFrameOfAttack: 1
+    lastFrameOfAttack: 7
+    firstFrameBuffer: 0
+    damage: 1
+    stun: 0.3
+    knockback: {x: 3, y: -3}
+    uniqueType: Air
+    endLag: 0.2
+    hasSecondHit: 0
+    secondAttack:
+      animationSpeed: 0
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
+      firstFrameBuffer: 0
+      damage: 0
+      stun: 0
+      knockback: {x: 0, y: 0}
+      uniqueType: default
+      endLag: 0
+      hasSecondHit: 0
+  - animationSpeed: 0.25
+    sprites:
+    - {fileID: 21300000, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300002, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300004, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300006, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300008, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300010, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300012, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300014, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300016, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300018, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300020, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300022, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300024, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300026, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300028, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    - {fileID: 21300030, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
+    frameHitboxes:
+    - {fileID: 6044892, guid: d29cf6a62f039c147998f9930df8214c, type: 2}
+    - {fileID: 6044892, guid: d29cf6a62f039c147998f9930df8214c, type: 2}
+    - {fileID: 6020602, guid: c4d58ea86c2cbe34da7849a55094d440, type: 2}
+    - {fileID: 6020602, guid: c4d58ea86c2cbe34da7849a55094d440, type: 2}
+    - {fileID: 6044892, guid: d29cf6a62f039c147998f9930df8214c, type: 2}
+    - {fileID: 6026192, guid: c8cb3520b3b97c04fa37e32570e8d61c, type: 2}
+    - {fileID: 6026192, guid: c8cb3520b3b97c04fa37e32570e8d61c, type: 2}
+    - {fileID: 6044892, guid: d29cf6a62f039c147998f9930df8214c, type: 2}
+    - {fileID: 6020602, guid: c4d58ea86c2cbe34da7849a55094d440, type: 2}
+    - {fileID: 6020602, guid: c4d58ea86c2cbe34da7849a55094d440, type: 2}
+    firstFrameOfAttack: 5
+    lastFrameOfAttack: 14
+    firstFrameBuffer: 0
+    damage: 1
+    stun: 0.6
+    knockback: {x: 3, y: -3}
+    uniqueType: Air
+    endLag: 0.2
+    hasSecondHit: 0
+    secondAttack:
+      animationSpeed: 0
+      sprites: []
+      frameHitboxes: []
+      firstFrameOfAttack: 0
+      lastFrameOfAttack: 0
       firstFrameBuffer: 0
       damage: 0
       stun: 0

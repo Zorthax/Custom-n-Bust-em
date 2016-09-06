@@ -891,6 +891,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[5].damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[5].stun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[5].knockback.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[5].knockback.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[5].uniqueType
+      value: Hurricane
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
   m_IsPrefabParent: 0
