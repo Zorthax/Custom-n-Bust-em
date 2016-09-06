@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float endLag;
 	float stunTime;
     AttackScript atk;
+	public bool moveAndAttack;
 
 	public float spTotal;
 	float sp;
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour {
 
         //Receive list of every collision
         RaycastHit2D[] hits;
-        hits = Physics2D.BoxCastAll(transform.position - new Vector3(0, 0.5f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.02f); 
+		hits = Physics2D.BoxCastAll(transform.position - new Vector3(0.05f * transform.lossyScale.x, 0.5f), new Vector2(col.size.x, 0.1f), 0, Vector2.down, 0.02f); 
 
         //Find specific collision tags
         foreach (RaycastHit2D h in hits)
@@ -130,7 +131,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (h.transform.tag == "Passable")
             {
                 canJump = true;
-				if (Input.GetKey(con.down) && yMovement <= 0 || Input.GetAxis("Vertical") < 0) //Jump down from platform
+				if ((Input.GetKey(con.down)|| Input.GetAxis("Vertical") < 0) && yMovement <= 0 ) //Jump down from platform
                 {
                     col.isTrigger = true;
                     transform.position -= new Vector3(0, 0.1f, 0);
@@ -173,14 +174,14 @@ public class PlayerMovement : MonoBehaviour {
 		//	x = xMovement;
 
         //Horizontal movement
-		if (Input.GetAxis ("Horizontal") != 0 && ((!action && !shielding) || !canJump)) { //Controller movement takes priority over keyboard
+		if (Input.GetAxis ("Horizontal") != 0 && ((!action || moveAndAttack) && !shielding)) { //Controller movement takes priority over keyboard
 			x = Input.GetAxis("Horizontal") * walkingSpeed; }
-		else if ((!action && !shielding) || !canJump) //keyboard movement
+		else if ((!action || moveAndAttack) && !shielding) //keyboard movement
         {
 			if (Input.GetKey(con.left)) x -= 1 * walkingSpeed;
 			if (Input.GetKey(con.right)) x += 1 * walkingSpeed;
         }
-		else if (action)
+		else if (action || shielding)
 		{
 			x = rb.velocity.x;
 		}

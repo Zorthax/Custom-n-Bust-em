@@ -33,9 +33,9 @@ public class AttackScript : MonoBehaviour {
 		public float damage;
 		public float stun;
         public Vector2 knockback;
-		public float manaCost;
 		public string uniqueType = "default";
 		public float endLag;
+		public bool moveAndAttack;
 
         public bool hasSecondHit;
 
@@ -161,8 +161,8 @@ public class AttackScript : MonoBehaviour {
 			behaviour.SetType(currentAttack.uniqueType);
 		}
 
-		if (GetComponentInParent<PlayerMovement> ().mp < currentAttack.manaCost)
-			spriteIndex = currentAttack.sprites.Length - 1;
+		PlayerMovement pm = GetComponentInParent<PlayerMovement> ();
+		pm.moveAndAttack = currentAttack.moveAndAttack;
     }
 
     void SetHitBox()

@@ -128,6 +128,7 @@ MonoBehaviour:
   jumpFrame: 1
   cameraPosition: {x: 0, y: 1, z: -8}
   endLag: 0
+  moveAndAttack: 0
   spTotal: 10
   shieldRechargeDelay: 1
   shieldBreakDelay: 2
@@ -238,9 +239,9 @@ MonoBehaviour:
     damage: 1
     stun: 0.2
     knockback: {x: 1, y: 0}
-    manaCost: 0
     uniqueType: default
     endLag: 0.2
+    moveAndAttack: 0
     hasSecondHit: 1
     secondAttack:
       animationSpeed: 0.2
@@ -261,9 +262,9 @@ MonoBehaviour:
       damage: 2
       stun: 0.3
       knockback: {x: 10, y: -1}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.2
     sprites:
@@ -282,9 +283,9 @@ MonoBehaviour:
     damage: 1
     stun: 0.3
     knockback: {x: 6, y: 1}
-    manaCost: 0
     uniqueType: DropKick
     endLag: 0.2
+    moveAndAttack: 0
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -296,9 +297,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.2
     sprites:
@@ -322,9 +323,9 @@ MonoBehaviour:
     damage: 1
     stun: 0.5
     knockback: {x: -10, y: 8}
-    manaCost: 0
     uniqueType: Thrust
     endLag: 0.05
+    moveAndAttack: 0
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -336,9 +337,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.35
     sprites:
@@ -380,9 +381,9 @@ MonoBehaviour:
     damage: 4
     stun: 1
     knockback: {x: 8, y: 12}
-    manaCost: 0
     uniqueType: Shoryuken
     endLag: 0.2
+    moveAndAttack: 0
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -394,9 +395,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.2
     sprites:
@@ -422,9 +423,9 @@ MonoBehaviour:
     damage: 1
     stun: 0.3
     knockback: {x: 3, y: -3}
-    manaCost: 0
     uniqueType: Air
     endLag: 0.2
+    moveAndAttack: 1
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -436,9 +437,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.25
     sprites:
@@ -475,9 +476,9 @@ MonoBehaviour:
     damage: 0
     stun: 0
     knockback: {x: 0, y: 0}
-    manaCost: 0
     uniqueType: Hurricane
     endLag: 0.2
+    moveAndAttack: 1
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -489,9 +490,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.25
     sprites:
@@ -518,9 +519,9 @@ MonoBehaviour:
     damage: 2
     stun: 0.6
     knockback: {x: 3, y: 7}
-    manaCost: 0
     uniqueType: RisingKick
     endLag: 0
+    moveAndAttack: 0
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -532,9 +533,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
   - animationSpeed: 0.2
     sprites:
@@ -551,9 +552,9 @@ MonoBehaviour:
     damage: 0
     stun: 0
     knockback: {x: 0, y: 0}
-    manaCost: 2
     uniqueType: SwordThrow
     endLag: 0.2
+    moveAndAttack: 0
     hasSecondHit: 0
     secondAttack:
       animationSpeed: 0
@@ -565,9 +566,9 @@ MonoBehaviour:
       damage: 0
       stun: 0
       knockback: {x: 0, y: 0}
-      manaCost: 0
       uniqueType: default
       endLag: 0
+      moveAndAttack: 0
       hasSecondHit: 0
 --- !u!114 &11495946
 MonoBehaviour:

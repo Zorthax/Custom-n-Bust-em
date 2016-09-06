@@ -103,7 +103,7 @@ public class DropKick : Attack
 			return 50;
 		if (Mathf.Floor (spriteIndex) == 1)
 			rb.velocity = new Vector2(4 * rb.transform.lossyScale.x, -8);
-		if (rb.velocity.y >= 0 && rb.velocity.y < 0.2f && spriteIndex > 2 && spriteIndex < 4) {
+		if (rb.velocity.y >= 0 && rb.velocity.y < 0.2f && spriteIndex >= 1 && spriteIndex < 4) {
 			rb.velocity = new Vector2 (-3 * rb.transform.lossyScale.x, 0); 
 			return 4.0f;
 		}
@@ -136,7 +136,7 @@ public class Shoryuken : Attack
 	public override float Update(float spriteIndex, Rigidbody2D rb)
 	{
 		if (Mathf.Floor (spriteIndex) == 3)
-			rb.velocity = new Vector2 (0, 4);
+			rb.velocity = new Vector2 (1.5f * rb.transform.lossyScale.x, 4);
 
 		return spriteIndex;
 	}
@@ -191,8 +191,11 @@ public class SwordThrow : Attack
 	{
 		if (Mathf.Floor (spriteIndex) == 4 && !thrown) 
 		{
-			GameObject sword = Object.Instantiate(Resources.Load("Sword"), rb.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
-			sword.transform.localScale = rb.transform.lossyScale;
+			if (_player.GetComponent<PlayerMovement> ().mp >= 2) 
+			{
+				GameObject sword = Object.Instantiate (Resources.Load ("Sword"), rb.transform.position, new Quaternion (0, 0, 0, 0)) as GameObject;
+				sword.transform.localScale = rb.transform.lossyScale;
+			}
 			thrown = true;
 		}
 
