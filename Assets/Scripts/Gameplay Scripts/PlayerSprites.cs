@@ -17,6 +17,7 @@ public class PlayerSprites : MonoBehaviour {
 	public MySprite airSprites;
 	public MySprite knockbackSprites;
 	public MySprite shieldSprites;
+	public MySprite forwardRoll;
 
 	float hpTotal;
 	float hp;

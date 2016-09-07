@@ -20,6 +20,7 @@ public class AttackScript : MonoBehaviour {
     KeyCode attackType;
 	KeyCode attackTypeALT;
 	AttackBehaviours behaviour;
+	PlayerMovement player;
 
     [System.Serializable]
     public class Attack
@@ -79,7 +80,8 @@ public class AttackScript : MonoBehaviour {
         }
         else
         {
-			GetComponentInParent<PlayerMovement>().endLag = currentAttack.endLag;
+			player.endLag = currentAttack.endLag;
+			player.action = false;
             currentAttack = null;
             secondAttack = false;
         }
@@ -93,6 +95,7 @@ public class AttackScript : MonoBehaviour {
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         renderor = GetComponentInParent<SpriteRenderer>();
 		behaviour = GetComponent<AttackBehaviours> ();
+		player = GetComponentInParent<PlayerMovement> ();
 
         neutralGround1 = 0;
         neutralAir1 = 5;
@@ -102,6 +105,7 @@ public class AttackScript : MonoBehaviour {
 
 		neutralGround2 = 7;
 		upGround2 = 6;
+		neutralAir2 = 7;
 		downAir2 = 1;
         currentAttack = null;
         localCollider = gameObject.AddComponent<PolygonCollider2D>();
@@ -125,8 +129,8 @@ public class AttackScript : MonoBehaviour {
                 attackBuffer = false;
             }
         }
-        else
-            GetComponentInParent<PlayerMovement>().action = false;
+        //else
+        //    player.action = false;
 	}
 
     public void InputAttack(KeyCode attackKey, float direction, bool onGround)

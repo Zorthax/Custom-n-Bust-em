@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpMin = 2;
 	public float jumpFrame = 2;
     public Vector3 cameraPosition;
+	public float rollSpeed = 6;
 	public float endLag;
 	float stunTime;
     AttackScript atk;
 	public bool moveAndAttack;
+	bool invincible = false;
 
 	public float spTotal;
 	float sp;
@@ -103,12 +105,14 @@ public class PlayerMovement : MonoBehaviour {
 			EnemyCheck ();
 
 			//Apply velocity
-
+			Rolling ();
 			rb.velocity = new Vector2 (xMovement, yMovement);
 		} else {
 			stunTime -= Time.deltaTime;
 			SetSprite (sprites.knockbackSprites);
 		}
+
+
         //Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
         if (!action) Animation();
@@ -131,7 +135,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (h.transform.tag == "Passable")
             {
                 canJump = true;
-				if ((Input.GetKey(con.down)|| Input.GetAxis("Vertical") < 0) && yMovement <= 0 ) //Jump down from platform
+				if ((Input.GetKey(con.down)|| Input.GetAxis("Vertical") < -0.4f) && yMovement <= 0 ) //Jump down from platform
                 {
                     col.isTrigger = true;
                     transform.position -= new Vector3(0, 0.1f, 0);
@@ -174,14 +178,14 @@ public class PlayerMovement : MonoBehaviour {
 		//	x = xMovement;
 
         //Horizontal movement
-		if (Input.GetAxis ("Horizontal") != 0 && ((!action || moveAndAttack) && !shielding)) { //Controller movement takes priority over keyboard
-			x = Input.GetAxis("Horizontal") * walkingSpeed; }
+		if (Input.GetAxis ("Horizontal") != 0 && ((!action || moveAndAttack) && !shielding)) //Controller movement takes priority over keyboard
+		{ x = Input.GetAxis("Horizontal") * walkingSpeed; }
 		else if ((!action || moveAndAttack) && !shielding) //keyboard movement
         {
 			if (Input.GetKey(con.left)) x -= 1 * walkingSpeed;
 			if (Input.GetKey(con.right)) x += 1 * walkingSpeed;
         }
-		else if (action || shielding)
+		else if (action || (shielding && !canJump))
 		{
 			x = rb.velocity.x;
 		}
@@ -303,7 +307,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void ApplyHit(Vector2 knockback, float stun, float damage)
 	{
-		if (stunTime <= 0 && !shielding) {
+		if (!invincible && stunTime <= 0 && !shielding) {
 			action = false;
 			rb.velocity = knockback;
 			stunTime = stun;
@@ -359,6 +363,58 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			if (!shieldBroken) shieldDelay = shieldRechargeDelay;
 			if (sp < 0) sp = 0.001f;
+		}
+	}
+
+	void Rolling ()
+	{
+		
+
+		//End of roll sprite
+		if (currentSprite == sprites.forwardRoll && spriteIndex >= currentSprite.sprites.Length - 1) 
+		{
+			endLag = 0.25f;
+			SetSprite (sprites.idleSprites);
+			action = false;
+		}
+
+		////Leave roll state if in air
+		//if (currentSprite == sprites.forwardRoll && !canJump) 
+		//{
+		//	endLag = 0.5f;
+		//	SetSprite (sprites.idleSprites);
+		//	action = false;
+		//}
+
+		//Roll input
+		if (canJump && shielding && endLag <= 0 && !action) 
+		{
+			if (Input.GetKeyDown (con.left) || Input.GetKeyDown (con.right) || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.8f) 
+			{
+				float x = 1;
+				if (Input.GetKeyDown (con.left) || Input.GetAxis("Horizontal") < 0) x = -1;
+				if (Input.GetKeyDown (con.right) || Input.GetAxis("Horizontal") > 0) x = 1;
+
+				Vector3 ls = transform.lossyScale;
+				transform.localScale = new Vector3 (x * Mathf.Abs(ls.x), ls.y, ls.z);
+				SetSprite (sprites.forwardRoll);
+				action = true;
+				shielding = false;
+			}
+		}
+
+		//Roll movement
+		if (currentSprite == sprites.forwardRoll) 
+		{
+			xMovement = rollSpeed * transform.lossyScale.x;
+			shielding = false;
+			Animation ();
+			action = true;
+
+			if (spriteIndex > 2 && spriteIndex < currentSprite.sprites.Length - 3)
+				invincible = true;
+			else
+				invincible = false;
 		}
 	}
 }
