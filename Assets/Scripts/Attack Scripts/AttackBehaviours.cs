@@ -189,11 +189,11 @@ public class SwordThrow : Attack
 	bool thrown = false;
 	public override float Update(float spriteIndex, Rigidbody2D rb)
 	{
-		if (Mathf.Floor (spriteIndex) == 4 && !thrown) 
+		if (Mathf.Floor (spriteIndex) == 1 && !thrown) 
 		{
 			if (_player.GetComponent<PlayerMovement> ().mp >= 2) 
 			{
-				GameObject sword = Object.Instantiate (Resources.Load ("Sword"), rb.transform.position, new Quaternion (0, 0, 0, 0)) as GameObject;
+				GameObject sword = Object.Instantiate (Resources.Load ("Sword"), rb.transform.position + new Vector3((1 * rb.transform.lossyScale.x), -0.12f, 0), new Quaternion (0, 0, 0, 0)) as GameObject;
 				sword.transform.localScale = rb.transform.lossyScale;
 			}
 			thrown = true;
