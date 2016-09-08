@@ -906,6 +906,62 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[6].animationSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[7].animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[5].animationSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[4].animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[3].animationSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[2].animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[1].animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[0].animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463390, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: attackList.Array.data[0].secondAttack.animationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448298, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: idleSprites.speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448298, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: runSprites.speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448298, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: jumpSprites.speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448298, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: airSprites.speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448298, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
+      propertyPath: forwardRoll.speed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b62167291498444d847faa4e06f9e9c, type: 2}
   m_IsPrefabParent: 0

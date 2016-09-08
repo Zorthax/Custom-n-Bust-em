@@ -166,10 +166,14 @@ public class Hurricane : Attack
 
 public class RisingKick : Attack
 {
+    bool risen = false;
 	public override float Update(float spriteIndex, Rigidbody2D rb)
 	{
-		if (Mathf.Floor (spriteIndex) == 1)
-			rb.velocity = new Vector2 (0, 20);
+        if (spriteIndex > 1.0f && risen == false)
+        {
+            rb.velocity = new Vector2(0, 20);
+            risen = true;
+        }
 		if (Mathf.Floor (spriteIndex) > 1)
 			rb.velocity = new Vector2 (0, 1);
 

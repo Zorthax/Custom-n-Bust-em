@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 	PlayerSprites sprites;
     
 
-    // Use this for initialization
+   // Use this for initialization
     void Start ()
     {
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
@@ -79,14 +79,14 @@ public class PlayerMovement : MonoBehaviour {
 		shieldDelay = 0;
     }
 
-	void FixedUpdate()
+	void Update()
 	{
 		if (hp > hpTotal)
 			hp = hpTotal;
 		if (sp > spTotal)
 			sp = spTotal;
 	}
-	void Update ()
+	void FixedUpdate ()
     {
 		if (!action)
 			CheckShield ();

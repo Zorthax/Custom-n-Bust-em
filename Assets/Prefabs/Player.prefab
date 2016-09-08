@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleSprites:
     loop: 1
-    speed: 0.2
+    speed: 1.5
     sprites:
     - {fileID: 21300000, guid: 39e48f541a1914940a2352b5bdff64bf, type: 3}
     - {fileID: 21300002, guid: 39e48f541a1914940a2352b5bdff64bf, type: 3}
@@ -166,7 +166,7 @@ MonoBehaviour:
     - {fileID: 21300020, guid: 39e48f541a1914940a2352b5bdff64bf, type: 3}
   runSprites:
     loop: 1
-    speed: 0.2
+    speed: 1.5
     sprites:
     - {fileID: 21300000, guid: e288ce2dc8249414598a0da105391860, type: 3}
     - {fileID: 21300002, guid: e288ce2dc8249414598a0da105391860, type: 3}
@@ -182,14 +182,14 @@ MonoBehaviour:
     - {fileID: 21300022, guid: e288ce2dc8249414598a0da105391860, type: 3}
   jumpSprites:
     loop: 0
-    speed: 0.2
+    speed: 1.5
     sprites:
     - {fileID: 21300000, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
     - {fileID: 21300000, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
     - {fileID: 21300002, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   airSprites:
     loop: 0
-    speed: 0
+    speed: 1.5
     sprites:
     - {fileID: 21300012, guid: 18a7149dfe876f742a98b44b8f54047a, type: 3}
   knockbackSprites:
@@ -204,7 +204,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f833519a6bf20cd4280d9fe6f5667c26, type: 3}
   forwardRoll:
     loop: 0
-    speed: 0.4
+    speed: 2.5
     sprites:
     - {fileID: 21300000, guid: e960a3538cc353d4889004f235bd45c5, type: 3}
     - {fileID: 21300002, guid: e960a3538cc353d4889004f235bd45c5, type: 3}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackList:
-  - animationSpeed: 0.2
+  - animationSpeed: 1.8
     sprites:
     - {fileID: 21300000, guid: 32ee055698554964695186dc753638ef, type: 3}
     - {fileID: 21300002, guid: 32ee055698554964695186dc753638ef, type: 3}
@@ -261,7 +261,7 @@ MonoBehaviour:
     moveAndAttack: 0
     hasSecondHit: 1
     secondAttack:
-      animationSpeed: 0.2
+      animationSpeed: 1.8
       sprites:
       - {fileID: 21300014, guid: 32ee055698554964695186dc753638ef, type: 3}
       - {fileID: 21300016, guid: 32ee055698554964695186dc753638ef, type: 3}
@@ -283,7 +283,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.2
+  - animationSpeed: 1.4
     sprites:
     - {fileID: 21300022, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
     - {fileID: 21300024, guid: dcbe3d011c8678744bc0f937b3a52b49, type: 3}
@@ -318,7 +318,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.2
+  - animationSpeed: 1.5
     sprites:
     - {fileID: 21300000, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
     - {fileID: 21300000, guid: a489f36b3d0a7d3458534339f2af3f4b, type: 3}
@@ -358,7 +358,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.35
+  - animationSpeed: 2
     sprites:
     - {fileID: 21300000, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
     - {fileID: 21300000, guid: 171a4f604073c764cb4bead49bbefcb7, type: 3}
@@ -397,7 +397,7 @@ MonoBehaviour:
     firstFrameBuffer: 0
     damage: 4
     stun: 1
-    knockback: {x: 8, y: 12}
+    knockback: {x: 2, y: 12}
     uniqueType: Shoryuken
     endLag: 0.2
     moveAndAttack: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.2
+  - animationSpeed: 1.5
     sprites:
     - {fileID: 21300000, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
     - {fileID: 21300002, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
@@ -458,7 +458,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.25
+  - animationSpeed: 1.7
     sprites:
     - {fileID: 21300000, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
     - {fileID: 21300002, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
@@ -511,7 +511,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.25
+  - animationSpeed: 1.7
     sprites:
     - {fileID: 21300000, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
     - {fileID: 21300002, guid: cf7c8112dae62c24f9d37c10006f8968, type: 3}
@@ -537,7 +537,7 @@ MonoBehaviour:
     stun: 0.6
     knockback: {x: 3, y: 7}
     uniqueType: RisingKick
-    endLag: 0
+    endLag: 0.05
     moveAndAttack: 0
     hasSecondHit: 0
     secondAttack:
@@ -554,7 +554,7 @@ MonoBehaviour:
       endLag: 0
       moveAndAttack: 0
       hasSecondHit: 0
-  - animationSpeed: 0.2
+  - animationSpeed: 1.5
     sprites:
     - {fileID: 21300006, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
     - {fileID: 21300008, guid: bc32d56a91d3fc946b152cc5215ff677, type: 3}
