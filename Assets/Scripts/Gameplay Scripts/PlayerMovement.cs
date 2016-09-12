@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class PlayerMovement : MonoBehaviour {
+
+	public static PlayerMovement PlayerScript;
 
     [Header("Basics")]
 	public float hpTotal;
@@ -61,10 +65,20 @@ public class PlayerMovement : MonoBehaviour {
     bool slowDown = false;
 	PlayerSprites sprites;
     
+	//Controls
+	bool leftDown;
+	bool rightDown;
+	bool jumpDown;
+	bool jumpUp;
 
    // Use this for initialization
     void Start ()
     {
+		if (PlayerScript == null) {
+			PlayerScript = this;
+		} else if (PlayerScript != this) {
+			Destroy (this.gameObject);
+		}
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -85,12 +99,8 @@ public class PlayerMovement : MonoBehaviour {
 			hp = hpTotal;
 		if (sp > spTotal)
 			sp = spTotal;
-	}
-	void FixedUpdate ()
-    {
-		if (!action)
-			CheckShield ();
 
+		CheckControls ();
 		if (stunTime <= 0) {
 
 			if (!action) 
@@ -99,24 +109,57 @@ public class PlayerMovement : MonoBehaviour {
 
 			}
 			GroundCheck ();
-
-			xMovement = CalculateXMovement ();
-			yMovement = CalculateYMovement ();
 			EnemyCheck ();
-
-			//Apply velocity
 			Rolling ();
-			rb.velocity = new Vector2 (xMovement, yMovement);
+
 		} else {
 			stunTime -= Time.deltaTime;
 			SetSprite (sprites.knockbackSprites);
 		}
-
-
-        //Keep camera looking at player
+	}
+	void FixedUpdate ()
+    {
+		//Keep camera looking at player
         Camera.main.transform.position = transform.position + cameraPosition;
         if (!action) Animation();
 		sprites.SetStats (hpTotal, hp, spTotal, sp, mpTotal, mp);
+
+		if (!action)
+			CheckShield ();
+		
+		if (stunTime <= 0) 
+		{
+			xMovement = CalculateXMovement ();
+			yMovement = CalculateYMovement ();
+			rb.velocity = new Vector2 (xMovement, yMovement);
+		}
+	}
+
+	void CheckControls()
+	{
+		//Left press
+		if (Input.GetKey (con.left))
+			leftDown = true;
+		else
+			leftDown = false;
+
+		//Right press
+		if (Input.GetKey (con.right))
+			rightDown = true;
+		else
+			rightDown = false;
+
+		//Jump press
+		if (Input.GetKeyDown (con.jump) || Input.GetKeyDown (con.jumpALT))
+			jumpDown = true;
+		else
+			jumpDown = false;
+
+		//Jump release
+		if (Input.GetKeyUp (con.jump) || Input.GetKeyUp (con.jumpALT))
+			jumpUp = true;
+		else
+			jumpUp = false;
 	}
 
     void GroundCheck()
@@ -182,8 +225,8 @@ public class PlayerMovement : MonoBehaviour {
 		{ x = Input.GetAxis("Horizontal") * walkingSpeed; }
 		else if ((!action || moveAndAttack) && !shielding) //keyboard movement
         {
-			if (Input.GetKey(con.left)) x -= 1 * walkingSpeed;
-			if (Input.GetKey(con.right)) x += 1 * walkingSpeed;
+			if (leftDown) x -= 1 * walkingSpeed;
+			if (rightDown) x += 1 * walkingSpeed;
         }
 		else if (action || (shielding && !canJump))
 		{
@@ -206,7 +249,7 @@ public class PlayerMovement : MonoBehaviour {
         float y = rb.velocity.y;
 
 		//Smooth jump animations
-        if (!action && canJump && (Input.GetKeyDown(con.jump) || Input.GetKeyDown(con.jumpALT)))
+        if (!action && canJump && jumpDown)
         {
 			SetSprite(sprites.jumpSprites);
             if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
@@ -219,12 +262,12 @@ public class PlayerMovement : MonoBehaviour {
             else if (Mathf.RoundToInt(spriteIndex) >= sprites.jumpSprites.sprites.Length)
                 SetSprite(sprites.airSprites);
             //Hold to jump higher
-            if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)) && (y == 0))
+            if (jumpUp && (y == 0))
             { y = jumpMin; }
 
         }
 		//Hold to jump higher
-        if (y > jumpMin && (Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
+        if (y > jumpMin && jumpUp)
         { y = jumpMin; canJump = false; }
 
 		if (onSlope) y -= 0.5f;//Smooth slope walking

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AttackScript : MonoBehaviour {
 
+	public static AttackScript attackScript;
+
     int neutralGround1;
 	int downGround1;
     int upGround1;
@@ -56,7 +58,7 @@ public class AttackScript : MonoBehaviour {
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
 		spriteIndex = behaviour.MyUpdate (spriteIndex);
 
-		if (spriteIndex <= currentAttack.sprites.Length || spriteIndex <= currentAttack.secondAttack.sprites.Length) 
+		if (spriteIndex <= currentAttack.sprites.Length || (currentAttack.hasSecondHit && spriteIndex <= currentAttack.secondAttack.sprites.Length)) 
 		{
 			//Change physical sprite
 			if (!secondAttack) 
@@ -92,6 +94,11 @@ public class AttackScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+		if (attackScript == null) {
+			attackScript = this;
+		} else if (attackScript != this) {
+			Destroy (this.gameObject);
+		}
         con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         renderor = GetComponentInParent<SpriteRenderer>();
 		behaviour = GetComponent<AttackBehaviours> ();
@@ -135,38 +142,61 @@ public class AttackScript : MonoBehaviour {
 
     public void InputAttack(KeyCode attackKey, float direction, bool onGround)
     {
-        if (attackKey == con.attack1)
-        {
-            if (direction == 0) 
-			{ if (onGround) currentAttack = attackList[neutralGround1]; else currentAttack = attackList[neutralAir1]; }
-			if (direction < 0) 
-			{ if (onGround) currentAttack = attackList[downGround1]; else currentAttack = attackList[downAir1]; }
-			if (direction > 0) 
-			{ if (onGround) currentAttack = attackList[upGround1]; else currentAttack = attackList[neutralAir1]; }
-            spriteIndex = 0;
-            secondAttack = false;
-            attackType = attackKey;
+		if (attackKey == con.attack1) {
+			if (direction == 0) {
+				if (onGround)
+					currentAttack = attackList [neutralGround1];
+				else
+					currentAttack = attackList [neutralAir1];
+			}
+			if (direction < 0) {
+				if (onGround)
+					currentAttack = attackList [downGround1];
+				else
+					currentAttack = attackList [downAir1];
+			}
+			if (direction > 0) {
+				if (onGround)
+					currentAttack = attackList [upGround1];
+				else
+					currentAttack = attackList [neutralAir1];
+			}
+			spriteIndex = 0;
+			secondAttack = false;
+			attackType = attackKey;
 			attackTypeALT = con.attack1ALT;
-			behaviour.SetType(currentAttack.uniqueType);
-        }
-
-		if (attackKey == con.attack2)
-		{
-			if (direction == 0) 
-			{ if (onGround) currentAttack = attackList[neutralGround2]; else currentAttack = attackList[neutralAir2]; }
-			if (direction < 0) 
-			{ if (onGround) currentAttack = attackList[downGround2]; else currentAttack = attackList[downAir2]; }
-			if (direction > 0) 
-			{ if (onGround) currentAttack = attackList[upGround2]; else currentAttack = attackList[neutralAir2]; }
+			behaviour.SetType (currentAttack.uniqueType);
+		} else if (attackKey == con.attack2) {
+			if (direction == 0) {
+				if (onGround)
+					currentAttack = attackList [neutralGround2];
+				else
+					currentAttack = attackList [neutralAir2];
+			}
+			if (direction < 0) {
+				if (onGround)
+					currentAttack = attackList [downGround2];
+				else
+					currentAttack = attackList [downAir2];
+			}
+			if (direction > 0) {
+				if (onGround)
+					currentAttack = attackList [upGround2];
+				else
+					currentAttack = attackList [neutralAir2];
+			}
 			spriteIndex = 0;
 			secondAttack = false;
 			attackType = attackKey;
 			attackTypeALT = con.attack2ALT;
-			behaviour.SetType(currentAttack.uniqueType);
-		}
+			behaviour.SetType (currentAttack.uniqueType);
+		} else
+			currentAttack = null;
 
-		PlayerMovement pm = GetComponentInParent<PlayerMovement> ();
-		pm.moveAndAttack = currentAttack.moveAndAttack;
+		if (currentAttack != null) {
+			PlayerMovement pm = GetComponentInParent<PlayerMovement> ();
+			pm.moveAndAttack = currentAttack.moveAndAttack;
+		}
     }
 
     void SetHitBox()

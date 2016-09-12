@@ -49,7 +49,10 @@ public class AttackBehaviours : MonoBehaviour
 
 	public float MyUpdate(float spriteIndex)
 	{
-		return attack.Update (spriteIndex, rb);
+		if (attack != null)
+			return attack.Update (spriteIndex, rb);
+		else
+			return spriteIndex;
 	}
 
 	public void MyTriggerEnter(float spriteIndex, Rigidbody2D enemyRb)
@@ -137,6 +140,8 @@ public class Shoryuken : Attack
 	{
 		if (Mathf.Floor (spriteIndex) == 3)
 			rb.velocity = new Vector2 (1.5f * rb.transform.lossyScale.x, 4);
+		if (spriteIndex > 10 && OnGround(spriteIndex))
+			return 50;
 
 		return spriteIndex;
 	}
