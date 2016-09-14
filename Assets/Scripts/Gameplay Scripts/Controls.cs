@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Controls : MonoBehaviour {
 
+	public static Controls controls;
     public KeyCode left;
     public KeyCode right;
     public KeyCode up;
@@ -19,6 +20,11 @@ public class Controls : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+		if (controls == null)
+			controls = this;
+		else if (controls != this)
+			Destroy (gameObject);
+		
         DontDestroyOnLoad(this);
 
         left = KeyCode.A;

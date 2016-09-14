@@ -11,6 +11,9 @@ TagManager:
   - Enemy
   - NPC
   - HealthBit
+  - Aerial
+  - Ground
+  - Slot
   layers:
   - Default
   - TransparentFX
