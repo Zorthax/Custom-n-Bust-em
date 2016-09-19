@@ -5,10 +5,19 @@ public class Selector : MonoBehaviour {
 
 	public GameObject groundInputs;
 	public GameObject aerialInputs;
+	public GameObject groundPool;
+	public GameObject aerialPool;
+	GameObject activeSlot;
+	GameObject activeAttack;
+
 
 	bool overAerial;
 	bool overGround;
 	bool onSlot;
+	bool overSelectable;
+	string attackName;
+	bool attackMode;
+	bool slotMode;
 
 	// Use this for initialization
 	void Start () 
@@ -32,18 +41,32 @@ public class Selector : MonoBehaviour {
 
 	void Update()
 	{
+		SetAttack ();
 		if (onSlot && Input.GetKeyDown (Controls.controls.jump)) 
 		{
-			if (overAerial)
+			if (overAerial) 
+			{
 				groundInputs.SetActive (false);
+				aerialPool.SetActive (true);
+			}
 			if (overGround)
-				aerialInputs.SetActive (false);
+			{
+				aerialInputs.SetActive(false);
+				groundPool.SetActive(true);
+			}
 		} 
-		else  if (Input.GetKeyDown (Controls.controls.jump))
+		else  if (!overSelectable && Input.GetKeyDown (Controls.controls.jump))
 		{
-			groundInputs.SetActive (true);
-			aerialInputs.SetActive (true);
+			DeactivatePools ();
+			slotMode = false;
+			attackMode = false;
+			attackName = null;
+			activeSlot = null;
+			activeAttack = null;
+
 		}
+
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -52,8 +75,16 @@ public class Selector : MonoBehaviour {
 			overAerial = true;
 		if (other.tag == "Ground")
 			overGround = true;
-		if (other.tag == "Slot")
+		if (other.tag == "PlayerAttack") 
+		{
+			overSelectable = true;
+			if (!attackMode) activeAttack = other.gameObject;
+		}
+		if (other.tag == "Slot") 
+		{
 			onSlot = true;
+			if (!slotMode) activeSlot = other.gameObject;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
@@ -62,12 +93,52 @@ public class Selector : MonoBehaviour {
 			overAerial = false;
 		if (other.tag == "Ground")
 			overGround = false;
-		if (other.tag == "Slot")
+		if (other.tag == "PlayerAttack") 
+		{
+			overSelectable = false;
+		}
+		if (other.tag == "Slot") 
+		{
 			onSlot = false;
+
+		}
 	}
 
 	void OnTriggerStay2D(Collider2D other)
 	{
 		
+	}
+
+	void SetAttack()
+	{
+		if (onSlot && Input.GetKeyDown (Controls.controls.jump)) 
+		{
+			if (!attackMode) slotMode = true;
+		}
+		if (overSelectable && Input.GetKeyDown (Controls.controls.jump)) 
+		{
+			if (!slotMode) attackMode = true;
+			attackName = activeAttack.GetComponent<AttackSelectable> ().prefabName;
+		}
+		
+		if (slotMode) 
+		{
+			if (overSelectable && Input.GetKeyDown (Controls.controls.jump)) 
+			{
+				activeSlot.GetComponent<InputSlot> ().SetAttack (attackName);
+				slotMode = false;
+				DeactivatePools ();
+			}
+		}
+
+	}
+
+	void DeactivatePools()
+	{
+		groundInputs.SetActive (true);
+		aerialInputs.SetActive (true);
+		if (groundPool.activeSelf) groundPool.GetComponent<AttackPool>().Deactivate();
+		if (aerialPool.activeSelf) aerialPool.GetComponent<AttackPool>().Deactivate();
+		overSelectable = false;
 	}
 }
