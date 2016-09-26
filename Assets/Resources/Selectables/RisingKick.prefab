@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabName: RisingKick
-  attackIndex: 0
+  attackIndex: 6
   animationSpeed: 0.2
   stillSprite: {fileID: 21300004, guid: 4b1157df6552a8940a7e058f80870cb9, type: 3}
   animatedSprites:

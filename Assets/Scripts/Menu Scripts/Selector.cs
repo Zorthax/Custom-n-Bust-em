@@ -28,21 +28,17 @@ public class Selector : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		float speed = 3.0f;
-		if (Input.GetKey (Controls.controls.left))
-			transform.position -= new Vector3 (speed, 0, 0);
-		if (Input.GetKey (Controls.controls.right))
-			transform.position += new Vector3 (speed, 0, 0);
-		if (Input.GetKey (Controls.controls.down))
-			transform.position -= new Vector3 (0, speed, 0);
-		if (Input.GetKey (Controls.controls.up))
-			transform.position += new Vector3 (0, speed, 0);
+		float speed = 8.0f;
+		if (Mathf.Abs(Controls.Horizontal()) + Mathf.Abs(Controls.Vertical()) <= 1.5f)
+			transform.position += new Vector3 (Controls.Horizontal() * speed, Controls.Vertical() * speed, 0);
+		else
+			transform.position += new Vector3 ((Controls.Horizontal() / 2) * speed, (Controls.Vertical() / 2) * speed, 0);
 	}
 
 	void Update()
 	{
 		SetAttack ();
-		if (onSlot && Input.GetKeyDown (Controls.controls.jump)) 
+		if (onSlot && Controls.JumpPressed()) 
 		{
 			if (overAerial) 
 			{
@@ -55,7 +51,7 @@ public class Selector : MonoBehaviour {
 				groundPool.SetActive(true);
 			}
 		} 
-		else  if (!overSelectable && Input.GetKeyDown (Controls.controls.jump))
+		else  if (!overSelectable && Controls.JumpPressed())
 		{
 			DeactivatePools ();
 			slotMode = false;
@@ -111,11 +107,11 @@ public class Selector : MonoBehaviour {
 
 	void SetAttack()
 	{
-		if (onSlot && Input.GetKeyDown (Controls.controls.jump)) 
+		if (onSlot && Controls.JumpPressed()) 
 		{
 			if (!attackMode) slotMode = true;
 		}
-		if (overSelectable && Input.GetKeyDown (Controls.controls.jump)) 
+		if (overSelectable && Controls.JumpPressed()) 
 		{
 			if (!slotMode) attackMode = true;
 			attackName = activeAttack.GetComponent<AttackSelectable> ().prefabName;
@@ -123,7 +119,7 @@ public class Selector : MonoBehaviour {
 		
 		if (slotMode) 
 		{
-			if (overSelectable && Input.GetKeyDown (Controls.controls.jump)) 
+			if (overSelectable && Controls.JumpPressed()) 
 			{
 				activeSlot.GetComponent<InputSlot> ().SetAttack (attackName);
 				slotMode = false;

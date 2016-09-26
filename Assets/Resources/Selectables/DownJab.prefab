@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabName: DownJab
-  attackIndex: 0
+  attackIndex: 4
   animationSpeed: 0.2
   stillSprite: {fileID: 21300000, guid: 754fb3bbf2639204e83681c7a46c1602, type: 3}
   animatedSprites:

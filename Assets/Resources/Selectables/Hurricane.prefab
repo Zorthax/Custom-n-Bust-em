@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabName: Hurricane
-  attackIndex: 0
+  attackIndex: 5
   animationSpeed: 0.2
   stillSprite: {fileID: 21300012, guid: 3de06c1ce7ce2bc47bf44c902ac98471, type: 3}
   animatedSprites:

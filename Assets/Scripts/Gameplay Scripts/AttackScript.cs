@@ -10,11 +10,13 @@ public class AttackScript : MonoBehaviour {
     int upGround1;
     int neutralAir1;
 	int downAir1;
+	int upAir1;
 	int neutralGround2;
 	int downGround2;
 	int upGround2;
 	int neutralAir2;
 	int downAir2;
+	int upAir2;
 
     PolygonCollider2D localCollider;
     bool secondAttack;
@@ -89,8 +91,6 @@ public class AttackScript : MonoBehaviour {
         }
     }
 
-    static Controls con;
-
     // Use this for initialization
     void Start ()
     {
@@ -99,7 +99,6 @@ public class AttackScript : MonoBehaviour {
 		} else if (attackScript != this) {
 			Destroy (this.gameObject);
 		}
-        con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         renderor = GetComponentInParent<SpriteRenderer>();
 		behaviour = GetComponent<AttackBehaviours> ();
 		player = GetComponentInParent<PlayerMovement> ();
@@ -142,7 +141,7 @@ public class AttackScript : MonoBehaviour {
 
     public void InputAttack(KeyCode attackKey, float direction, bool onGround)
     {
-		if (attackKey == con.attack1) {
+		if (attackKey == Controls.attack1) {
 			if (direction == 0) {
 				if (onGround)
 					currentAttack = attackList [neutralGround1];
@@ -164,9 +163,9 @@ public class AttackScript : MonoBehaviour {
 			spriteIndex = 0;
 			secondAttack = false;
 			attackType = attackKey;
-			attackTypeALT = con.attack1ALT;
+			attackTypeALT = Controls.attack1ALT;
 			behaviour.SetType (currentAttack.uniqueType);
-		} else if (attackKey == con.attack2) {
+		} else if (attackKey == Controls.attack2) {
 			if (direction == 0) {
 				if (onGround)
 					currentAttack = attackList [neutralGround2];
@@ -188,7 +187,7 @@ public class AttackScript : MonoBehaviour {
 			spriteIndex = 0;
 			secondAttack = false;
 			attackType = attackKey;
-			attackTypeALT = con.attack2ALT;
+			attackTypeALT = Controls.attack2ALT;
 			behaviour.SetType (currentAttack.uniqueType);
 		} else
 			currentAttack = null;
@@ -237,4 +236,47 @@ public class AttackScript : MonoBehaviour {
 			behaviour.MyTriggerEnter (spriteIndex, other.GetComponent<Rigidbody2D>());
         }
     }
+
+	public void SetAttack(string inputName, int index)
+	{
+		switch (inputName.ToUpper()) 
+		{
+		case "NEUTRALGROUND1":
+			neutralGround1 = index;
+			break;
+		case "UPGROUND1":
+			upGround1 = index;
+			break;
+		case "DOWNGROUND1":
+			downGround1 = index;
+			break;
+		case "NEUTRALGROUND2":
+			neutralGround2 = index;
+			break;
+		case "UPGROUND2":
+			upGround2 = index;
+			break;
+		case "DOWNGROUND2":
+			downGround2 = index;
+			break;
+		case "NEUTRALAIR1":
+			neutralAir1 = index;
+			break;
+		case "UPAIR1":
+			upAir1 = index;
+			break;
+		case "DOWNAIR1":
+			downAir1 = index;
+			break;
+		case "NEUTRALAIR2":
+			neutralAir2 = index;
+			break;
+		case "UPAIR2":
+			upAir2 = index;
+			break;
+		case "DOWNAIR2":
+			downAir2 = index;
+			break;
+		}
+	}
 }

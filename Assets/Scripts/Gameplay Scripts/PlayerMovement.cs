@@ -51,8 +51,7 @@ public class PlayerMovement : MonoBehaviour {
             spriteIndex = 0;
         }
     }
-
-    static Controls con;
+		
     Rigidbody2D rb;
     BoxCollider2D col;
     
@@ -64,12 +63,9 @@ public class PlayerMovement : MonoBehaviour {
     float yMovement;
     bool slowDown = false;
 	PlayerSprites sprites;
-    
-	//Controls
-	bool leftDown;
-	bool rightDown;
-	bool jumpDown;
-	bool jumpUp;
+
+	bool jumpPressed;
+	bool jumpReleased;
 
    // Use this for initialization
     void Start ()
@@ -79,7 +75,6 @@ public class PlayerMovement : MonoBehaviour {
 		} else if (PlayerScript != this) {
 			Destroy (this.gameObject);
 		}
-        con = GameObject.FindGameObjectWithTag("Controls").GetComponent<Controls>();
         col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         atk = GetComponentInChildren<AttackScript>();
@@ -100,13 +95,14 @@ public class PlayerMovement : MonoBehaviour {
 		if (sp > spTotal)
 			sp = spTotal;
 
-		CheckControls ();
+		jumpPressed = Controls.Jump ();
+		jumpReleased = Controls.JumpReleased ();
+
 		if (stunTime <= 0) {
 
 			if (!action) 
 			{
 				AttackControl ();
-
 			}
 			GroundCheck ();
 			EnemyCheck ();
@@ -129,37 +125,11 @@ public class PlayerMovement : MonoBehaviour {
 		
 		if (stunTime <= 0) 
 		{
-			xMovement = CalculateXMovement ();
+			if (currentSprite != sprites.forwardRoll)
+				xMovement = CalculateXMovement ();
 			yMovement = CalculateYMovement ();
 			rb.velocity = new Vector2 (xMovement, yMovement);
 		}
-	}
-
-	void CheckControls()
-	{
-		//Left press
-		if (Input.GetKey (con.left))
-			leftDown = true;
-		else
-			leftDown = false;
-
-		//Right press
-		if (Input.GetKey (con.right))
-			rightDown = true;
-		else
-			rightDown = false;
-
-		//Jump press
-		if (Input.GetKeyDown (con.jump) || Input.GetKeyDown (con.jumpALT))
-			jumpDown = true;
-		else
-			jumpDown = false;
-
-		//Jump release
-		if (Input.GetKeyUp (con.jump) || Input.GetKeyUp (con.jumpALT))
-			jumpUp = true;
-		else
-			jumpUp = false;
 	}
 
     void GroundCheck()
@@ -178,7 +148,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (h.transform.tag == "Passable")
             {
                 canJump = true;
-				if ((Input.GetKey(con.down)|| Input.GetAxis("Vertical") < -0.4f) && yMovement <= 0 ) //Jump down from platform
+				if (Controls.Vertical() < 0.4f && yMovement <= 0 ) //Jump down from platform
                 {
                     col.isTrigger = true;
                     transform.position -= new Vector3(0, 0.1f, 0);
@@ -221,13 +191,8 @@ public class PlayerMovement : MonoBehaviour {
 		//	x = xMovement;
 
         //Horizontal movement
-		if (Input.GetAxis ("Horizontal") != 0 && ((!action || moveAndAttack) && !shielding)) //Controller movement takes priority over keyboard
-		{ x = Input.GetAxis("Horizontal") * walkingSpeed; }
-		else if ((!action || moveAndAttack) && !shielding) //keyboard movement
-        {
-			if (leftDown) x -= 1 * walkingSpeed;
-			if (rightDown) x += 1 * walkingSpeed;
-        }
+		if ((!action || moveAndAttack) && !shielding)
+		{ x = Controls.Horizontal() * walkingSpeed; }
 		else if (action || (shielding && !canJump))
 		{
 			x = rb.velocity.x;
@@ -249,10 +214,10 @@ public class PlayerMovement : MonoBehaviour {
         float y = rb.velocity.y;
 
 		//Smooth jump animations
-        if (!action && canJump && jumpDown)
+		if (!action && canJump && jumpPressed)
         {
 			SetSprite(sprites.jumpSprites);
-            if ((Input.GetKeyUp(con.jump) || Input.GetKeyUp(con.jumpALT)))
+			if (jumpReleased)
             { y = jumpMin; }
         }
 		if (!action && !canJump && currentSprite == sprites.jumpSprites) 
@@ -262,12 +227,12 @@ public class PlayerMovement : MonoBehaviour {
             else if (Mathf.RoundToInt(spriteIndex) >= sprites.jumpSprites.sprites.Length)
                 SetSprite(sprites.airSprites);
             //Hold to jump higher
-            if (jumpUp && (y == 0))
+			if (jumpReleased && (y == 0))
             { y = jumpMin; }
 
         }
 		//Hold to jump higher
-        if (y > jumpMin && jumpUp)
+		if (y > jumpMin && !jumpPressed)
         { y = jumpMin; canJump = false; }
 
 		if (onSlope) y -= 0.5f;//Smooth slope walking
@@ -279,28 +244,21 @@ public class PlayerMovement : MonoBehaviour {
 
     void AttackControl()
     {
-		float yInput = 0;
-		if (Input.GetAxis("Vertical") != 0) //Controller movement takes priority over keyboard
-		{ yInput = Input.GetAxis("Vertical"); }
-		else //keyboard movement
-		{
-			if (Input.GetKey(con.down)) yInput -= 1;
-			if (Input.GetKey(con.up)) yInput += 1;
-		}
+		float yInput = Controls.Vertical ();
 
-		if (endLag <= 0 && (Input.GetKeyDown (con.attack1) || Input.GetKeyDown (con.attack1ALT))) 
+		if (endLag <= 0 && Controls.Attack1Pressed()) 
 		{
 			SetSprite(sprites.idleSprites);
-			atk.InputAttack (con.attack1, yInput, canJump);
+			atk.InputAttack (Controls.attack1, yInput, canJump);
 			action = true;
 			shielding = false;
 			if (canJump)
 				rb.velocity = new Vector2 (0, 0);
 		} 
-		else if (endLag <= 0 && (Input.GetKeyDown (con.attack2) || Input.GetKeyDown (con.attack2ALT))) 
+		else if (endLag <= 0 && Controls.Attack2Pressed()) 
 		{
 			SetSprite(sprites.idleSprites);
-			atk.InputAttack (con.attack2, yInput, canJump);
+			atk.InputAttack (Controls.attack2, yInput, canJump);
 			action = true;
 			shielding = false;
 			if (canJump)
@@ -386,7 +344,7 @@ public class PlayerMovement : MonoBehaviour {
 			shieldBroken = false;
 		}
 
-		if (endLag <= 0 && stunTime <= 0 && !shieldBroken && sp > 0 && (Input.GetKey (con.shield) || Input.GetKey (con.shieldALT))) 
+		if (endLag <= 0 && stunTime <= 0 && !shieldBroken && sp > 0 && Controls.Shield()) 
 		{
 			shielding = true;
 			SetSprite(sprites.shieldSprites);
@@ -402,7 +360,7 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 
-		if (shieldDelay <= 0 && (Input.GetKeyUp (con.shield) || Input.GetKeyUp (con.shieldALT))) 
+		if (shieldDelay <= 0 && Controls.ShieldReleased()) 
 		{
 			if (!shieldBroken) shieldDelay = shieldRechargeDelay;
 			if (sp < 0) sp = 0.001f;
@@ -432,11 +390,11 @@ public class PlayerMovement : MonoBehaviour {
 		//Roll input
 		if (canJump && shielding && endLag <= 0 && !action) 
 		{
-			if (Input.GetKeyDown (con.left) || Input.GetKeyDown (con.right) || Mathf.Abs(Input.GetAxis("Horizontal")) >= 0.8f) 
+			if (Mathf.Abs(Controls.Horizontal()) > 0.8f) 
 			{
 				float x = 1;
-				if (Input.GetKeyDown (con.left) || Input.GetAxis("Horizontal") < 0) x = -1;
-				if (Input.GetKeyDown (con.right) || Input.GetAxis("Horizontal") > 0) x = 1;
+				if (Controls.Horizontal() < 0) x = -1;
+				if (Controls.Horizontal() > 0) x = 1;
 
 				Vector3 ls = transform.lossyScale;
 				transform.localScale = new Vector3 (x * Mathf.Abs(ls.x), ls.y, ls.z);
