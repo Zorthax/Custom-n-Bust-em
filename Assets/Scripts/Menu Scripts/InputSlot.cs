@@ -20,6 +20,9 @@ public class InputSlot : MonoBehaviour
 
 	public void SetAttack(string attackName)
 	{
+		if (currentAttack != null)
+			Destroy (currentAttack);
+		
 		currentAttack = Instantiate (Resources.Load("Selectables/" + attackName), transform) as GameObject;
 		currentAttack.transform.localPosition = Vector3.zero;
 		currentAttack.transform.localScale = Vector3.one;
